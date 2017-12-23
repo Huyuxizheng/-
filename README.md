@@ -6,6 +6,8 @@
 
 ![](https://github.com/Huyuxizheng/-2048UI-ALL/blob/master/2048UI.jpg)
 
+查看我的所有代码:[我得库](https://github.com/Huyuxizheng/-2048UI-ALL)
+
 
 
 
