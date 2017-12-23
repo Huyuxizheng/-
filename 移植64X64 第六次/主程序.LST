@@ -1,0 +1,386 @@
+C51 COMPILER V9.54   ______                                                                12/22/2017 14:02:55 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ______
+OBJECT MODULE PLACED IN 主程序.OBJ
+COMPILER INVOKED BY: D:\K5\MAIN\C51\BIN\C51.EXE 主程序.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          
+   2          #include"to2048moni.h"
+   3          #include"2048SJK.h"
+   4          #include"2048HBAPP.h"
+   5          #include"TDXRAPP.h"
+   6          JIAODIANS jiaodian_b = {jb_t_1,11,2,0,0,0,0,0,0};
+   7          
+   8          ZANCUN i = {{ 0 }, { 0 } };
+   9          
+  10          
+  11          void Main_Xiaoxi()
+  12          {
+  13   1      if(!S1)
+  14   1      charuxiaoxi(END,1);
+  15   1      
+  16   1      if(!S2)
+  17   1      charuxiaoxi(END,2);
+  18   1      
+  19   1      if(!S3)
+  20   1      charuxiaoxi(END,3);
+  21   1      
+  22   1      if(!S4)
+  23   1      charuxiaoxi(END,4);
+  24   1      
+  25   1      if(!S5)
+  26   1      { if(chaxunzhuangtaibiao(1) == 0)
+  27   2          {charuxiaoxi(END,6);xiugaizhuangtaibiao(1,1);}
+  28   2        charuxiaoxi(END,5);
+  29   2      }
+  30   1      if(chaxunzhuangtaibiao(1))
+  31   1        if(S5)
+  32   1        {charuxiaoxi(END,7);xiugaizhuangtaibiao(0,1);}
+  33   1        
+  34   1      }
+  35          void MainPing_D(char dizhi)
+  36          {
+  37   1        switch (dizhi)
+  38   1        {
+  39   2        case 1:
+  40   2          shuaping(SE_HEI);
+  41   2          shezhihuabiyanse(SE_LVTOU);
+  42   2          huizhi(2, 2, t_mnu_0, 7, 1);
+*** WARNING C182 IN LINE 42 OF 主程序.c: pointer to different objects
+  43   2          huizhi(12, 2, t_mnu_1, 7, 1);
+*** WARNING C182 IN LINE 43 OF 主程序.c: pointer to different objects
+  44   2          huizhi(22, 2, t_mnu_2, 7, 1);
+*** WARNING C182 IN LINE 44 OF 主程序.c: pointer to different objects
+  45   2          huizhi(32, 2, t_mnu_3, 7, 1);
+*** WARNING C182 IN LINE 45 OF 主程序.c: pointer to different objects
+  46   2          huizhi(2, 13, t_mnu_4, 7, 1);
+*** WARNING C182 IN LINE 46 OF 主程序.c: pointer to different objects
+  47   2          huizhi(12, 13, t_mnu_5, 7, 1);
+*** WARNING C182 IN LINE 47 OF 主程序.c: pointer to different objects
+  48   2          huizhi(22, 13, t_mnu_6, 7, 1);
+*** WARNING C182 IN LINE 48 OF 主程序.c: pointer to different objects
+C51 COMPILER V9.54   ______                                                                12/22/2017 14:02:55 PAGE 2   
+
+  49   2          huizhi(32, 13, t_mnu_7, 7, 1);
+*** WARNING C182 IN LINE 49 OF 主程序.c: pointer to different objects
+  50   2          huizhi(2, 24, t_mnu_8, 7, 1);
+*** WARNING C182 IN LINE 50 OF 主程序.c: pointer to different objects
+  51   2          huizhi(12, 24, t_mnu_9, 7, 1);
+*** WARNING C182 IN LINE 51 OF 主程序.c: pointer to different objects
+  52   2          dalogo();
+  53   2          fuweizhuangtaibiao();
+  54   2          xiugaizhuangtaibiao(NOP,7);
+  55   2          xiugaizhuangtaibiao(0,6);
+  56   2          tongbujiemian(J_Z);
+  57   2          break;
+  58   2        case 2:
+  59   2      
+  60   2            hubandicen();
+  61   2      
+  62   2          break;
+  63   2        case 3:
+  64   2      
+  65   2          tuodongappdc();
+  66   2      
+  67   2          break;
+  68   2        case 4:
+  69   2          shuaping(SE_HEI);
+  70   2          huizhi(28, 28, t_mnu_2, 7, 1);
+*** WARNING C182 IN LINE 70 OF 主程序.c: pointer to different objects
+  71   2          dalogo();
+  72   2          tuichujian(NOP, NOP, NOP, NOP);
+  73   2          tongbujiemian(J_Z);
+  74   2          break;
+  75   2        case 5:
+  76   2          shuaping(SE_HEI);
+  77   2          huizhi(28, 28, t_mnu_3, 7, 1);
+*** WARNING C182 IN LINE 77 OF 主程序.c: pointer to different objects
+  78   2          dalogo();
+  79   2          tuichujian(NOP, NOP, NOP, NOP);
+  80   2          tongbujiemian(J_Z);
+  81   2          break;
+  82   2        case 6:
+  83   2          shuaping(SE_HEI);
+  84   2          huizhi(28, 28, t_mnu_4, 7, 1);
+*** WARNING C182 IN LINE 84 OF 主程序.c: pointer to different objects
+  85   2          dalogo();
+  86   2          tuichujian(NOP, NOP, NOP, NOP);
+  87   2          tongbujiemian(J_Z);
+  88   2          break;
+  89   2        case 7:
+  90   2          shuaping(SE_HEI);
+  91   2          huizhi(28, 28, t_mnu_5, 7, 1);
+*** WARNING C182 IN LINE 91 OF 主程序.c: pointer to different objects
+  92   2          dalogo();
+  93   2          tuichujian(NOP, NOP, NOP, NOP);
+  94   2          tongbujiemian(J_Z);
+  95   2          break;
+  96   2        case 8:
+  97   2          shuaping(SE_HEI);
+  98   2          huizhi(28, 28, t_mnu_6, 7, 1);
+*** WARNING C182 IN LINE 98 OF 主程序.c: pointer to different objects
+  99   2          dalogo();
+ 100   2          tuichujian(NOP, NOP, NOP, NOP);
+ 101   2          tongbujiemian(J_Z);
+ 102   2          break;
+C51 COMPILER V9.54   ______                                                                12/22/2017 14:02:55 PAGE 3   
+
+ 103   2        case 9:
+ 104   2          shuaping(SE_HEI);
+ 105   2          huizhi(28, 28, t_mnu_7, 7, 1);
+*** WARNING C182 IN LINE 105 OF 主程序.c: pointer to different objects
+ 106   2          dalogo();
+ 107   2          tuichujian(NOP, NOP, NOP, NOP);
+ 108   2          tongbujiemian(J_Z);
+ 109   2          break;
+ 110   2        case 10:
+ 111   2          shuaping(SE_HEI);
+ 112   2          huizhi(28, 28, t_mnu_8, 7, 1);
+*** WARNING C182 IN LINE 112 OF 主程序.c: pointer to different objects
+ 113   2          dalogo();
+ 114   2          tuichujian(NOP, NOP, NOP, NOP);
+ 115   2          tongbujiemian(J_Z);
+ 116   2          break;
+ 117   2        case 11:
+ 118   2          shuaping(SE_HEI);
+ 119   2          huizhi(28, 28, t_mnu_9, 7, 1);
+*** WARNING C182 IN LINE 119 OF 主程序.c: pointer to different objects
+ 120   2          dalogo();
+ 121   2          tuichujian(NOP, NOP, NOP, NOP);
+ 122   2          tongbujiemian(J_Z);
+ 123   2          break;
+ 124   2        }
+ 125   1      }
+ 126          void MainPing_Z(char dizhi, uchar x_xiaoxi, uint JA_XY)
+ 127          {
+ 128   1        uint z;
+ 129   1        char x = (JA_XY >> 8), y = JA_XY;
+ 130   1        switch (dizhi)
+ 131   1        {
+ 132   2        case 1:
+ 133   2          //处理鼠标
+ 134   2          switch (x_xiaoxi)
+ 135   2          {
+ 136   3          case 7:
+ 137   3            switch (z = gjwanggejiance(x, y, 10, 11))
+ 138   3            {
+ 139   4            case WGJC(0, 0):
+ 140   4            case WGJC(1, 0):
+ 141   4            case WGJC(2, 0):
+ 142   4            case WGJC(3, 0):
+ 143   4            case WGJC(0, 1):
+ 144   4            case WGJC(1, 1):
+ 145   4            case WGJC(2, 1):
+ 146   4            case WGJC(3, 1):
+ 147   4            case WGJC(0, 2):
+ 148   4            case WGJC(1, 2):
+ 149   4              xiugaijiemian(WGJCY(z) * 4 + WGJCX(z) + 2, J_Z);
+ 150   4              break;
+ 151   4            }
+ 152   3      
+ 153   3          }
+ 154   2          
+ 155   2          morenchuli(x_xiaoxi);
+ 156   2          break;
+ 157   2        case 2:
+ 158   2          huabanxiaoxichuliceng(x_xiaoxi, x, y);
+ 159   2      
+ 160   2          break;
+ 161   2        case 3:
+C51 COMPILER V9.54   ______                                                                12/22/2017 14:02:55 PAGE 4   
+
+ 162   2          tuodongappzc(x_xiaoxi, x, y);
+ 163   2      
+ 164   2          break;
+ 165   2        case 4:
+ 166   2          tuichujian(x_xiaoxi, x, y, 1);
+ 167   2          morenchuli(x_xiaoxi);
+ 168   2          break;
+ 169   2        case 5:
+ 170   2          tuichujian(x_xiaoxi, x, y, 1);
+ 171   2          morenchuli(x_xiaoxi);
+ 172   2          break;
+ 173   2        case 6:
+ 174   2          tuichujian(x_xiaoxi, x, y, 1);
+ 175   2          morenchuli(x_xiaoxi);
+ 176   2          break;
+ 177   2        case 7:
+ 178   2          tuichujian(x_xiaoxi, x, y, 1);
+ 179   2          morenchuli(x_xiaoxi);
+ 180   2          break;
+ 181   2        case 8:
+ 182   2          tuichujian(x_xiaoxi, x, y, 1);
+ 183   2          morenchuli(x_xiaoxi);
+ 184   2          break;
+ 185   2        case 9:
+ 186   2          tuichujian(x_xiaoxi, x, y, 1);
+ 187   2          morenchuli(x_xiaoxi);
+ 188   2          break;
+ 189   2        case 10:
+ 190   2          tuichujian(x_xiaoxi, x, y, 1);
+ 191   2          morenchuli(x_xiaoxi);
+ 192   2          break;
+ 193   2        case 11:
+ 194   2          tuichujian(x_xiaoxi, x, y, 1);
+ 195   2          morenchuli(x_xiaoxi);
+ 196   2          break;
+ 197   2        }
+ 198   1      
+ 199   1      
+ 200   1      }
+ 201          
+ 202          void xjdb2()
+ 203          {
+ 204   1        if(chaxunzhuangtaibiao(6))
+ 205   1      {
+ 206   2          huizhijd_END(&jiaodian_b, &i.lvdata, &i.hongdata);
+*** WARNING C182 IN LINE 206 OF 主程序.c: pointer to different objects
+*** WARNING C182 IN LINE 206 OF 主程序.c: pointer to different objects
+ 207   2                xiugaizhuangtaibiao(0,6);
+ 208   2      } 
+ 209   1      
+ 210   1      }
+ 211          void xjdb(uint z)
+ 212          {
+ 213   1        if(chaxunzhuangtaibiao(7) != WGJCX(z)+WGJCY(z)*4)
+ 214   1        {
+ 215   2          xjdb2();
+ 216   2          ggjiaodian(&jiaodian_b, WGJCX(z) * 10, WGJCY(z) * 11);
+ 217   2          huizhijd_ONE(&jiaodian_b, &i.lvdata, &i.hongdata);
+*** WARNING C182 IN LINE 217 OF 主程序.c: pointer to different objects
+*** WARNING C182 IN LINE 217 OF 主程序.c: pointer to different objects
+ 218   2          huizhijiaodian(&jiaodian_b, SE_HONGTOU);
+ 219   2          xiugaizhuangtaibiao(WGJCX(z)+WGJCY(z)*4,7);
+C51 COMPILER V9.54   ______                                                                12/22/2017 14:02:55 PAGE 5   
+
+ 220   2          xiugaizhuangtaibiao(1,6);
+ 221   2        }
+ 222   1      }
+ 223          
+ 224          void MainPing_FY_ONE(char dizhi, uint JA_XY)
+ 225          {
+ 226   1      
+ 227   1        uchar x = (JA_XY >> 8), y = JA_XY;
+ 228   1        uint z;
+ 229   1        switch (dizhi)
+ 230   1        {
+ 231   2        case 1:
+ 232   2          switch (z = gjwanggejiance(x, y, 10, 11))
+ 233   2          {
+ 234   3          case WGJC(0,0):
+ 235   3          case WGJC(1,0):
+ 236   3          case WGJC(2,0):
+ 237   3          case WGJC(3,0):
+ 238   3          case WGJC(0,1):
+ 239   3          case WGJC(1,1):
+ 240   3          case WGJC(2,1):
+ 241   3          case WGJC(3,1):
+ 242   3          case WGJC(0,2):
+ 243   3          case WGJC(1,2):
+ 244   3            xjdb(z);
+ 245   3            break;
+ 246   3          default:xjdb2();  xiugaizhuangtaibiao(NOP,7);
+ 247   3          }
+ 248   2          break;
+ 249   2        case 2:
+ 250   2      
+ 251   2          break;
+ 252   2        case 3:
+ 253   2      
+ 254   2          break;
+ 255   2      
+ 256   2        case 4:
+ 257   2      
+ 258   2          break;
+ 259   2        case 5:
+ 260   2      
+ 261   2          break;
+ 262   2        case 6:
+ 263   2      
+ 264   2          break;
+ 265   2        case 7:
+ 266   2      
+ 267   2          break;
+ 268   2        case 8:
+ 269   2      
+ 270   2          break;
+ 271   2        case 9:
+ 272   2      
+ 273   2          break;
+ 274   2        case 10:
+ 275   2      
+ 276   2          break;
+ 277   2        case 11:
+ 278   2      
+ 279   2          break;
+ 280   2        }
+ 281   1      
+C51 COMPILER V9.54   ______                                                                12/22/2017 14:02:55 PAGE 6   
+
+ 282   1      
+ 283   1      }
+ 284          
+ 285          void MainPing_FY_END(char dizhi, uint JA_XY)
+ 286          {
+ 287   1      
+ 288   1        switch (dizhi)
+ 289   1        {
+ 290   2        case 1:
+ 291   2      
+ 292   2      
+ 293   2          break;
+ 294   2        case 2:
+ 295   2      
+ 296   2          break;
+ 297   2        case 3:
+ 298   2      
+ 299   2          break;
+ 300   2        case 4:
+ 301   2      
+ 302   2          break;
+ 303   2        case 5:
+ 304   2      
+ 305   2          break;
+ 306   2        case 6:
+ 307   2      
+ 308   2          break;
+ 309   2        case 7:
+ 310   2      
+ 311   2          break;
+ 312   2        case 8:
+ 313   2      
+ 314   2          break;
+ 315   2        case 9:
+ 316   2      
+ 317   2          break;
+ 318   2        case 10:
+ 319   2      
+ 320   2          break;
+ 321   2        case 11:
+ 322   2      
+ 323   2          break;
+ 324   2        }
+ 325   1      
+ 326   1      
+ 327   1      
+ 328   1      }
+*** WARNING C280 IN LINE 285 OF 主程序.c: 'JA_XY': unreferenced local variable
+ 329            
+ 330            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1335    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    107       7
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  23 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,1142 @@
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE 2048HZAPI
+OBJECT MODULE PLACED IN 2048HZAPI.OBJ
+COMPILER INVOKED BY: D:\K5\MAIN\C51\BIN\C51.EXE 2048HZAPI.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include"to2048moni.h"
+   2          
+   3          
+   4          /*绿色画板*/
+   5          uchar  huanchonglv[MAXH][MAXW / 8];
+   6          /*红色画板*/
+   7          uchar  huanchonghong[MAXH][MAXW / 8];
+   8          /*画笔标志*/
+   9          uchar  huabiyanse = 0;
+  10          /*绘制区域标志*/
+  11          JUXING _huizhiquyu = {0,0,MAXW,MAXH};
+  12          
+  13          /*绘制矩形数据表*/
+  14          uchar _hui_juxing[] = { 0x01 , 0x03, 0x07 , 0x0f  , 0x1f, 0x3f, 0x7f, 0xff };
+  15          
+  16          /*绘制补前表*/
+  17          uchar _huizhi_buhou[] = { 0x00 ,0x01, 0x03, 0x07,0x0f, 0x1f, 0x3f, 0x7f,0xff   };
+  18          /*绘制补后表*/
+  19          uchar _huizhi_buqian[] = { 0xff, 0xfe, 0xfc, 0xf8, 0xf0, 0xe0, 0xc0, 0x80, 0x00};
+  20          /*整体移动补零表*/
+  21          uchar _huizhi_buqianz[] = { 0xff, 0x7f, 0x3f, 0x1f, 0x0f, 0x07, 0x03, 0x01, 0x00 };
+  22          
+  23          
+  24           void shezhihuabiyanse(char yanse)
+  25          {
+  26   1        huabiyanse = yanse;
+  27   1      }
+  28          
+  29           void shezhihuizhiquyu(char w, char n, char e, char s){
+  30   1         if (w >= 0 && w <= MAXW && e >= 0 && e <= MAXW && n >= 0 && s <= MAXH && n >= 0 && s <= MAXH)
+  31   1         {
+  32   2           _huizhiquyu.w = w;
+  33   2           _huizhiquyu.n = n;
+  34   2           _huizhiquyu.e = e;
+  35   2           _huizhiquyu.s = s;
+  36   2         }
+  37   1       }
+  38           void huodequyu(ZJUXING temp)
+  39           {//获得区域
+  40   1         temp->w = _huizhiquyu.w ;
+  41   1         temp->n = _huizhiquyu.n ;
+  42   1         temp->e = _huizhiquyu.e ;
+  43   1         temp->s = _huizhiquyu.s ;
+  44   1       }
+  45          
+  46          
+  47           void huizhihuizhi(uchar(*huanchong)[MAXH][MAXW / 8], char x, char y, uchar(*temp)[], char h, char w)
+  48           {
+  49   1         char i, chicun,
+  50   1           xy, xs,
+  51   1           ihs, ihy;
+  52   1         //开始绘制
+  53   1         chicun = (h*w);
+  54   1         xy = (x >= 0 ? (x % 8) : 8 + (x % 8));
+  55   1         xs = (x >= 0 ? (x / 8) : (x / 8 - 1));
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 2   
+
+  56   1         for (i = 0; i < chicun; i++)
+  57   1         {
+  58   2           ihy = (i % h);
+  59   2           if ((y + ihy) >= 0 && (y + ihy) < MAXH)
+  60   2           {
+  61   3             ihs = (i / h);
+  62   3      
+  63   3             if ((xs + ihs) >= 0 && (xs + ihs) < (MAXW / 8))
+  64   3             {
+  65   4               (*huanchong)[y + ihy][xs + ihs]
+  66   4                 =
+  67   4                 ~(
+  68   4                 ~(*huanchong)[y + ihy][xs + ihs]
+  69   4                 |
+  70   4                 ((*temp)[i] << xy)
+  71   4                 );
+  72   4             }
+  73   3      
+  74   3             if ((xs + ihs + 1) >= 0 && (xs + ihs + 1) < (MAXW / 8))
+  75   3             {
+  76   4               (*huanchong)[y + ihy][xs + ihs + 1]
+  77   4                 =
+  78   4                 ~(
+  79   4                 ~(*huanchong)[y + ihy][xs + ihs + 1]
+  80   4                 |
+  81   4                 ((*temp)[i] >> (8 - xy))
+  82   4                 );
+  83   4             }
+  84   3           }
+  85   2         }
+  86   1       }
+  87           void huizhicachu(uchar(*huanchong)[MAXH][MAXW / 8], char x, char y, uchar(*temp)[], char h, char w)
+  88           {
+  89   1         char i, chicun,
+  90   1           xy, xs,
+  91   1           ihs, ihy;
+  92   1      
+  93   1         //开始擦除
+  94   1         chicun = (h*w);
+  95   1         xy = (x >= 0 ? (x % 8) : 8 + (x % 8));
+  96   1         xs = (x >= 0 ? (x >> 3) : ((x >> 3) - 1));
+  97   1         for (i = 0; i < chicun; i++)
+  98   1         {
+  99   2           ihy = (i % h);
+ 100   2           if ((y + ihy) >= 0 && (y + ihy) < MAXH)
+ 101   2           {
+ 102   3             ihs = (i / h);
+ 103   3             if ((xs + ihs) >= 0 && (xs + ihs) < (MAXW / 8))
+ 104   3             {
+ 105   4               (*huanchong)[y + ihy][xs + ihs]
+ 106   4                 =
+ 107   4      
+ 108   4                 (*huanchong)[y + ihy][xs + ihs]
+ 109   4                 |
+ 110   4                 ((*temp)[i] << xy)
+ 111   4                 ;
+ 112   4             }
+ 113   3      
+ 114   3             if ((xs + ihs + 1) >= -1 && (xs + ihs + 1) < (MAXW / 8))
+ 115   3             {
+ 116   4               (*huanchong)[y + ihy][xs + ihs + 1]
+ 117   4                 =
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 3   
+
+ 118   4      
+ 119   4                 (*huanchong)[y + ihy][xs + ihs + 1]
+ 120   4                 |
+ 121   4                 ((*temp)[i] >> (8 - xy))
+ 122   4                 ;
+ 123   4             }
+ 124   3           }
+ 125   2         }
+ 126   1      
+ 127   1       }
+ 128           void huizhiqufan(uchar(*huanchong)[MAXH][MAXW / 8], char x, char y, uchar(*temp)[], char h, char w)
+ 129           {
+ 130   1         char i, chicun,
+ 131   1           xy, xs,
+ 132   1           ihs, ihy;
+ 133   1      
+ 134   1         //开始取反
+ 135   1         chicun = (h*w);
+ 136   1         xy = (x >= 0 ? (x % 8) : 8 + (x % 8));
+ 137   1         xs = (x >= 0 ? (x / 8) : (x / 8 - 1));
+ 138   1         for (i = 0; i < chicun; i++)
+ 139   1         {
+ 140   2           ihy = (i % h);
+ 141   2           if ((y + ihy) >= 0 && (y + ihy) < MAXH)
+ 142   2           {
+ 143   3             ihs = (i / h);
+ 144   3      
+ 145   3             if ((xs + ihs) >= 0 && (xs + ihs) < (MAXW / 8))
+ 146   3             {
+ 147   4               (*huanchong)[y + ihy][xs + ihs]
+ 148   4                 =
+ 149   4                 ~(
+ 150   4                 ~(*huanchong)[y + ihy][xs + ihs]
+ 151   4                 ^
+ 152   4                 ((*temp)[i] << xy)
+ 153   4                 );
+ 154   4             }
+ 155   3      
+ 156   3             if ((xs + ihs + 1) >= 0 && (xs + ihs + 1) < (MAXW / 8))
+ 157   3             {
+ 158   4               (*huanchong)[y + ihy][xs + ihs + 1]
+ 159   4                 =
+ 160   4                 ~(
+ 161   4                 ~(*huanchong)[y + ihy][xs + ihs + 1]
+ 162   4                 ^
+ 163   4                 ((*temp)[i] >> (8 - xy))
+ 164   4                 );
+ 165   4             }
+ 166   3           }
+ 167   2         }
+ 168   1      
+ 169   1       }
+ 170           void huizhi(char x, char y, uchar(*temp)[], char h, char w)
+ 171           {
+ 172   1         char i, chicun,
+ 173   1           xy, xs,
+ 174   1           ihs, ihy;
+ 175   1      
+ 176   1         //处理画笔颜色信息
+ 177   1      
+ 178   1         if (huabiyanse == 0)
+ 179   1         {
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 4   
+
+ 180   2           huizhicachu(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 180 OF 2048HZAPI.c: pointer to different objects
+ 181   2           huizhihuizhi(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 181 OF 2048HZAPI.c: pointer to different objects
+ 182   2         }
+ 183   1         else if (huabiyanse == 1)
+ 184   1         {
+ 185   2           huizhicachu(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 185 OF 2048HZAPI.c: pointer to different objects
+ 186   2           huizhihuizhi(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 186 OF 2048HZAPI.c: pointer to different objects
+ 187   2         }
+ 188   1         else if (huabiyanse == 2)
+ 189   1         {
+ 190   2           huizhicachu(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 190 OF 2048HZAPI.c: pointer to different objects
+ 191   2           huizhicachu(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 191 OF 2048HZAPI.c: pointer to different objects
+ 192   2           return;
+ 193   2         }   
+ 194   1         else if (huabiyanse == 3)
+ 195   1         {
+ 196   2           huizhihuizhi(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 196 OF 2048HZAPI.c: pointer to different objects
+ 197   2           huizhihuizhi(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 197 OF 2048HZAPI.c: pointer to different objects
+ 198   2           return;
+ 199   2         }
+ 200   1         else if (huabiyanse == 4)
+ 201   1         {
+ 202   2           huizhihuizhi(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 202 OF 2048HZAPI.c: pointer to different objects
+ 203   2         }
+ 204   1         else if (huabiyanse == 5)
+ 205   1         {
+ 206   2           huizhihuizhi(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 206 OF 2048HZAPI.c: pointer to different objects
+ 207   2         }
+ 208   1         else if (huabiyanse == 6)
+ 209   1         {
+ 210   2           huizhiqufan(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 210 OF 2048HZAPI.c: pointer to different objects
+ 211   2         }
+ 212   1         else if (huabiyanse == 7)
+ 213   1         {
+ 214   2           huizhiqufan(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 214 OF 2048HZAPI.c: pointer to different objects
+ 215   2         }
+ 216   1         else if (huabiyanse == 8)
+ 217   1         {
+ 218   2           huizhiqufan(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 218 OF 2048HZAPI.c: pointer to different objects
+ 219   2           huizhiqufan(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 219 OF 2048HZAPI.c: pointer to different objects
+ 220   2         }
+ 221   1      
+ 222   1      
+ 223   1       }
+*** WARNING C280 IN LINE 172 OF 2048HZAPI.c: 'i': unreferenced local variable
+*** WARNING C280 IN LINE 172 OF 2048HZAPI.c: 'chicun': unreferenced local variable
+*** WARNING C280 IN LINE 173 OF 2048HZAPI.c: 'xy': unreferenced local variable
+*** WARNING C280 IN LINE 173 OF 2048HZAPI.c: 'xs': unreferenced local variable
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 5   
+
+*** WARNING C280 IN LINE 174 OF 2048HZAPI.c: 'ihs': unreferenced local variable
+*** WARNING C280 IN LINE 174 OF 2048HZAPI.c: 'ihy': unreferenced local variable
+ 224          
+ 225          
+ 226           void huizhiexhuizhi(uchar(*huanchong)[MAXH][MAXW / 8],char x, char y, uchar(*temp)[], char h, char w)
+ 227          {
+ 228   1        uchar i, chicun,
+ 229   1          xy, xs,
+ 230   1          ihs, ihy;
+ 231   1        //开始绘制
+ 232   1        chicun = (h*w);
+ 233   1        xy = (x >= 0 ? (x & 7) : 8 + (x & 7));
+ 234   1        xs = (x >= 0 ? (x >> 3) : ((x >> 3) - 1));
+ 235   1        for (i = 0; i < chicun; i++)
+ 236   1        {
+ 237   2          ihy = (i % h);
+ 238   2          if ((y + ihy) >= _huizhiquyu.n && (y + ihy) < _huizhiquyu.s)
+ 239   2          {
+ 240   3            ihs = (i / h);
+ 241   3      
+ 242   3            if ((xs + ihs) >= ((_huizhiquyu.w+7)>>3) && (xs + ihs) < (_huizhiquyu.e >> 3))
+ 243   3            {
+ 244   4              (*huanchong)[y + ihy][xs + ihs]
+ 245   4                =
+ 246   4                ~(
+ 247   4                ~(*huanchong)[y + ihy][xs + ihs]
+ 248   4                |
+ 249   4                ((*temp)[i] << xy)
+ 250   4                );
+ 251   4            }
+ 252   3            else if ((xs + ihs) >= ((_huizhiquyu.w + 7) >> 3) && (xs + ihs) < ((_huizhiquyu.e + 7) >> 3))
+ 253   3            { 
+ 254   4              (*huanchong)[y + ihy][xs + ihs]
+ 255   4                =
+ 256   4                ~(
+ 257   4                ~(*huanchong)[y + ihy][xs + ihs]
+ 258   4                |
+ 259   4                (((*temp)[i] << xy)&(_huizhi_buhou[(_huizhiquyu.e&7)]))
+ 260   4                );
+ 261   4            }
+ 262   3            else if ((xs + ihs) >= (_huizhiquyu.w >> 3) && (xs + ihs) < (_huizhiquyu.e >> 3))
+ 263   3            {
+ 264   4              (*huanchong)[y + ihy][xs + ihs]
+ 265   4                =
+ 266   4                ~(
+ 267   4                ~(*huanchong)[y + ihy][xs + ihs]
+ 268   4                |
+ 269   4                (((*temp)[i] << xy)&(_huizhi_buqian[(_huizhiquyu.w & 7)]))
+ 270   4                );
+ 271   4            }
+ 272   3            else if ((xs + ihs) == (_huizhiquyu.w >> 3 )&& (xs + ihs) == (_huizhiquyu.e >> 8))
+ 273   3            {
+ 274   4              (*huanchong)[y + ihy][xs + ihs]
+ 275   4                =
+ 276   4                ~(
+ 277   4                ~(*huanchong)[y + ihy][xs + ihs]
+ 278   4                |
+ 279   4                (((*temp)[i] << xy)&(_huizhi_buqian[(_huizhiquyu.w & 7)])&(_huizhi_buhou[(_huizhiquyu.e & 7)]))
+ 280   4                );
+ 281   4            }
+ 282   3      
+ 283   3            if ((xs + ihs + 1) >= ((_huizhiquyu.w+7)>>3) && (xs + ihs + 1) < (_huizhiquyu.e >> 3))
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 6   
+
+ 284   3            {
+ 285   4              (*huanchong)[y + ihy][xs + ihs + 1]
+ 286   4                =
+ 287   4                ~(
+ 288   4                ~(*huanchong)[y + ihy][xs + ihs + 1]
+ 289   4                |
+ 290   4                ((*temp)[i] >> (8 - xy))
+ 291   4                );
+ 292   4            }
+ 293   3            else if ((xs + ihs+1) >= ((_huizhiquyu.w + 7) >> 3) && (xs + ihs+1) < ((_huizhiquyu.e + 7) >> 3))
+ 294   3            {
+ 295   4              (*huanchong)[y + ihy][xs + ihs + 1]
+ 296   4                =
+ 297   4                ~(
+ 298   4                ~(*huanchong)[y + ihy][xs + ihs + 1]
+ 299   4                |
+ 300   4                (((*temp)[i] >> (8 - xy))&(_huizhi_buhou[(_huizhiquyu.e & 7)]))
+ 301   4                );
+ 302   4            }
+ 303   3            else if ((xs + ihs + 1) >= (_huizhiquyu.w >> 3) && (xs + ihs+1) < (_huizhiquyu.e >>3))
+ 304   3            {
+ 305   4              (*huanchong)[y + ihy][xs + ihs+1]
+ 306   4                =
+ 307   4                ~(
+ 308   4                ~(*huanchong)[y + ihy][xs + ihs+1]
+ 309   4                |
+ 310   4                (((*temp)[i] >> (8 - xy))&(_huizhi_buqian[(_huizhiquyu.w & 7)]))
+ 311   4                );
+ 312   4            }
+ 313   3            else if ((xs + ihs + 1) == (_huizhiquyu.w >> 3) && (xs + ihs + 1) == (_huizhiquyu.e >> 3))
+ 314   3            {
+ 315   4              (*huanchong)[y + ihy][xs + ihs + 1]
+ 316   4                =
+ 317   4                ~(
+ 318   4                ~(*huanchong)[y + ihy][xs + ihs + 1]
+ 319   4                |
+ 320   4                (((*temp)[i] >> (8 - xy))&(_huizhi_buqian[(_huizhiquyu.w & 7)])&(_huizhi_buhou[(_huizhiquyu.e & 7)]))
+ 321   4                );
+ 322   4            }
+ 323   3          }
+ 324   2        }
+ 325   1      }
+ 326           void huizhiexcachu(uchar(*huanchong) [MAXH][MAXW / 8], char x, char y, uchar(*temp)[], char h, char w)
+ 327          {
+ 328   1          char i, chicun,
+ 329   1          xy, xs,
+ 330   1          ihs, ihy;
+ 331   1          //开始绘制
+ 332   1          chicun = (h*w);
+ 333   1          xy = (x >= 0 ? (x & 7) : 8 + (x & 7));
+ 334   1          xs = (x >= 0 ? (x / 8) : (x / 8 - 1));
+ 335   1          for (i = 0; i < chicun; i++)
+ 336   1          {
+ 337   2            ihy = (i % h);
+ 338   2            if ((y + ihy) >= _huizhiquyu.n && (y + ihy) < _huizhiquyu.s)
+ 339   2            {
+ 340   3              ihs = (i / h);
+ 341   3      
+ 342   3              if ((xs + ihs) >= ((_huizhiquyu.w + 7) >> 3) && (xs + ihs) < (_huizhiquyu.e >> 3))
+ 343   3              {
+ 344   4                (*huanchong)[y + ihy][xs + ihs]
+ 345   4                  =
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 7   
+
+ 346   4                  
+ 347   4                  (*huanchong)[y + ihy][xs + ihs]
+ 348   4                  |
+ 349   4                  ((*temp)[i] << xy)
+ 350   4                  ;
+ 351   4              }
+ 352   3              else if ((xs + ihs) >= ((_huizhiquyu.w + 7) >> 3) && (xs + ihs) < ((_huizhiquyu.e + 7) >> 3))
+ 353   3              {
+ 354   4                (*huanchong)[y + ihy][xs + ihs]
+ 355   4                  =
+ 356   4                  
+ 357   4                  (*huanchong)[y + ihy][xs + ihs]
+ 358   4                  |
+ 359   4                  (((*temp)[i] << xy)&(_huizhi_buhou[(_huizhiquyu.e & 7)]))
+ 360   4                  ;
+ 361   4              }
+ 362   3              else if ((xs + ihs + 1) >= (_huizhiquyu.w >> 3) && (xs + ihs + 1) < (_huizhiquyu.e >> 3))
+ 363   3              {
+ 364   4                (*huanchong)[y + ihy][xs + ihs]
+ 365   4                  =
+ 366   4                  
+ 367   4                  (*huanchong)[y + ihy][xs + ihs]
+ 368   4                  |
+ 369   4                  (((*temp)[i] << xy)&(_huizhi_buqian[(_huizhiquyu.w & 7)]))
+ 370   4                  ;
+ 371   4              }
+ 372   3              else if ((xs + ihs + 1) == (_huizhiquyu.w >> 3) && (xs + ihs + 1) == (_huizhiquyu.e >> 3))
+ 373   3              {
+ 374   4                (*huanchong)[y + ihy][xs + ihs]
+ 375   4                  =
+ 376   4                  
+ 377   4                  (*huanchong)[y + ihy][xs + ihs]
+ 378   4                  |
+ 379   4                  (((*temp)[i] << xy)&(_huizhi_buqian[(_huizhiquyu.w & 7)])&(_huizhi_buhou[(_huizhiquyu.e & 7)]))
+ 380   4                  ;
+ 381   4              }
+ 382   3      
+ 383   3              if ((xs + ihs) >= ((_huizhiquyu.w + 7) >> 3) && (xs + ihs) < (_huizhiquyu.e >> 3))
+ 384   3              {
+ 385   4                (*huanchong)[y + ihy][xs + ihs + 1]
+ 386   4                  =
+ 387   4                  
+ 388   4                  (*huanchong)[y + ihy][xs + ihs + 1]
+ 389   4                  |
+ 390   4                  ((*temp)[i] >> (8 - xy))
+ 391   4                  ;
+ 392   4              }
+ 393   3              else if ((xs + ihs) >= ((_huizhiquyu.w + 7) >> 3) && (xs + ihs) < ((_huizhiquyu.e + 7) >> 3))
+ 394   3              {
+ 395   4                (*huanchong)[y + ihy][xs + ihs + 1]
+ 396   4                  =
+ 397   4                  
+ 398   4                  (*huanchong)[y + ihy][xs + ihs + 1]
+ 399   4                  |
+ 400   4                  (((*temp)[i] >> (8 - xy))&(_huizhi_buhou[(_huizhiquyu.e & 7)]))
+ 401   4                  ;
+ 402   4              }
+ 403   3              else if ((xs + ihs + 1) >= (_huizhiquyu.w >> 3) && (xs + ihs + 1) < (_huizhiquyu.e >> 3))
+ 404   3              {
+ 405   4                (*huanchong)[y + ihy][xs + ihs + 1]
+ 406   4                  =
+ 407   4                
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 8   
+
+ 408   4                  (*huanchong)[y + ihy][xs + ihs + 1]
+ 409   4                  |
+ 410   4                  (((*temp)[i] >> (8 - xy))&(_huizhi_buqian[(_huizhiquyu.w & 7)]))
+ 411   4                  ;
+ 412   4              }
+ 413   3              else if ((xs + ihs + 1) == (_huizhiquyu.w >> 3) && (xs + ihs + 1) == (_huizhiquyu.e >> 3))
+ 414   3              {
+ 415   4                (*huanchong)[y + ihy][xs + ihs + 1]
+ 416   4                  =
+ 417   4                  
+ 418   4                  (*huanchong)[y + ihy][xs + ihs + 1]
+ 419   4                  |
+ 420   4                  (((*temp)[i] >> (8 - xy))&(_huizhi_buqian[(_huizhiquyu.w & 7)])&(_huizhi_buhou[(_huizhiquyu.e & 7)])
+             -)
+ 421   4                  ;
+ 422   4              }
+ 423   3            }
+ 424   2          }
+ 425   1        }
+ 426           void huizhiexqufan(uchar(*huanchong)[MAXH][MAXW / 8], char x, char y, uchar(*temp)[], char h, char w)
+ 427           {
+ 428   1         char i, chicun,
+ 429   1           xy, xs,
+ 430   1           ihs, ihy;
+ 431   1         //开始绘制
+ 432   1         chicun = (h*w);
+ 433   1         xy = (x >= 0 ? (x & 7) : 8 + (x & 7));
+ 434   1         xs = (x >= 0 ? (x / 8) : (x / 8 - 1));
+ 435   1         for (i = 0; i < chicun; i++)
+ 436   1         {
+ 437   2           ihy = (i % h);
+ 438   2           if ((y + ihy) >= _huizhiquyu.n && (y + ihy) < _huizhiquyu.s)
+ 439   2           {
+ 440   3             ihs = (i / h);
+ 441   3      
+ 442   3             if ((xs + ihs) >= (_huizhiquyu.w + 7) / 8 && (xs + ihs) < (_huizhiquyu.e / 8))
+ 443   3             {
+ 444   4               (*huanchong)[y + ihy][xs + ihs]
+ 445   4                 =
+ 446   4                 ~(
+ 447   4                 ~(*huanchong)[y + ihy][xs + ihs]
+ 448   4                 ^
+ 449   4                 ((*temp)[i] << xy)
+ 450   4                 );
+ 451   4             }
+ 452   3             else if ((xs + ihs) >= (_huizhiquyu.w + 7) / 8 && (xs + ihs) < ((_huizhiquyu.e + 7) / 8))
+ 453   3             {
+ 454   4               (*huanchong)[y + ihy][xs + ihs]
+ 455   4                 =
+ 456   4                 ~(
+ 457   4                 ~(*huanchong)[y + ihy][xs + ihs]
+ 458   4                 ^
+ 459   4                 (((*temp)[i] << xy)&(_huizhi_buhou[(_huizhiquyu.e & 7)]))
+ 460   4                 );
+ 461   4             }
+ 462   3             else if ((xs + ihs) >= _huizhiquyu.w / 8 && (xs + ihs) < (_huizhiquyu.e / 8))
+ 463   3             {
+ 464   4               (*huanchong)[y + ihy][xs + ihs]
+ 465   4                 =
+ 466   4                 ~(
+ 467   4                 ~(*huanchong)[y + ihy][xs + ihs]
+ 468   4                 ^
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 9   
+
+ 469   4                 (((*temp)[i] << xy)&(_huizhi_buqian[(_huizhiquyu.w & 7)]))
+ 470   4                 );
+ 471   4             }
+ 472   3             else if ((xs + ihs) == _huizhiquyu.w / 8 && (xs + ihs) == (_huizhiquyu.e / 8))
+ 473   3             {
+ 474   4               (*huanchong)[y + ihy][xs + ihs]
+ 475   4                 =
+ 476   4                 ~(
+ 477   4                 ~(*huanchong)[y + ihy][xs + ihs]
+ 478   4                 ^
+ 479   4                 (((*temp)[i] << xy)&(_huizhi_buqian[(_huizhiquyu.w & 7)])&(_huizhi_buhou[(_huizhiquyu.e & 7)]))
+ 480   4                 );
+ 481   4             }
+ 482   3      
+ 483   3      
+ 484   3             if ((xs + ihs + 1) >= _huizhiquyu.w && (xs + ihs + 1) < (_huizhiquyu.e / 8))
+ 485   3             {
+ 486   4               (*huanchong)[y + ihy][xs + ihs + 1]
+ 487   4                 =
+ 488   4                 ~(
+ 489   4                 ~(*huanchong)[y + ihy][xs + ihs + 1]
+ 490   4                 ^
+ 491   4                 ((*temp)[i] >> (8 - xy))
+ 492   4                 );
+ 493   4             }
+ 494   3             else if ((xs + ihs + 1) >= (_huizhiquyu.w + 7) / 8 && (xs + ihs + 1) < ((_huizhiquyu.e + 7) / 8))
+ 495   3             {
+ 496   4               (*huanchong)[y + ihy][xs + ihs + 1]
+ 497   4                 =
+ 498   4                 ~(
+ 499   4                 ~(*huanchong)[y + ihy][xs + ihs + 1]
+ 500   4                 ^
+ 501   4                 (((*temp)[i] >> (8 - xy))&(_huizhi_buhou[(_huizhiquyu.e & 7)]))
+ 502   4                 );
+ 503   4             }
+ 504   3             else if ((xs + ihs + 1) >= _huizhiquyu.w / 8 && (xs + ihs + 1) < (_huizhiquyu.e / 8))
+ 505   3             {
+ 506   4               (*huanchong)[y + ihy][xs + ihs + 1]
+ 507   4                 =
+ 508   4                 ~(
+ 509   4                 ~(*huanchong)[y + ihy][xs + ihs + 1]
+ 510   4                 ^
+ 511   4                 (((*temp)[i] >> (8 - xy))&(_huizhi_buqian[(_huizhiquyu.w & 7)]))
+ 512   4                 );
+ 513   4             }
+ 514   3             else if ((xs + ihs + 1) == _huizhiquyu.w / 8 && (xs + ihs + 1) == (_huizhiquyu.e / 8))
+ 515   3             {
+ 516   4               (*huanchong)[y + ihy][xs + ihs + 1]
+ 517   4                 =
+ 518   4                 ~(
+ 519   4                 ~(*huanchong)[y + ihy][xs + ihs + 1]
+ 520   4                 ^
+ 521   4                 (((*temp)[i] >> (8 - xy))&(_huizhi_buqian[(_huizhiquyu.w & 7)])&(_huizhi_buhou[(_huizhiquyu.e & 7)])
+             -)
+ 522   4                 );
+ 523   4             }
+ 524   3           }
+ 525   2         }
+ 526   1       }
+ 527           void huizhiex(char x, char y, uchar(*temp)[], char h, char w)
+ 528           {
+ 529   1         char i, chicun,
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 10  
+
+ 530   1           xy, xs,
+ 531   1           ihs, ihy;
+ 532   1      
+ 533   1         //处理画笔颜色信息
+ 534   1      
+ 535   1         if (huabiyanse == 0)
+ 536   1         {
+ 537   2           huizhiexcachu(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 537 OF 2048HZAPI.c: pointer to different objects
+ 538   2           huizhiexhuizhi(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 538 OF 2048HZAPI.c: pointer to different objects
+ 539   2         }
+ 540   1         else if (huabiyanse == 1)
+ 541   1         {
+ 542   2           huizhiexcachu(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 542 OF 2048HZAPI.c: pointer to different objects
+ 543   2           huizhiexhuizhi(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 543 OF 2048HZAPI.c: pointer to different objects
+ 544   2         }
+ 545   1         else if (huabiyanse == 2)
+ 546   1         {
+ 547   2           huizhiexcachu(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 547 OF 2048HZAPI.c: pointer to different objects
+ 548   2           huizhiexcachu(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 548 OF 2048HZAPI.c: pointer to different objects
+ 549   2           return;
+ 550   2         }   
+ 551   1         else if (huabiyanse == 3)
+ 552   1         {
+ 553   2           huizhiexhuizhi(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 553 OF 2048HZAPI.c: pointer to different objects
+ 554   2           huizhiexhuizhi(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 554 OF 2048HZAPI.c: pointer to different objects
+ 555   2           return;
+ 556   2         }
+ 557   1         else if (huabiyanse == 4)
+ 558   1         {
+ 559   2           huizhiexhuizhi(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 559 OF 2048HZAPI.c: pointer to different objects
+ 560   2         }
+ 561   1         else if (huabiyanse == 5)
+ 562   1         {
+ 563   2           huizhiexhuizhi(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 563 OF 2048HZAPI.c: pointer to different objects
+ 564   2         }
+ 565   1         else if (huabiyanse == 6)
+ 566   1         {
+ 567   2           huizhiexqufan(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 567 OF 2048HZAPI.c: pointer to different objects
+ 568   2         }
+ 569   1         else if (huabiyanse == 7)
+ 570   1         {
+ 571   2           huizhiexqufan(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 571 OF 2048HZAPI.c: pointer to different objects
+ 572   2         }
+ 573   1         else if (huabiyanse == 8)
+ 574   1         {
+ 575   2           huizhiexqufan(&huanchonglv, x, y, temp, h, w);
+*** WARNING C182 IN LINE 575 OF 2048HZAPI.c: pointer to different objects
+ 576   2           huizhiexqufan(&huanchonghong, x, y, temp, h, w);
+*** WARNING C182 IN LINE 576 OF 2048HZAPI.c: pointer to different objects
+ 577   2         }
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 11  
+
+ 578   1      
+ 579   1      
+ 580   1       }
+*** WARNING C280 IN LINE 529 OF 2048HZAPI.c: 'i': unreferenced local variable
+*** WARNING C280 IN LINE 529 OF 2048HZAPI.c: 'chicun': unreferenced local variable
+*** WARNING C280 IN LINE 530 OF 2048HZAPI.c: 'xy': unreferenced local variable
+*** WARNING C280 IN LINE 530 OF 2048HZAPI.c: 'xs': unreferenced local variable
+*** WARNING C280 IN LINE 531 OF 2048HZAPI.c: 'ihs': unreferenced local variable
+*** WARNING C280 IN LINE 531 OF 2048HZAPI.c: 'ihy': unreferenced local variable
+ 581          
+ 582           void huizhidiancachu(uchar(*huanchong)[MAXH][MAXW / 8], char x, char y)
+ 583           {
+ 584   1      
+ 585   1         //对应坐标处擦除一个点
+ 586   1         if (y >= _huizhiquyu.n && y < _huizhiquyu.s && x >= _huizhiquyu.w && x < _huizhiquyu.e)
+ 587   1         {
+ 588   2           (*huanchong)[y][x >> 3] = (*huanchong)[y][x >> 3] | (1 << (x & 7));
+ 589   2      
+ 590   2         }
+ 591   1       }
+ 592           void huizhidianhuizhi(uchar(*huanchong)[MAXH][MAXW / 8],char x, char y)
+ 593           {
+ 594   1         //对应坐标处绘制一个点
+ 595   1         if (y >= _huizhiquyu.n && y < _huizhiquyu.s && x >= _huizhiquyu.w && x < _huizhiquyu.e)
+ 596   1         {
+ 597   2           (*huanchong)[y][x >> 3] = ~((~(*huanchong)[y][x >> 3])
+ 598   2             | (1 << (x & 7)));
+ 599   2      
+ 600   2         }
+ 601   1      
+ 602   1       }
+ 603           void huizhidianqufan(uchar(*huanchong)[MAXH][MAXW / 8], char x, char y)
+ 604           {
+ 605   1      
+ 606   1         //对应坐标处取反一个点
+ 607   1         if (y >= _huizhiquyu.n && y < _huizhiquyu.s && x >= _huizhiquyu.w && x < _huizhiquyu.e)
+ 608   1         {
+ 609   2           (*huanchong)[y][x >> 3] = ~(~(*huanchong)[y][x >> 3] ^ (1 << (x & 7)));
+ 610   2      
+ 611   2         }
+ 612   1       }
+ 613           void huizhidian(char x, char y)
+ 614           {
+ 615   1         
+ 616   1         //处理画笔信息
+ 617   1         if (huabiyanse == 0)
+ 618   1         {
+ 619   2           huizhidiancachu(&huanchonghong,x, y);
+*** WARNING C182 IN LINE 619 OF 2048HZAPI.c: pointer to different objects
+ 620   2           huizhidianhuizhi(&huanchonglv, x, y);
+*** WARNING C182 IN LINE 620 OF 2048HZAPI.c: pointer to different objects
+ 621   2      
+ 622   2         }
+ 623   1         else if (huabiyanse == 1)
+ 624   1         {
+ 625   2           huizhidiancachu(&huanchonglv, x, y);
+*** WARNING C182 IN LINE 625 OF 2048HZAPI.c: pointer to different objects
+ 626   2           huizhidianhuizhi(&huanchonghong, x, y);;
+*** WARNING C182 IN LINE 626 OF 2048HZAPI.c: pointer to different objects
+ 627   2         }
+ 628   1         else if (huabiyanse == 3)
+ 629   1         {
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 12  
+
+ 630   2           huizhidianhuizhi(&huanchonghong, x, y);
+*** WARNING C182 IN LINE 630 OF 2048HZAPI.c: pointer to different objects
+ 631   2           huizhidianhuizhi(&huanchonglv, x, y);
+*** WARNING C182 IN LINE 631 OF 2048HZAPI.c: pointer to different objects
+ 632   2         }
+ 633   1         else if (huabiyanse == 4)
+ 634   1         {
+ 635   2           huizhidianhuizhi(&huanchonglv, x, y);
+*** WARNING C182 IN LINE 635 OF 2048HZAPI.c: pointer to different objects
+ 636   2         }
+ 637   1         else if (huabiyanse == 5)
+ 638   1         {
+ 639   2           huizhidianhuizhi(&huanchonghong, x, y);
+*** WARNING C182 IN LINE 639 OF 2048HZAPI.c: pointer to different objects
+ 640   2         }
+ 641   1         else if (huabiyanse == 6)
+ 642   1         {
+ 643   2           huizhidianqufan(&huanchonglv, x, y);
+*** WARNING C182 IN LINE 643 OF 2048HZAPI.c: pointer to different objects
+ 644   2         }
+ 645   1         else if (huabiyanse == 7)
+ 646   1         {
+ 647   2           huizhidianqufan(&huanchonghong, x, y);
+*** WARNING C182 IN LINE 647 OF 2048HZAPI.c: pointer to different objects
+ 648   2         }
+ 649   1         else if (huabiyanse == 8)
+ 650   1         {
+ 651   2           huizhidianqufan(&huanchonghong, x, y);
+*** WARNING C182 IN LINE 651 OF 2048HZAPI.c: pointer to different objects
+ 652   2           huizhidianqufan(&huanchonglv, x, y);
+*** WARNING C182 IN LINE 652 OF 2048HZAPI.c: pointer to different objects
+ 653   2         }
+ 654   1         else
+ 655   1         {
+ 656   2           return;
+ 657   2         }
+ 658   1      
+ 659   1      
+ 660   1      
+ 661   1       }
+ 662          
+ 663           void shuapingzhiyi(uchar(*huanchong)[MAXH][MAXW / 8])
+ 664           {
+ 665   1         uchar i = 0, j = 0;
+ 666   1         for (i = 0; i<MAXH; i++)
+ 667   1         {
+ 668   2           for (j = 0; j<(MAXW / 8); j++)
+ 669   2             (*huanchong)[i][j] = 0;
+ 670   2         }
+ 671   1       }
+ 672           void shuapingzhiling(uchar(*huanchong)[MAXH][MAXW / 8])
+ 673           {
+ 674   1         uchar i = 0, j = 0;
+ 675   1         for (i = 0; i<MAXH; i++)
+ 676   1         {
+ 677   2           for (j = 0; j<(MAXW / 8); j++)
+ 678   2             (*huanchong)[i][j] = 0xff;
+ 679   2         }
+ 680   1       }
+ 681           void shuaping(char a)
+ 682           {//格式化背景 参数为0:绿色  为1:红色  为3:橙色  其他为黑色
+ 683   1       //用于擦除已绘制的图形 来绘制下一帧图形
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 13  
+
+ 684   1         if (a == 0)
+ 685   1         {
+ 686   2           shuapingzhiling(&huanchonghong);
+*** WARNING C182 IN LINE 686 OF 2048HZAPI.c: pointer to different objects
+ 687   2           shuapingzhiyi(&huanchonglv);
+*** WARNING C182 IN LINE 687 OF 2048HZAPI.c: pointer to different objects
+ 688   2         }
+ 689   1         else if (a == 1)
+ 690   1         {
+ 691   2           shuapingzhiling(&huanchonglv);
+*** WARNING C182 IN LINE 691 OF 2048HZAPI.c: pointer to different objects
+ 692   2           shuapingzhiyi(&huanchonghong);
+*** WARNING C182 IN LINE 692 OF 2048HZAPI.c: pointer to different objects
+ 693   2         }
+ 694   1         else if (a == 2)
+ 695   1         {
+ 696   2           shuapingzhiling(huanchonghong);
+*** WARNING C182 IN LINE 696 OF 2048HZAPI.c: pointer to different objects
+ 697   2           shuapingzhiling(huanchonglv);
+*** WARNING C182 IN LINE 697 OF 2048HZAPI.c: pointer to different objects
+ 698   2         }
+ 699   1         else if (a == 3)
+ 700   1         {
+ 701   2           shuapingzhiyi(huanchonghong);
+*** WARNING C182 IN LINE 701 OF 2048HZAPI.c: pointer to different objects
+ 702   2           shuapingzhiyi(huanchonglv);
+*** WARNING C182 IN LINE 702 OF 2048HZAPI.c: pointer to different objects
+ 703   2         }
+ 704   1         else
+ 705   1         {
+ 706   2      
+ 707   2           return;
+ 708   2      
+ 709   2         }
+ 710   1      
+ 711   1      
+ 712   1       }
+ 713          
+ 714           void baocunquyutiqu(uchar(*huanchong)[MAXH][MAXW / 8], char x, char y, uchar (*temp)[],char ti)
+ 715           {
+ 716   1         char xs = x >= 0 ? (x >> 3) : (x / 8 - 1);
+ 717   1         (*temp)[ti] &= 0x00;
+ 718   1         if (xs < MAXW&&xs >= 0)
+ 719   1         (*temp)[ti] |= (*huanchong)[y][xs] >> (x & 7) ;
+ 720   1         if (xs + 1 < MAXW&&xs+1 >= 0)
+ 721   1         (*temp)[ti] |= (*huanchong)[y][xs + 1] << (8 - (x & 7)) ;
+ 722   1       }
+ 723           void baocunquyu(char x,char y, uchar (*templv)[],uchar (*temphong)[],char h,char w)
+ 724           {
+*** WARNING C235 IN LINE 724 OF 2048HZAPI.c: parameter 3: different types
+*** WARNING C235 IN LINE 724 OF 2048HZAPI.c: parameter 4: different types
+ 725   1         char ti = 0,max = h*w,xz,yz;
+ 726   1         for (; ti < max; ti++)
+ 727   1         {
+ 728   2           xz = x + ((ti / h) * 8);
+ 729   2           yz = y + ti%h;
+ 730   2           if (yz >= 0 && yz < MAXH)
+ 731   2           {
+ 732   3             baocunquyutiqu(&huanchonglv, xz, yz, templv, ti);
+*** WARNING C182 IN LINE 732 OF 2048HZAPI.c: pointer to different objects
+ 733   3             baocunquyutiqu(&huanchonghong, xz, yz, temphong, ti);
+*** WARNING C182 IN LINE 733 OF 2048HZAPI.c: pointer to different objects
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 14  
+
+ 734   3           }
+ 735   2         }
+ 736   1      
+ 737   1       }
+ 738          
+ 739           void tanchuquyutanchu(uchar(*huanchong)[MAXH][MAXW / 8], char x, char y, uchar(*temp)[], uchar ti)
+ 740           {
+ 741   1         char xs = x >= 0 ? (x >> 3) : (x / 8 - 1);
+ 742   1         if (xs < MAXW&&xs >= 0)
+ 743   1         {
+ 744   2           (*huanchong)[y][xs] &= 0xff >> (8 - (x & 7));
+ 745   2           (*huanchong)[y][xs] |= (*temp)[ti] << (x & 7);
+ 746   2         }
+ 747   1         if (xs + 1 < MAXW&&xs+1 >= 0)
+ 748   1         {
+ 749   2           (*huanchong)[y][xs + 1] &= 0xff << (x & 7);
+ 750   2           (*huanchong)[y][xs + 1] |= (*temp)[ti] >> (8 - (x & 7));
+ 751   2         }
+ 752   1       }
+ 753           void tanchuquyu(uchar x, uchar y, uchar(*templv)[], uchar(*temphong)[], uchar h, uchar w)
+ 754           {
+ 755   1         char ti = 0, max = h*w,xz,yz;
+ 756   1         for (; ti < max; ti++)
+ 757   1         {
+ 758   2           xz = x + ((ti / h) * 8);
+ 759   2          yz = y + ti%h;
+ 760   2          if (yz >= 0 && yz < MAXH)
+ 761   2          {
+ 762   3            tanchuquyutanchu(&huanchonglv, xz, yz, templv, ti);
+*** WARNING C182 IN LINE 762 OF 2048HZAPI.c: pointer to different objects
+ 763   3            tanchuquyutanchu(&huanchonghong, xz, yz, temphong, ti);
+*** WARNING C182 IN LINE 763 OF 2048HZAPI.c: pointer to different objects
+ 764   3          }
+ 765   2         }
+ 766   1      
+ 767   1       }
+ 768          
+ 769           void zhengtiyidonghengW(char w,uchar se)
+ 770           {
+ 771   1         uchar x, y, xi = (((uchar)_huizhiquyu.e) >> 3) - 1,wi = 8-w;
+ 772   1         for (x = (uchar)_huizhiquyu.w>>3; x < ((uchar)_huizhiquyu.e) >> 3; x++)
+ 773   1         for (y = _huizhiquyu.n; y < _huizhiquyu.s; y++)
+ 774   1         {
+ 775   2           huanchonghong[y][x] = huanchonghong[y][x] >> w;
+ 776   2           huanchonglv[y][x] = huanchonglv[y][x] >> w;
+ 777   2           if (x <xi)
+ 778   2           {
+ 779   3             huanchonghong[y][x] |= huanchonghong[y][x + 1] << wi;
+ 780   3             huanchonglv[y][x] |= huanchonglv[y][x + 1] << wi;
+ 781   3           }
+ 782   2           else
+ 783   2           {
+ 784   3             if (se == 0)
+ 785   3             huanchonghong[y][x] |= _huizhi_buqian[wi];
+ 786   3             else if (se == 1)
+ 787   3             huanchonglv[y][x] |= _huizhi_buqian[wi];
+ 788   3             else if (se == 2)
+ 789   3             {
+ 790   4               huanchonghong[y][x] |= _huizhi_buqian[wi];
+ 791   4               huanchonglv[y][x] |= _huizhi_buqian[wi];
+ 792   4             }
+ 793   3           }
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 15  
+
+ 794   2         }
+ 795   1       }
+ 796           void zhengtiyidonghengE(char w,uchar se)
+ 797           {
+ 798   1         char x;
+ 799   1         uchar  y, xi = ((uchar)_huizhiquyu.w)>>3,wi = 8 - w;
+ 800   1         for (x = ((uchar)_huizhiquyu.e >> 3) - 1; x >= xi; x--)
+ 801   1         for (y = _huizhiquyu.n; y < _huizhiquyu.s; y++)
+ 802   1         {
+ 803   2           huanchonghong[y][x] = huanchonghong[y][x] << w;
+ 804   2           huanchonglv[y][x] = huanchonglv[y][x] << w;
+ 805   2           if (x > xi)
+ 806   2           {
+ 807   3             huanchonghong[y][x] |= huanchonghong[y][x - 1] >> wi;
+ 808   3             huanchonglv[y][x] |= huanchonglv[y][x - 1] >> wi;
+ 809   3           }
+ 810   2           else
+ 811   2           {
+ 812   3             if (se == 0)
+ 813   3               huanchonghong[y][x] |= _huizhi_buqianz[wi];
+ 814   3             else if (se == 1)
+ 815   3               huanchonglv[y][x] |= _huizhi_buqianz[wi];
+ 816   3             else if (se == 2)
+ 817   3             {
+ 818   4               huanchonghong[y][x] |= _huizhi_buqianz[wi];
+ 819   4               huanchonglv[y][x] |= _huizhi_buqianz[wi];
+ 820   4             }
+ 821   3           }
+ 822   2         }
+ 823   1       }
+ 824           void zhengtiyidongshuN(char h,uchar se)
+ 825           {
+ 826   1         char x, y;
+ 827   1         for (x = (uchar)_huizhiquyu.w>>3; x < (uchar)_huizhiquyu.e >> 3; x++)
+ 828   1         for (y = _huizhiquyu.n; y < _huizhiquyu.s; y++)
+ 829   1         {
+ 830   2           if (y+h < _huizhiquyu.s )
+ 831   2           {  
+ 832   3             huanchonghong[y][x] = huanchonghong[y + h][x];
+ 833   3             huanchonglv[y][x] = huanchonglv[y + h][x];
+ 834   3             
+ 835   3           }
+ 836   2           else
+ 837   2           {
+ 838   3             if (se == 0)
+ 839   3               huanchonghong[y][x] = 0xff;
+ 840   3             else if (se == 1)
+ 841   3               huanchonghong[y][x] = 0xff;
+ 842   3             else if (se == 2)
+ 843   3             {
+ 844   4               huanchonghong[y][x] = 0xff;
+ 845   4               huanchonglv[y][x] = 0xff;
+ 846   4             }
+ 847   3           }
+ 848   2      
+ 849   2         }
+ 850   1       }
+ 851           void zhengtiyidongshuS(char h,uchar se)
+ 852           {
+ 853   1         char x, y;
+ 854   1         for (x = (uchar)_huizhiquyu.w >> 3; x < (uchar)_huizhiquyu.e >> 3; x++)
+ 855   1         for (y = _huizhiquyu.s-1; y >= _huizhiquyu.n; y--)
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 16  
+
+ 856   1         {
+ 857   2           if (y + h >= _huizhiquyu.n )
+ 858   2           {
+ 859   3             huanchonghong[y][x] = huanchonghong[y + h][x];
+ 860   3             huanchonglv[y][x] = huanchonglv[y + h][x];
+ 861   3      
+ 862   3           }
+ 863   2           else
+ 864   2           {
+ 865   3             if (se == 0)
+ 866   3               huanchonghong[y][x] = 0xff;
+ 867   3             else if (se == 1)
+ 868   3               huanchonglv[y][x] = 0xff;
+ 869   3             else if (se == 2)
+ 870   3             {
+ 871   4               huanchonghong[y][x] = 0xff;
+ 872   4               huanchonglv[y][x] = 0xff;
+ 873   4             }
+ 874   3           }
+ 875   2      
+ 876   2         }
+ 877   1       }
+ 878           void zhengtiyidong(char w, char h,uchar se)
+ 879           {
+ 880   1      
+ 881   1         if (w > 0&& w < 9)
+ 882   1         {
+ 883   2      
+ 884   2           zhengtiyidonghengW( w,se);
+ 885   2         }
+ 886   1         else if (w < 0&& w > -9)
+ 887   1         {
+ 888   2           zhengtiyidonghengE( -w,se);
+ 889   2         }
+ 890   1         if (h > 0)
+ 891   1         {
+ 892   2           zhengtiyidongshuN(h,se);
+ 893   2         }
+ 894   1         else if (h < 0)
+ 895   1         {
+ 896   2           zhengtiyidongshuS(h,se);
+ 897   2         }
+ 898   1      
+ 899   1      
+ 900   1       }
+ 901          
+ 902          
+ 903           void quyucachucachu(uchar(*huanchong)[MAXH][MAXW / 8])
+ 904           {
+ 905   1         char x, y, ws = (_huizhiquyu.w / 8), wy = (_huizhiquyu.w & 7), es = (_huizhiquyu.e / 8), ey = (_huizhiqu
+             -yu.e & 7);
+ 906   1         if (es == ws)
+ 907   1         {
+ 908   2           for (y = _huizhiquyu.n; y < _huizhiquyu.s; y++)
+ 909   2               (*huanchong)[y][ws] |= 
+ 910   2               (_hui_juxing[ey - wy] << (wy));
+ 911   2         }
+ 912   1         else
+ 913   1         {
+ 914   2          for (y = _huizhiquyu.n; y < _huizhiquyu.s; y++)
+ 915   2            (*huanchong)[y][ws] |=(0xff << (wy));
+ 916   2          for (x = ws+1; x < es; x++)
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 17  
+
+ 917   2            for (y = _huizhiquyu.n; y < _huizhiquyu.s; y++)
+ 918   2              (*huanchong)[y][x] |= 0xff;
+ 919   2          for (y = _huizhiquyu.n ; y < _huizhiquyu.s; y++)
+ 920   2            (*huanchong)[y][es] |=(0xff >> (8-ey));
+ 921   2         }
+ 922   1       }
+ 923           void quyucachu()
+ 924           {
+ 925   1         quyucachucachu(&huanchonghong);
+*** WARNING C182 IN LINE 925 OF 2048HZAPI.c: pointer to different objects
+ 926   1         quyucachucachu(&huanchonglv);
+*** WARNING C182 IN LINE 926 OF 2048HZAPI.c: pointer to different objects
+ 927   1       }
+ 928          
+ 929           void huizhiduobianxing(char xqi, char yqi, char(*temp)[], char c)
+ 930           {
+ 931   1         //调用绘制线段函数根据数组坐标绘制一个多边形
+ 932   1         huizhixianduan((*temp)[c * 2 - 2] + xqi, (*temp)[c * 2 - 1] + yqi,
+ 933   1           (*temp)[0] + xqi, (*temp)[1] + yqi);
+ 934   1         for (; c > 1; c--)
+ 935   1         {
+ 936   2           huizhixianduan((*temp)[c * 2 - 2] + xqi, (*temp)[c * 2 - 1] + yqi,
+ 937   2             (*temp)[(c - 1) * 2 - 2] + xqi, (*temp)[(c - 1) * 2 - 1] + yqi);
+ 938   2         }
+ 939   1      
+ 940   1       }
+ 941           void huizhitujuxing(char x, char y, char h, char w)
+ 942           {
+ 943   1         char xn = x, yn = y, axw = x + w, axh = y + h;
+ 944   1      
+ 945   1      
+ 946   1         //绘制一个矩形
+ 947   1         for (; xn <= axw; xn++)
+ 948   1         {
+ 949   2               huizhidian(xn, y);
+ 950   2               huizhidian(xn, axh);
+ 951   2         }
+ 952   1         for (; yn <= axh; yn++)
+ 953   1         {
+ 954   2               huizhidian(x, yn);
+ 955   2               huizhidian(axw, yn);
+ 956   2         }
+ 957   1      
+ 958   1       }
+ 959          
+ 960          void huizhixianduan(char xqi, char yqi, char xzhong, char yzhong)
+ 961           {
+ 962   1           char h, hj, w, x, y, xi, yi;
+ 963   1      
+ 964   1      
+ 965   1           //处理坐标信息
+ 966   1           if (xzhong < xqi)
+ 967   1           {
+ 968   2             w = xqi;
+ 969   2             xqi = xzhong;
+ 970   2             xzhong = w;
+ 971   2             w = yzhong;
+ 972   2             yzhong = yqi;
+ 973   2             yqi = w;
+ 974   2           }
+ 975   1           //计算各个点
+ 976   1           h = yzhong - yqi;
+C51 COMPILER V9.54   2048HZAPI                                                             12/22/2017 14:02:53 PAGE 18  
+
+ 977   1           hj = jueduizhi(h);
+ 978   1           w = xzhong - xqi;
+ 979   1           if (jueduizhi(w) >= hj)
+ 980   1           {
+ 981   2      
+ 982   2             for (xi = 0; xi <= w; xi++)
+ 983   2             {
+ 984   3      
+ 985   3               y = (((xi*h * 10) / w) + yqi * 10 + 5) / 10;
+ 986   3               x = xi + xqi;
+ 987   3      
+ 988   3               //调用绘制点函数绘制各个点
+ 989   3               huizhidian(x, y);
+ 990   3             }
+ 991   2           }
+ 992   1      
+ 993   1           else
+ 994   1           {
+ 995   2      
+ 996   2             for (yi = 0; yi <= hj; yi++)
+ 997   2             {
+ 998   3               x = (((yi*w * 10) / hj) + xqi * 10 + 5) / 10;
+ 999   3               y = yi*(h<0 ? -1 : 1) + yqi;
+1000   3      
+1001   3               //调用绘制点函数绘制各个点
+1002   3               huizhidian(x, y);
+1003   3             }
+1004   2           }
+1005   1         }
+1006           
+1007          
+1008           char jueduizhi(char temp)
+1009           {//辅助用于求绝对值
+1010   1         if (temp < 0)
+1011   1           return (-temp);
+1012   1         else
+1013   1           return temp;
+1014   1       }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =  17686    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   1064     253
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  68 WARNING(S),  0 ERROR(S)

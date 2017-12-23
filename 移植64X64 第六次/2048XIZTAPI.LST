@@ -1,0 +1,155 @@
+C51 COMPILER V9.54   2048XIZTAPI                                                           12/22/2017 14:02:55 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE 2048XIZTAPI
+OBJECT MODULE PLACED IN 2048XIZTAPI.OBJ
+COMPILER INVOKED BY: D:\K5\MAIN\C51\BIN\C51.EXE 2048XIZTAPI.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include"to2048moni.h"
+   2          
+   3          //消息队列
+   4          XIAOXI _xiaoxiduilie = { 0, 0, 0, 0, 0, 0 };
+   5          
+   6          char _zhuangtaibiao[8] = { 1, 0, 0, 0, 0, 0, 0, 0 };//状态表
+   7          
+   8          char _shijianbiao[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };//时间数据 秒 分 时 日 月 年年 上午/下午
+   9          
+  10          char _jiemian[8] = { 1, 0, 0, 0, 0, 0, 0, 0};//界面表
+  11          char _jiemiant[8] = { 0, 0, 0, 0, 0, 0, 0, 0};//界面表T
+  12          
+  13          
+  14          
+  15          
+  16          //修改状态表
+  17          void xiugaizhuangtaibiao(char temp, char key)
+  18          {
+  19   1        _zhuangtaibiao[key] = temp;
+  20   1      }
+  21          
+  22          //查询状态表
+  23          char chaxunzhuangtaibiao( char key)
+  24          {
+  25   1        return _zhuangtaibiao[key];
+  26   1      }
+  27          
+  28          //复位状态表
+  29          void fuweizhuangtaibiao()
+  30          {
+  31   1        _zhuangtaibiao[0] =  1 ;
+  32   1        _zhuangtaibiao[1] &= 0x00;
+  33   1        _zhuangtaibiao[2] &= 0x00;
+  34   1        _zhuangtaibiao[3] &= 0x00;
+  35   1        _zhuangtaibiao[4] &= 0x00;
+  36   1        _zhuangtaibiao[5] &= 0x00;
+  37   1        _zhuangtaibiao[6] &= 0x00;
+  38   1        _zhuangtaibiao[7] &= 0x00;
+  39   1      
+  40   1      }
+  41          
+  42          //修改界面指示器
+  43          void xiugaijiemian(char temp,char ceng)
+  44          {
+  45   1        _jiemian[ceng] = temp;
+  46   1      }
+  47          
+  48          //检查界面是否变动
+  49          uchar jianchajiemian( char ceng)
+  50          {
+  51   1        if (_jiemian[ceng] == _jiemiant[ceng])
+  52   1        {
+  53   2          return 0;
+  54   2        }
+  55   1        return 1;
+C51 COMPILER V9.54   2048XIZTAPI                                                           12/22/2017 14:02:55 PAGE 2   
+
+  56   1      }
+  57          
+  58          //查询一个界面指示
+  59          char chaxunjiemian(char ceng)
+  60          {
+  61   1        return _jiemian[ceng];
+  62   1      }
+  63          
+  64          //同步界面指示器
+  65          void tongbujiemian(char ceng)
+  66          {
+  67   1        _jiemiant[ceng] = _jiemian[ceng];
+  68   1      }
+  69          
+  70          //插入一条消息
+  71          uchar charuxiaoxi(uchar i,uchar tdata)
+  72          {
+  73   1        char ix;
+  74   1        if (_xiaoxiduilie.i < XIAOXIMAX)
+  75   1        {
+  76   2          if (i == END)//末尾插入消息
+  77   2          {
+  78   3            _xiaoxiduilie.xiaoxi[_xiaoxiduilie.i] = tdata;
+  79   3            _xiaoxiduilie.i++;
+  80   3      
+  81   3      
+  82   3            return 1;
+  83   3          }
+  84   2          else if(i == ONE)//首位插入消息
+  85   2          {
+  86   3            ix = _xiaoxiduilie.i;
+  87   3            for (; ix > 0; ix--)
+  88   3            {
+  89   4              _xiaoxiduilie.xiaoxi[ix] = _xiaoxiduilie.xiaoxi[ix - 1];
+  90   4            }
+  91   3            _xiaoxiduilie.xiaoxi[0] = tdata;
+  92   3            _xiaoxiduilie.i++;
+  93   3            return 1;
+  94   3          }
+  95   2        }
+  96   1        return 0;
+  97   1      }
+  98          
+  99          //弹出一条消息
+ 100          uchar tanchuxiaoxi()
+ 101          {
+ 102   1        char i;
+ 103   1        uchar tdata;
+ 104   1        if (_xiaoxiduilie.i == 0)
+ 105   1        {
+ 106   2          return NOP;
+ 107   2        }
+ 108   1        else
+ 109   1        {
+ 110   2          i = 0;
+ 111   2          tdata = _xiaoxiduilie.xiaoxi[0];
+ 112   2      
+ 113   2          for (; i <_xiaoxiduilie.i-1; i++)
+ 114   2          {
+ 115   3            _xiaoxiduilie.xiaoxi[i] = _xiaoxiduilie.xiaoxi[i+1];
+ 116   3          }
+ 117   2          _xiaoxiduilie.xiaoxi[i] = 0;
+C51 COMPILER V9.54   2048XIZTAPI                                                           12/22/2017 14:02:55 PAGE 3   
+
+ 118   2          _xiaoxiduilie.i--;
+ 119   2          return tdata;
+ 120   2        }
+ 121   1      
+ 122   1      }
+ 123          
+ 124          //检测消息队列是否有消息
+ 125          char jiancexiaoxi()
+ 126          {
+ 127   1        return _xiaoxiduilie.i;
+ 128   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    358    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     41    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

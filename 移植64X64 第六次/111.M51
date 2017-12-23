@@ -1,0 +1,3127 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/22/2017  14:02:57  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\K5\MAIN\C51\BIN\BL51.EXE 2048HZAPI.obj, 2048JDAPI.obj, 2048JGT.obj, 2048SXAPI.obj, 2048XIZTAPI.obj, 主程序.obj, 2048G
+>> JAPI.obj, 2048SJK.obj, 2048KJAPI.obj, 2048HBAPP.obj, TDXRAPP.obj TO 111 RAMSIZE (256)
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  2048HZAPI.obj (2048HZAPI)
+  2048JDAPI.obj (2048JDAPI)
+  2048JGT.obj (2048JGT)
+  2048SXAPI.obj (2048SXAPI)
+  2048XIZTAPI.obj (2048XIZTAPI)
+  主程序.obj (______)
+  2048GJAPI.obj (2048GJAPI)
+  2048SJK.obj (2048SJK)
+  2048KJAPI.obj (2048KJAPI)
+  2048HBAPP.obj (2048HBAPP)
+  TDXRAPP.obj (TDXRAPP)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C_STARTUP)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?SCDIV)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?CLDPTR)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?CLDOPTR)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?CILDPTR)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?CILDOPTR)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?CSTPTR)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?CSTOPTR)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?IMUL)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?SIDIV)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?OFFX256)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PLDPTR)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PSTPTR)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PLDOPTR)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?ICASE)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C_INIT)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?UIDIV)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PLDIDATA)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PSTIDATA)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PLDXDATA)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PSTXDATA)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PLDPDATA)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PSTPDATA)
+  D:\K5\MAIN\C51\LIB\C51L.LIB (?C?PLDCODE)
+
+
+LINK MAP OF MODULE:  111 (2048HZAPI)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     0428H     UNIT         ?XD?2048HZAPI
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 2
+
+
+            XDATA   0428H     00A8H     UNIT         ?XD?2048HBAPP
+            XDATA   04D0H     006BH     UNIT         ?XD?______
+            XDATA   053BH     003DH     UNIT         ?XD?2048GJAPI
+            XDATA   0578H     0039H     UNIT         ?XD?TDXRAPP
+            XDATA   05B1H     0039H     UNIT         _XDATA_GROUP_
+            XDATA   05EAH     0029H     UNIT         ?XD?2048XIZTAPI
+            XDATA   0613H     0017H     UNIT         ?XD?2048JDAPI
+            XDATA   062AH     0010H     UNIT         ?XD?__JIANCECHONGDIETUJIANCE?2048GJAPI
+            XDATA   063AH     000CH     UNIT         ?XD?2048KJAPI
+            XDATA   0646H     000BH     UNIT         ?XD?_HUIZHIXIANDUAN?2048HZAPI
+            XDATA   0651H     0008H     UNIT         ?XD?_HUIZHITUJUXING?2048HZAPI
+            XDATA   0659H     0008H     UNIT         ?XD?_GGYSIJIAODIAN?2048JDAPI
+            XDATA   0661H     0008H     UNIT         ?XD?_JIANCECHONGDIETU?2048GJAPI
+            XDATA   0669H     0006H     UNIT         ?XD?_ZHENGTIYIDONGHENGW?2048HZAPI
+            XDATA   066FH     0006H     UNIT         ?XD?_ZHENGTIYIDONGHENGE?2048HZAPI
+            XDATA   0675H     0006H     UNIT         ?XD?_HUIZHIDUOBIANXING?2048HZAPI
+            XDATA   067BH     0005H     UNIT         ?XD?_HUIZHIDIANCACHU?2048HZAPI
+            XDATA   0680H     0005H     UNIT         ?XD?_HUIZHIDIANHUIZHI?2048HZAPI
+            XDATA   0685H     0005H     UNIT         ?XD?_HUIZHIDIANQUFAN?2048HZAPI
+            XDATA   068AH     0005H     UNIT         ?XD?_GGZONGDIAN?2048JDAPI
+            XDATA   068FH     0005H     UNIT         ?XD?__JIANCECHONGDIEDIANJIANCE?2048GJAPI
+            XDATA   0694H     0004H     UNIT         ?XD?_ZHENGTIYIDONGSHUN?2048HZAPI
+            XDATA   0698H     0004H     UNIT         ?XD?_ZHENGTIYIDONGSHUS?2048HZAPI
+            XDATA   069CH     0002H     UNIT         ?XD?_ZHENGTIYIDONG?2048HZAPI
+            XDATA   069EH     0002H     UNIT         ?XD?_JIANCECHONGDIEDIAN?2048GJAPI
+            XDATA   06A0H     0001H     UNIT         ?XD?_HUIZHIDIAN?2048HZAPI
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0AADH     UNIT         ?PR?_HUIZHIEXCACHU?2048HZAPI
+            CODE    0AB0H     0A52H     UNIT         ?PR?_HUIZHIEXQUFAN?2048HZAPI
+            CODE    1502H     0986H     UNIT         ?PR?_HUIZHIEXHUIZHI?2048HZAPI
+            CODE    1E88H     03EDH     UNIT         ?PR?_KJHUAKUAI?2048KJAPI
+            CODE    2275H     0331H     UNIT         ?PR?_HUIZHICACHU?2048HZAPI
+            CODE    25A6H     031FH     UNIT         ?PR?_HUIZHIJIAODIAN?2048JDAPI
+            CODE    28C5H     030CH     UNIT         ?PR?_KJANNIU?2048KJAPI
+            CODE    2BD1H     02F9H     UNIT         ?PR?_HUIZHIHUIZHI?2048HZAPI
+            CODE    2ECAH     02F9H     UNIT         ?PR?_HUIZHIQUFAN?2048HZAPI
+            CODE    31C3H     02C9H     UNIT         ?PR?_ZHENGTIYIDONGHENGE?2048HZAPI
+            CODE    348CH     02B7H     UNIT         ?PR?_MAINPING_D?______
+            CODE    3743H     02ADH     UNIT         ?C?LIB_CODE
+            CODE    39F0H     0281H     UNIT         ?PR?__JIANCECHONGDIETUJIANCE?2048GJAPI
+            CODE    3C71H     0280H     UNIT         ?PR?_ZHENGTIYIDONGHENGW?2048HZAPI
+            CODE    3EF1H     0271H     UNIT         ?C_INITSEG
+            CODE    4162H     0265H     UNIT         ?PR?_HUIZHI?2048HZAPI
+            CODE    43C7H     0265H     UNIT         ?PR?_HUIZHIEX?2048HZAPI
+            CODE    462CH     0229H     UNIT         ?PR?_ZHENGTIYIDONGSHUS?2048HZAPI
+            CODE    4855H     0222H     UNIT         ?PR?_ZHENGTIYIDONGSHUN?2048HZAPI
+            CODE    4A77H     0222H     UNIT         ?PR?_QUYUCACHUCACHU?2048HZAPI
+            CODE    4C99H     0219H     UNIT         ?PR?_ZUHEANNIU?2048KJAPI
+            CODE    4EB2H     01DDH     UNIT         ?PR?_TANCHUQUYUTANCHU?2048HZAPI
+            CODE    508FH     019CH     UNIT         ?PR?_HUIZHIXIANDUAN?2048HZAPI
+            CODE    522BH     0176H     UNIT         ?PR?_BAOCUNQUYUTIQU?2048HZAPI
+            CODE    53A1H     0169H     UNIT         ?PR?_SHUAXINYIHANG?2048SXAPI
+            CODE    550AH     013AH     UNIT         ?PR?_HUIZHIDUOBIANXING?2048HZAPI
+            CODE    5644H     0131H     UNIT         ?PR?_JIANCECHONGDIETU?2048GJAPI
+            CODE    5775H     0127H     UNIT         ?PR?_HUABANXIAOXICHULICENG?2048HBAPP
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 3
+
+
+            CODE    589CH     00EFH     UNIT         ?PR?_TUODONGAPPZC?TDXRAPP
+            CODE    598BH     00E5H     UNIT         ?PR?_BAOCUNQUYU?2048HZAPI
+            CODE    5A70H     00E4H     UNIT         ?PR?_MAINPING_Z?______
+            CODE    5B54H     00E0H     UNIT         ?PR?_TANCHUQUYU?2048HZAPI
+            CODE    5C34H     00A7H     UNIT         ?PR?_XJDB?______
+            CODE    5CDBH     00A4H     UNIT         ?PR?_HANG?2048SXAPI
+            CODE    5D7FH     00A2H     UNIT         ?PR?_HUIZHIDIANCACHU?2048HZAPI
+            CODE    5E21H     00A2H     UNIT         ?PR?_HUIZHIDIANQUFAN?2048HZAPI
+            CODE    5EC3H     00A0H     UNIT         ?PR?_HUIZHIDIAN?2048HZAPI
+            CODE    5F63H     0098H     UNIT         ?PR?_HUIZHIDIANHUIZHI?2048HZAPI
+            CODE    5FFBH     0095H     UNIT         ?PR?__JIANCECHONGDIEDIANJIANCE?2048GJAPI
+            CODE    6090H     0092H     UNIT         ?PR?MAIN?2048JGT
+            CODE    6122H     0091H     UNIT         ?CO?2048SJK
+            CODE    61B3H     008CH     UNIT         ?C_C51STARTUP
+            CODE    623FH     0088H     UNIT         ?PR?_HUIZHITUJUXING?2048HZAPI
+            CODE    62C7H     0079H     UNIT         ?PR?_GBJIAODIAN?2048JDAPI
+            CODE    6340H     0077H     UNIT         ?PR?HUBANDICEN?2048HBAPP
+            CODE    63B7H     006BH     UNIT         ?PR?_JIANCECHONGDIEDIAN?2048GJAPI
+            CODE    6422H     0066H     UNIT         ?CO?2048HBAPP
+            CODE    6488H     0064H     UNIT         ?PR?_HUIZHIJD_ONE?2048JDAPI
+            CODE    64ECH     0064H     UNIT         ?PR?_HUIZHIJD_END?2048JDAPI
+            CODE    6550H     0062H     UNIT         ?PR?MAIN_XIAOXI?______
+            CODE    65B2H     0060H     UNIT         ?PR?_ZHENGTIYIDONG?2048HZAPI
+            CODE    6612H     005DH     UNIT         ?PR?_SHUAPINGZHILING?2048HZAPI
+            CODE    666FH     005CH     UNIT         ?PR?_CHARUXIAOXI?2048XIZTAPI
+            CODE    66CBH     005CH     UNIT         ?PR?_MORENCHULI?2048GJAPI
+            CODE    6727H     005BH     UNIT         ?PR?TANCHUXIAOXI?2048XIZTAPI
+            CODE    6782H     0058H     UNIT         ?PR?_SHEZHIHUIZHIQUYU?2048HZAPI
+            CODE    67DAH     0057H     UNIT         ?PR?_MAINPING_FY_ONE?______
+            CODE    6831H     0056H     UNIT         ?PR?_SHUAPINGZHIYI?2048HZAPI
+            CODE    6887H     004BH     UNIT         ?PR?_GGJIAODIAN?2048JDAPI
+            CODE    68D2H     0049H     UNIT         ?PR?_GGYSIJIAODIAN?2048JDAPI
+            CODE    691BH     0046H     UNIT         ?PR?_SHUAPING?2048HZAPI
+            CODE    6961H     003EH     UNIT         ?PR?SHUAXIN?2048SXAPI
+            CODE    699FH     0037H     UNIT         ?PR?DALOGO?2048GJAPI
+            CODE    69D6H     0035H     UNIT         ?PR?_GJJUXINGJIANCE?2048GJAPI
+            CODE    6A0BH     0033H     UNIT         ?PR?XJDB2?______
+            CODE    6A3EH     002EH     UNIT         ?PR?MAINPING_F_ONE?2048JGT
+            CODE    6A6CH     002EH     UNIT         ?PR?TUODONGAPPDC?TDXRAPP
+            CODE    6A9AH     002DH     UNIT         ?PR?_TBKJHUAKUAI?2048KJAPI
+            CODE    6AC7H     002CH     UNIT         ?PR?_GGZONGDIAN?2048JDAPI
+            CODE    6AF3H     0029H     UNIT         ?PR?_TUICHUJIAN?2048GJAPI
+            CODE    6B1CH     0026H     UNIT         ?PR?_JIANCHAJIEMIAN?2048XIZTAPI
+            CODE    6B42H     0025H     UNIT         ?PR?_HUODEQUYU?2048HZAPI
+            CODE    6B67H     0023H     UNIT         ?PR?MAINPING_F_END?2048JGT
+            CODE    6B8AH     001FH     UNIT         ?PR?_TONGBUJIEMIAN?2048XIZTAPI
+            CODE    6BA9H     001DH     UNIT         ?PR?_GBKJHUAKUAI?2048KJAPI
+            CODE    6BC6H     001CH     UNIT         ?PR?FUWEIZHUANGTAIBIAO?2048XIZTAPI
+            CODE    6BE2H     0017H     UNIT         ?PR?CHAXUNJIAODIAN_A?2048JDAPI
+            CODE    6BF9H     0016H     UNIT         ?PR?_GJWANGGEJIANCE?2048GJAPI
+            CODE    6C0FH     0016H     UNIT         ?PR?_KJHUAKUAICHABIAO?2048KJAPI
+            CODE    6C25H     0014H     UNIT         ?PR?_CHAXUNJIAODIANA?2048JDAPI
+            CODE    6C39H     0012H     UNIT         ?PR?QUYUCACHU?2048HZAPI
+            CODE    6C4BH     0012H     UNIT         ?PR?_XIUGAIZHUANGTAIBIAO?2048XIZTAPI
+            CODE    6C5DH     0012H     UNIT         ?PR?_CHAXUNZHUANGTAIBIAO?2048XIZTAPI
+            CODE    6C6FH     0012H     UNIT         ?PR?_XIUGAIJIEMIAN?2048XIZTAPI
+            CODE    6C81H     0012H     UNIT         ?PR?_CHAXUNJIEMIAN?2048XIZTAPI
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 4
+
+
+            CODE    6C93H     000EH     UNIT         ?PR?_JUEDUIZHI?2048HZAPI
+            CODE    6CA1H     000BH     UNIT         ?PR?_SLEEP?2048SXAPI
+            CODE    6CACH     0009H     UNIT         ?PR?_MAINPING_FY_END?______
+            CODE    6CB5H     0008H     UNIT         ?PR?_CHAXUNKJANNIU?2048KJAPI
+            CODE    6CBDH     0006H     UNIT         ?PR?_SHEZHIHUABIYANSE?2048HZAPI
+            CODE    6CC3H     0006H     UNIT         ?PR?JIANCEXIAOXI?2048XIZTAPI
+            CODE    6CC9H     0001H     UNIT         ?PR?HUABANFUDONGCENG1?2048HBAPP
+            CODE    6CCAH     0001H     UNIT         ?PR?HUABANFUDONGCENG2?2048HBAPP
+
+
+
+OVERLAY MAP OF MODULE:   111 (2048HZAPI)
+
+
+SEGMENT                                            XDATA_GROUP
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?2048JGT
+  +--> ?C_INITSEG
+
+?PR?MAIN?2048JGT                                 -----    -----
+  +--> ?PR?MAIN_XIAOXI?______
+  +--> ?PR?_JIANCHAJIEMIAN?2048XIZTAPI
+  +--> ?PR?_CHAXUNJIEMIAN?2048XIZTAPI
+  +--> ?PR?_MAINPING_D?______
+  +--> ?PR?SHUAXIN?2048SXAPI
+  +--> ?PR?JIANCEXIAOXI?2048XIZTAPI
+  +--> ?PR?TANCHUXIAOXI?2048XIZTAPI
+  +--> ?PR?CHAXUNJIAODIAN_A?2048JDAPI
+  +--> ?PR?_MAINPING_Z?______
+  +--> ?PR?_MAINPING_FY_ONE?______
+  +--> ?PR?_CHAXUNZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?MAINPING_F_ONE?2048JGT
+  +--> ?PR?MAINPING_F_END?2048JGT
+  +--> ?PR?_MAINPING_FY_END?______
+
+?PR?MAIN_XIAOXI?______                           -----    -----
+  +--> ?PR?_CHARUXIAOXI?2048XIZTAPI
+  +--> ?PR?_CHAXUNZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?_XIUGAIZHUANGTAIBIAO?2048XIZTAPI
+
+?PR?_MAINPING_D?______                           -----    -----
+  +--> ?PR?_SHUAPING?2048HZAPI
+  +--> ?PR?_SHEZHIHUABIYANSE?2048HZAPI
+  +--> ?CO?2048SJK
+  +--> ?PR?_HUIZHI?2048HZAPI
+  +--> ?PR?DALOGO?2048GJAPI
+  +--> ?PR?FUWEIZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?_XIUGAIZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?HUBANDICEN?2048HBAPP
+  +--> ?PR?TUODONGAPPDC?TDXRAPP
+  +--> ?PR?_TUICHUJIAN?2048GJAPI
+  +--> ?PR?_TONGBUJIEMIAN?2048XIZTAPI
+
+?PR?_SHUAPING?2048HZAPI                          -----    -----
+  +--> ?PR?_SHUAPINGZHILING?2048HZAPI
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 5
+
+
+  +--> ?PR?_SHUAPINGZHIYI?2048HZAPI
+
+?PR?_SHUAPINGZHILING?2048HZAPI                   05B1H    0005H
+
+?PR?_SHUAPINGZHIYI?2048HZAPI                     05B1H    0005H
+
+?PR?_HUIZHI?2048HZAPI                            05CDH    000DH
+  +--> ?PR?_HUIZHICACHU?2048HZAPI
+  +--> ?PR?_HUIZHIHUIZHI?2048HZAPI
+  +--> ?PR?_HUIZHIQUFAN?2048HZAPI
+
+?PR?_HUIZHICACHU?2048HZAPI                       05DAH    0010H
+
+?PR?_HUIZHIHUIZHI?2048HZAPI                      05DAH    0010H
+
+?PR?_HUIZHIQUFAN?2048HZAPI                       05DAH    0010H
+
+?PR?DALOGO?2048GJAPI                             -----    -----
+  +--> ?PR?_SHEZHIHUABIYANSE?2048HZAPI
+  +--> ?PR?_HUIZHI?2048HZAPI
+
+?PR?HUBANDICEN?2048HBAPP                         -----    -----
+  +--> ?PR?_SHUAPING?2048HZAPI
+  +--> ?PR?_ZUHEANNIU?2048KJAPI
+  +--> ?PR?FUWEIZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?_XIUGAIZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?DALOGO?2048GJAPI
+  +--> ?PR?_TUICHUJIAN?2048GJAPI
+  +--> ?PR?_TONGBUJIEMIAN?2048XIZTAPI
+
+?PR?_ZUHEANNIU?2048KJAPI                         05B7H    000CH
+  +--> ?PR?_KJANNIU?2048KJAPI
+  +--> ?PR?_GJJUXINGJIANCE?2048GJAPI
+
+?PR?_KJANNIU?2048KJAPI                           05C3H    000AH
+  +--> ?PR?_HUODEQUYU?2048HZAPI
+  +--> ?PR?_GJJUXINGJIANCE?2048GJAPI
+  +--> ?PR?_SHEZHIHUIZHIQUYU?2048HZAPI
+  +--> ?PR?QUYUCACHU?2048HZAPI
+  +--> ?PR?_SHEZHIHUABIYANSE?2048HZAPI
+  +--> ?PR?_HUIZHI?2048HZAPI
+
+?PR?_GJJUXINGJIANCE?2048GJAPI                    05CDH    0006H
+
+?PR?_SHEZHIHUIZHIQUYU?2048HZAPI                  05CDH    0004H
+
+?PR?QUYUCACHU?2048HZAPI                          -----    -----
+  +--> ?PR?_QUYUCACHUCACHU?2048HZAPI
+
+?PR?_QUYUCACHUCACHU?2048HZAPI                    05CDH    0008H
+
+?PR?_TUICHUJIAN?2048GJAPI                        05B7H    0004H
+  +--> ?PR?_KJANNIU?2048KJAPI
+  +--> ?PR?_XIUGAIJIEMIAN?2048XIZTAPI
+
+?PR?TUODONGAPPDC?TDXRAPP                         -----    -----
+  +--> ?PR?_SHUAPING?2048HZAPI
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 6
+
+
+  +--> ?PR?_KJHUAKUAI?2048KJAPI
+  +--> ?PR?FUWEIZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?DALOGO?2048GJAPI
+  +--> ?PR?_TUICHUJIAN?2048GJAPI
+  +--> ?PR?_TONGBUJIEMIAN?2048XIZTAPI
+
+?PR?_KJHUAKUAI?2048KJAPI                         05B7H    000AH
+  +--> ?PR?_HUODEQUYU?2048HZAPI
+  +--> ?PR?_GJJUXINGJIANCE?2048GJAPI
+  +--> ?PR?_SHEZHIHUIZHIQUYU?2048HZAPI
+  +--> ?PR?QUYUCACHU?2048HZAPI
+  +--> ?PR?_KJHUAKUAICHABIAO?2048KJAPI
+  +--> ?PR?_GBKJHUAKUAI?2048KJAPI
+  +--> ?PR?_TBKJHUAKUAI?2048KJAPI
+  +--> ?PR?_SHEZHIHUABIYANSE?2048HZAPI
+  +--> ?PR?_HUIZHI?2048HZAPI
+
+?PR?_GBKJHUAKUAI?2048KJAPI                       05C1H    0005H
+
+?PR?SHUAXIN?2048SXAPI                            05B1H    0002H
+  +--> ?PR?_HANG?2048SXAPI
+  +--> ?PR?_SHUAXINYIHANG?2048SXAPI
+  +--> ?PR?_SLEEP?2048SXAPI
+
+?PR?_MAINPING_Z?______                           05B1H    0003H
+  +--> ?PR?_GJWANGGEJIANCE?2048GJAPI
+  +--> ?PR?_XIUGAIJIEMIAN?2048XIZTAPI
+  +--> ?PR?_HUABANXIAOXICHULICENG?2048HBAPP
+  +--> ?PR?_TUODONGAPPZC?TDXRAPP
+  +--> ?PR?_TUICHUJIAN?2048GJAPI
+  +--> ?PR?_MORENCHULI?2048GJAPI
+
+?PR?_GJWANGGEJIANCE?2048GJAPI                    05B4H    0004H
+
+?PR?_HUABANXIAOXICHULICENG?2048HBAPP             05B4H    0003H
+  +--> ?PR?_ZUHEANNIU?2048KJAPI
+  +--> ?PR?_GJJUXINGJIANCE?2048GJAPI
+  +--> ?PR?_CHAXUNZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?_SHEZHIHUIZHIQUYU?2048HZAPI
+  +--> ?PR?_SHEZHIHUABIYANSE?2048HZAPI
+  +--> ?PR?_HUIZHIEX?2048HZAPI
+  +--> ?PR?_XIUGAIZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?_TUICHUJIAN?2048GJAPI
+  +--> ?PR?_MORENCHULI?2048GJAPI
+
+?PR?_HUIZHIEX?2048HZAPI                          05B7H    000DH
+  +--> ?PR?_HUIZHIEXCACHU?2048HZAPI
+  +--> ?PR?_HUIZHIEXHUIZHI?2048HZAPI
+  +--> ?PR?_HUIZHIEXQUFAN?2048HZAPI
+
+?PR?_HUIZHIEXCACHU?2048HZAPI                     05C4H    0010H
+
+?PR?_HUIZHIEXHUIZHI?2048HZAPI                    05C4H    0010H
+
+?PR?_HUIZHIEXQUFAN?2048HZAPI                     05C4H    0010H
+
+?PR?_MORENCHULI?2048GJAPI                        05B7H    0001H
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 7
+
+
+  +--> ?PR?_CHAXUNZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?_GBJIAODIAN?2048JDAPI
+
+?PR?_GBJIAODIAN?2048JDAPI                        05B8H    0005H
+
+?PR?_TUODONGAPPZC?TDXRAPP                        05B4H    0003H
+  +--> ?PR?_KJHUAKUAI?2048KJAPI
+  +--> ?PR?_GJJUXINGJIANCE?2048GJAPI
+  +--> ?PR?_GGJIAODIAN?2048JDAPI
+  +--> ?PR?_MORENCHULI?2048GJAPI
+  +--> ?PR?_TUICHUJIAN?2048GJAPI
+
+?PR?_GGJIAODIAN?2048JDAPI                        05B7H    0005H
+
+?PR?_MAINPING_FY_ONE?______                      -----    -----
+  +--> ?PR?_GJWANGGEJIANCE?2048GJAPI
+  +--> ?PR?_XJDB?______
+  +--> ?PR?XJDB2?______
+  +--> ?PR?_XIUGAIZHUANGTAIBIAO?2048XIZTAPI
+
+?PR?_XJDB?______                                 05B1H    0002H
+  +--> ?PR?_CHAXUNZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?XJDB2?______
+  +--> ?PR?_GGJIAODIAN?2048JDAPI
+  +--> ?PR?_HUIZHIJD_ONE?2048JDAPI
+  +--> ?PR?_HUIZHIJIAODIAN?2048JDAPI
+  +--> ?PR?_XIUGAIZHUANGTAIBIAO?2048XIZTAPI
+
+?PR?XJDB2?______                                 -----    -----
+  +--> ?PR?_CHAXUNZHUANGTAIBIAO?2048XIZTAPI
+  +--> ?PR?_HUIZHIJD_END?2048JDAPI
+  +--> ?PR?_XIUGAIZHUANGTAIBIAO?2048XIZTAPI
+
+?PR?_HUIZHIJD_END?2048JDAPI                      05B3H    0009H
+  +--> ?PR?_TANCHUQUYU?2048HZAPI
+
+?PR?_TANCHUQUYU?2048HZAPI                        05BCH    000EH
+  +--> ?PR?_TANCHUQUYUTANCHU?2048HZAPI
+
+?PR?_TANCHUQUYUTANCHU?2048HZAPI                  05CAH    0009H
+
+?PR?_HUIZHIJD_ONE?2048JDAPI                      05B3H    0009H
+  +--> ?PR?_BAOCUNQUYU?2048HZAPI
+
+?PR?_BAOCUNQUYU?2048HZAPI                        05BCH    000EH
+  +--> ?PR?_BAOCUNQUYUTIQU?2048HZAPI
+
+?PR?_BAOCUNQUYUTIQU?2048HZAPI                    05CAH    0009H
+
+?PR?_HUIZHIJIAODIAN?2048JDAPI                    05B3H    0003H
+  +--> ?PR?_HUIZHIQUFAN?2048HZAPI
+  +--> ?PR?_HUIZHICACHU?2048HZAPI
+  +--> ?PR?_HUIZHIHUIZHI?2048HZAPI
+
+?PR?MAINPING_F_ONE?2048JGT                       -----    -----
+  +--> ?PR?_HUIZHIJD_ONE?2048JDAPI
+  +--> ?PR?_HUIZHIJIAODIAN?2048JDAPI
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 8
+
+
+
+?PR?MAINPING_F_END?2048JGT                       -----    -----
+  +--> ?PR?_HUIZHIJD_END?2048JDAPI
+
+?PR?_MAINPING_FY_END?______                      05B1H    0002H
+
+?C_INITSEG                                       -----    -----
+  +--> ?CO?2048SJK
+  +--> ?CO?2048HBAPP
+
+
+
+SYMBOL TABLE OF MODULE:  111 (2048HZAPI)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        2048HZAPI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:3C71H         PUBLIC        _zhengtiyidonghengW
+  C:1502H         PUBLIC        _huizhiexhuizhi
+  C:65B2H         PUBLIC        _zhengtiyidong
+  C:0AB0H         PUBLIC        _huizhiexqufan
+  C:4162H         PUBLIC        _huizhi
+  C:6831H         PUBLIC        _shuapingzhiyi
+  C:522BH         PUBLIC        _baocunquyutiqu
+  C:623FH         PUBLIC        _huizhitujuxing
+  C:22ABH         PUBLIC        _huizhicachu
+  X:0000H         PUBLIC        _hui_juxing
+  X:0008H         PUBLIC        huanchonglv
+  C:2BD1H         PUBLIC        _huizhihuizhi
+  C:4855H         PUBLIC        _zhengtiyidongshuN
+  X:0208H         PUBLIC        huabiyanse
+  C:462CH         PUBLIC        _zhengtiyidongshuS
+  C:2ECAH         PUBLIC        _huizhiqufan
+  C:5EC3H         PUBLIC        _huizhidian
+  C:550AH         PUBLIC        _huizhiduobianxing
+  C:5D8BH         PUBLIC        _huizhidiancachu
+  C:6CBDH         PUBLIC        _shezhihuabiyanse
+  C:5F63H         PUBLIC        _huizhidianhuizhi
+  X:0209H         PUBLIC        _huizhiquyu
+  C:5E2BH         PUBLIC        _huizhidianqufan
+  C:598BH         PUBLIC        _baocunquyu
+  X:020DH         PUBLIC        _huizhi_buqianz
+  C:6C93H         PUBLIC        _jueduizhi
+  X:0216H         PUBLIC        _huizhi_buqian
+  C:6C39H         PUBLIC        quyucachu
+  C:5B54H         PUBLIC        _tanchuquyu
+  C:6618H         PUBLIC        _shuapingzhiling
+  C:691BH         PUBLIC        _shuaping
+  C:4A77H         PUBLIC        _quyucachucachu
+  C:4EB2H         PUBLIC        _tanchuquyutanchu
+  C:6B42H         PUBLIC        _huodequyu
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 9
+
+
+  X:021FH         PUBLIC        huanchonghong
+  C:508FH         PUBLIC        _huizhixianduan
+  C:43C7H         PUBLIC        _huizhiex
+  C:31C3H         PUBLIC        _zhengtiyidonghengE
+  C:0039H         PUBLIC        _huizhiexcachu
+  X:041FH         PUBLIC        _huizhi_buhou
+  C:6782H         PUBLIC        _shezhihuizhiquyu
+  -------         PROC          _SHEZHIHUABIYANSE
+  D:0007H         SYMBOL        yanse
+  C:6CBDH         LINE#         24
+  C:6CBDH         LINE#         25
+  C:6CBDH         LINE#         26
+  C:6CC2H         LINE#         27
+  -------         ENDPROC       _SHEZHIHUABIYANSE
+  -------         PROC          _SHEZHIHUIZHIQUYU
+  D:0007H         SYMBOL        w
+  D:0005H         SYMBOL        n
+  D:0003H         SYMBOL        e
+  X:05D0H         SYMBOL        s
+  C:6782H         LINE#         29
+  C:6782H         LINE#         30
+  C:67C6H         LINE#         31
+  C:67C6H         LINE#         32
+  C:67CBH         LINE#         33
+  C:67CEH         LINE#         34
+  C:67D1H         LINE#         35
+  C:67D9H         LINE#         36
+  C:67D9H         LINE#         37
+  -------         ENDPROC       _SHEZHIHUIZHIQUYU
+  -------         PROC          _HUODEQUYU
+  D:0001H         SYMBOL        temp
+  C:6B42H         LINE#         38
+  C:6B42H         LINE#         39
+  C:6B42H         LINE#         40
+  C:6B49H         LINE#         41
+  C:6B53H         LINE#         42
+  C:6B5DH         LINE#         43
+  -------         ENDPROC       _HUODEQUYU
+  -------         PROC          _HUIZHIHUIZHI
+  X:05DAH         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:05DEH         SYMBOL        y
+  X:05DFH         SYMBOL        temp
+  X:05E2H         SYMBOL        h
+  X:05E3H         SYMBOL        w
+  -------         DO            
+  X:05E4H         SYMBOL        i
+  X:05E5H         SYMBOL        chicun
+  X:05E6H         SYMBOL        xy
+  X:05E7H         SYMBOL        xs
+  X:05E8H         SYMBOL        ihs
+  X:05E9H         SYMBOL        ihy
+  -------         ENDDO         
+  C:2BD1H         LINE#         47
+  C:2BDCH         LINE#         48
+  C:2BDCH         LINE#         53
+  C:2BECH         LINE#         54
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 10
+
+
+  C:2C11H         LINE#         55
+  C:2C33H         LINE#         56
+  C:2C50H         LINE#         57
+  C:2C50H         LINE#         58
+  C:2C62H         LINE#         59
+  C:2C8DH         LINE#         60
+  C:2C8DH         LINE#         61
+  C:2C9CH         LINE#         63
+  C:2CC6H         LINE#         64
+  C:2CC6H         LINE#         65
+  C:2DA0H         LINE#         72
+  C:2DA0H         LINE#         74
+  C:2DD5H         LINE#         75
+  C:2DD5H         LINE#         76
+  C:2EC0H         LINE#         83
+  C:2EC0H         LINE#         84
+  C:2EC0H         LINE#         85
+  C:2EC9H         LINE#         86
+  -------         ENDPROC       _HUIZHIHUIZHI
+  -------         PROC          L?0605
+  -------         ENDPROC       L?0605
+  -------         PROC          _HUIZHICACHU
+  X:05DAH         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:05DEH         SYMBOL        y
+  X:05DFH         SYMBOL        temp
+  X:05E2H         SYMBOL        h
+  X:05E3H         SYMBOL        w
+  -------         DO            
+  X:05E4H         SYMBOL        i
+  X:05E5H         SYMBOL        chicun
+  X:05E6H         SYMBOL        xy
+  X:05E7H         SYMBOL        xs
+  X:05E8H         SYMBOL        ihs
+  X:05E9H         SYMBOL        ihy
+  -------         ENDDO         
+  C:22ABH         LINE#         87
+  C:22B6H         LINE#         88
+  C:22B6H         LINE#         94
+  C:22C6H         LINE#         95
+  C:22EBH         LINE#         96
+  C:230FH         LINE#         97
+  C:232CH         LINE#         98
+  C:232CH         LINE#         99
+  C:233EH         LINE#         100
+  C:2369H         LINE#         101
+  C:2369H         LINE#         102
+  C:2378H         LINE#         103
+  C:23A2H         LINE#         104
+  C:23A2H         LINE#         105
+  C:247AH         LINE#         112
+  C:247AH         LINE#         114
+  C:24B3H         LINE#         115
+  C:24B3H         LINE#         116
+  C:259CH         LINE#         123
+  C:259CH         LINE#         124
+  C:259CH         LINE#         125
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 11
+
+
+  C:25A5H         LINE#         127
+  -------         ENDPROC       _HUIZHICACHU
+  -------         PROC          _HUIZHIQUFAN
+  X:05DAH         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:05DEH         SYMBOL        y
+  X:05DFH         SYMBOL        temp
+  X:05E2H         SYMBOL        h
+  X:05E3H         SYMBOL        w
+  -------         DO            
+  X:05E4H         SYMBOL        i
+  X:05E5H         SYMBOL        chicun
+  X:05E6H         SYMBOL        xy
+  X:05E7H         SYMBOL        xs
+  X:05E8H         SYMBOL        ihs
+  X:05E9H         SYMBOL        ihy
+  -------         ENDDO         
+  C:2ECAH         LINE#         128
+  C:2ED5H         LINE#         129
+  C:2ED5H         LINE#         135
+  C:2EE5H         LINE#         136
+  C:2F0AH         LINE#         137
+  C:2F2CH         LINE#         138
+  C:2F49H         LINE#         139
+  C:2F49H         LINE#         140
+  C:2F5BH         LINE#         141
+  C:2F86H         LINE#         142
+  C:2F86H         LINE#         143
+  C:2F95H         LINE#         145
+  C:2FBFH         LINE#         146
+  C:2FBFH         LINE#         147
+  C:3099H         LINE#         154
+  C:3099H         LINE#         156
+  C:30CEH         LINE#         157
+  C:30CEH         LINE#         158
+  C:31B9H         LINE#         165
+  C:31B9H         LINE#         166
+  C:31B9H         LINE#         167
+  C:31C2H         LINE#         169
+  -------         ENDPROC       _HUIZHIQUFAN
+  -------         PROC          _HUIZHI
+  X:05CDH         SYMBOL        x
+  X:05CEH         SYMBOL        y
+  X:05CFH         SYMBOL        temp
+  X:05D2H         SYMBOL        h
+  X:05D3H         SYMBOL        w
+  -------         DO            
+  X:05D4H         SYMBOL        i
+  X:05D5H         SYMBOL        chicun
+  X:05D6H         SYMBOL        xy
+  X:05D7H         SYMBOL        xs
+  X:05D8H         SYMBOL        ihs
+  X:05D9H         SYMBOL        ihy
+  -------         ENDDO         
+  C:4162H         LINE#         170
+  C:4173H         LINE#         171
+  C:4173H         LINE#         178
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 12
+
+
+  C:4179H         LINE#         179
+  C:4179H         LINE#         180
+  C:417CH         LINE#         181
+  C:417CH         LINE#         182
+  C:417FH         LINE#         183
+  C:4187H         LINE#         184
+  C:4187H         LINE#         185
+  C:41C0H         LINE#         186
+  C:41C0H         LINE#         187
+  C:41C3H         LINE#         188
+  C:41CBH         LINE#         189
+  C:41CBH         LINE#         190
+  C:41CEH         LINE#         191
+  C:4207H         LINE#         193
+  C:4207H         LINE#         194
+  C:420FH         LINE#         195
+  C:420FH         LINE#         196
+  C:4248H         LINE#         197
+  C:424AH         LINE#         199
+  C:424AH         LINE#         200
+  C:4252H         LINE#         201
+  C:4252H         LINE#         202
+  C:4288H         LINE#         203
+  C:428AH         LINE#         204
+  C:4292H         LINE#         205
+  C:4292H         LINE#         206
+  C:42CBH         LINE#         207
+  C:42CBH         LINE#         208
+  C:42D3H         LINE#         209
+  C:42D3H         LINE#         210
+  C:4309H         LINE#         211
+  C:430CH         LINE#         212
+  C:4314H         LINE#         213
+  C:4314H         LINE#         214
+  C:434AH         LINE#         215
+  C:434CH         LINE#         216
+  C:4354H         LINE#         217
+  C:4354H         LINE#         218
+  C:438DH         LINE#         219
+  C:43C6H         LINE#         220
+  C:43C6H         LINE#         223
+  -------         ENDPROC       _HUIZHI
+  -------         PROC          _HUIZHIEXHUIZHI
+  X:05C4H         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:05C8H         SYMBOL        y
+  X:05C9H         SYMBOL        temp
+  X:05CCH         SYMBOL        h
+  X:05CDH         SYMBOL        w
+  -------         DO            
+  X:05CEH         SYMBOL        i
+  X:05CFH         SYMBOL        chicun
+  X:05D0H         SYMBOL        xy
+  X:05D1H         SYMBOL        xs
+  X:05D2H         SYMBOL        ihs
+  X:05D3H         SYMBOL        ihy
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 13
+
+
+  C:1502H         LINE#         226
+  C:150DH         LINE#         227
+  C:150DH         LINE#         232
+  C:151DH         LINE#         233
+  C:1533H         LINE#         234
+  C:1557H         LINE#         235
+  C:156DH         LINE#         236
+  C:156DH         LINE#         237
+  C:157DH         LINE#         238
+  C:15C0H         LINE#         239
+  C:15C0H         LINE#         240
+  C:15D1H         LINE#         242
+  C:1627H         LINE#         243
+  C:1627H         LINE#         244
+  C:16BAH         LINE#         251
+  C:16BDH         LINE#         252
+  C:1723H         LINE#         253
+  C:1723H         LINE#         254
+  C:17CEH         LINE#         261
+  C:17D1H         LINE#         262
+  C:1821H         LINE#         263
+  C:1821H         LINE#         264
+  C:18CCH         LINE#         271
+  C:18CFH         LINE#         272
+  C:1915H         LINE#         273
+  C:1915H         LINE#         274
+  C:1A00H         LINE#         281
+  C:1A00H         LINE#         283
+  C:1A61H         LINE#         284
+  C:1A61H         LINE#         285
+  C:1AFFH         LINE#         292
+  C:1B02H         LINE#         293
+  C:1B6EH         LINE#         294
+  C:1B6EH         LINE#         295
+  C:1C24H         LINE#         302
+  C:1C27H         LINE#         303
+  C:1C7DH         LINE#         304
+  C:1C7DH         LINE#         305
+  C:1D33H         LINE#         312
+  C:1D36H         LINE#         313
+  C:1D82H         LINE#         314
+  C:1D82H         LINE#         315
+  C:1E7EH         LINE#         322
+  C:1E7EH         LINE#         323
+  C:1E7EH         LINE#         324
+  C:1E87H         LINE#         325
+  -------         ENDPROC       _HUIZHIEXHUIZHI
+  -------         PROC          L?0606
+  -------         ENDPROC       L?0606
+  -------         PROC          _HUIZHIEXCACHU
+  X:05C4H         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:05C8H         SYMBOL        y
+  X:05C9H         SYMBOL        temp
+  X:05CCH         SYMBOL        h
+  X:05CDH         SYMBOL        w
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 14
+
+
+  X:05CEH         SYMBOL        i
+  X:05CFH         SYMBOL        chicun
+  X:05D0H         SYMBOL        xy
+  X:05D1H         SYMBOL        xs
+  X:05D2H         SYMBOL        ihs
+  X:05D3H         SYMBOL        ihy
+  -------         ENDDO         
+  C:0039H         LINE#         326
+  C:0044H         LINE#         327
+  C:0044H         LINE#         332
+  C:0054H         LINE#         333
+  C:006AH         LINE#         334
+  C:008CH         LINE#         335
+  C:00A9H         LINE#         336
+  C:00A9H         LINE#         337
+  C:00BBH         LINE#         338
+  C:0100H         LINE#         339
+  C:0100H         LINE#         340
+  C:0114H         LINE#         342
+  C:0175H         LINE#         343
+  C:0175H         LINE#         344
+  C:0217H         LINE#         351
+  C:021AH         LINE#         352
+  C:028AH         LINE#         353
+  C:028AH         LINE#         354
+  C:0344H         LINE#         361
+  C:0347H         LINE#         362
+  C:03A7H         LINE#         363
+  C:03A7H         LINE#         364
+  C:0461H         LINE#         371
+  C:0464H         LINE#         372
+  C:04BAH         LINE#         373
+  C:04BAH         LINE#         374
+  C:05C2H         LINE#         381
+  C:05C2H         LINE#         383
+  C:0627H         LINE#         384
+  C:0627H         LINE#         385
+  C:06D4H         LINE#         392
+  C:06D7H         LINE#         393
+  C:0747H         LINE#         394
+  C:0747H         LINE#         395
+  C:080CH         LINE#         402
+  C:080FH         LINE#         403
+  C:086FH         LINE#         404
+  C:086FH         LINE#         405
+  C:0934H         LINE#         412
+  C:0937H         LINE#         413
+  C:098DH         LINE#         414
+  C:098DH         LINE#         415
+  C:0AA6H         LINE#         422
+  C:0AA6H         LINE#         423
+  C:0AA6H         LINE#         424
+  C:0AAFH         LINE#         425
+  -------         ENDPROC       _HUIZHIEXCACHU
+  -------         PROC          _HUIZHIEXQUFAN
+  X:05C4H         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 15
+
+
+  X:05C8H         SYMBOL        y
+  X:05C9H         SYMBOL        temp
+  X:05CCH         SYMBOL        h
+  X:05CDH         SYMBOL        w
+  -------         DO            
+  X:05CEH         SYMBOL        i
+  X:05CFH         SYMBOL        chicun
+  X:05D0H         SYMBOL        xy
+  X:05D1H         SYMBOL        xs
+  X:05D2H         SYMBOL        ihs
+  X:05D3H         SYMBOL        ihy
+  -------         ENDDO         
+  C:0AB0H         LINE#         426
+  C:0ABBH         LINE#         427
+  C:0ABBH         LINE#         432
+  C:0ACBH         LINE#         433
+  C:0AE1H         LINE#         434
+  C:0B03H         LINE#         435
+  C:0B20H         LINE#         436
+  C:0B20H         LINE#         437
+  C:0B32H         LINE#         438
+  C:0B77H         LINE#         439
+  C:0B77H         LINE#         440
+  C:0B8BH         LINE#         442
+  C:0BE7H         LINE#         443
+  C:0BE7H         LINE#         444
+  C:0C8BH         LINE#         451
+  C:0C8EH         LINE#         452
+  C:0CF4H         LINE#         453
+  C:0CF4H         LINE#         454
+  C:0DB0H         LINE#         461
+  C:0DB3H         LINE#         462
+  C:0E0BH         LINE#         463
+  C:0E0BH         LINE#         464
+  C:0EC7H         LINE#         471
+  C:0ECAH         LINE#         472
+  C:0F18H         LINE#         473
+  C:0F18H         LINE#         474
+  C:1022H         LINE#         481
+  C:1022H         LINE#         484
+  C:1079H         LINE#         485
+  C:1079H         LINE#         486
+  C:1128H         LINE#         493
+  C:112BH         LINE#         494
+  C:1197H         LINE#         495
+  C:1197H         LINE#         496
+  C:125EH         LINE#         503
+  C:1261H         LINE#         504
+  C:12BFH         LINE#         505
+  C:12BFH         LINE#         506
+  C:1386H         LINE#         513
+  C:1389H         LINE#         514
+  C:13DDH         LINE#         515
+  C:13DDH         LINE#         516
+  C:14F8H         LINE#         523
+  C:14F8H         LINE#         524
+  C:14F8H         LINE#         525
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 16
+
+
+  C:1501H         LINE#         526
+  -------         ENDPROC       _HUIZHIEXQUFAN
+  -------         PROC          _HUIZHIEX
+  X:05B7H         SYMBOL        x
+  X:05B8H         SYMBOL        y
+  X:05B9H         SYMBOL        temp
+  X:05BCH         SYMBOL        h
+  X:05BDH         SYMBOL        w
+  -------         DO            
+  X:05BEH         SYMBOL        i
+  X:05BFH         SYMBOL        chicun
+  X:05C0H         SYMBOL        xy
+  X:05C1H         SYMBOL        xs
+  X:05C2H         SYMBOL        ihs
+  X:05C3H         SYMBOL        ihy
+  -------         ENDDO         
+  C:43C7H         LINE#         527
+  C:43D8H         LINE#         528
+  C:43D8H         LINE#         535
+  C:43DEH         LINE#         536
+  C:43DEH         LINE#         537
+  C:43E1H         LINE#         538
+  C:43E1H         LINE#         539
+  C:43E4H         LINE#         540
+  C:43ECH         LINE#         541
+  C:43ECH         LINE#         542
+  C:4425H         LINE#         543
+  C:4425H         LINE#         544
+  C:4428H         LINE#         545
+  C:4430H         LINE#         546
+  C:4430H         LINE#         547
+  C:4433H         LINE#         548
+  C:446CH         LINE#         550
+  C:446CH         LINE#         551
+  C:4474H         LINE#         552
+  C:4474H         LINE#         553
+  C:44ADH         LINE#         554
+  C:44AFH         LINE#         556
+  C:44AFH         LINE#         557
+  C:44B7H         LINE#         558
+  C:44B7H         LINE#         559
+  C:44EDH         LINE#         560
+  C:44EFH         LINE#         561
+  C:44F7H         LINE#         562
+  C:44F7H         LINE#         563
+  C:4530H         LINE#         564
+  C:4530H         LINE#         565
+  C:4538H         LINE#         566
+  C:4538H         LINE#         567
+  C:456EH         LINE#         568
+  C:4571H         LINE#         569
+  C:4579H         LINE#         570
+  C:4579H         LINE#         571
+  C:45AFH         LINE#         572
+  C:45B1H         LINE#         573
+  C:45B9H         LINE#         574
+  C:45B9H         LINE#         575
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 17
+
+
+  C:45F2H         LINE#         576
+  C:462BH         LINE#         577
+  C:462BH         LINE#         580
+  -------         ENDPROC       _HUIZHIEX
+  -------         PROC          L?0607
+  -------         ENDPROC       L?0607
+  -------         PROC          _HUIZHIDIANCACHU
+  X:067BH         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:067FH         SYMBOL        y
+  C:5D8BH         LINE#         582
+  C:5D96H         LINE#         583
+  C:5D96H         LINE#         586
+  C:5DD3H         LINE#         587
+  C:5DD3H         LINE#         588
+  C:5E20H         LINE#         590
+  C:5E20H         LINE#         591
+  -------         ENDPROC       _HUIZHIDIANCACHU
+  -------         PROC          _HUIZHIDIANHUIZHI
+  X:0680H         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:0684H         SYMBOL        y
+  C:5F63H         LINE#         592
+  C:5F6EH         LINE#         593
+  C:5F6EH         LINE#         595
+  C:5FABH         LINE#         596
+  C:5FABH         LINE#         597
+  C:5FFAH         LINE#         600
+  C:5FFAH         LINE#         602
+  -------         ENDPROC       _HUIZHIDIANHUIZHI
+  -------         PROC          L?0608
+  -------         ENDPROC       L?0608
+  -------         PROC          _HUIZHIDIANQUFAN
+  X:0685H         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:0689H         SYMBOL        y
+  C:5E2BH         LINE#         603
+  C:5E36H         LINE#         604
+  C:5E36H         LINE#         607
+  C:5E73H         LINE#         608
+  C:5E73H         LINE#         609
+  C:5EC2H         LINE#         611
+  C:5EC2H         LINE#         612
+  -------         ENDPROC       _HUIZHIDIANQUFAN
+  -------         PROC          _HUIZHIDIAN
+  X:06A0H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  C:5EC3H         LINE#         613
+  C:5ECAH         LINE#         614
+  C:5ECAH         LINE#         617
+  C:5ED0H         LINE#         618
+  C:5ED0H         LINE#         619
+  C:5ED7H         LINE#         620
+  C:5ED7H         LINE#         622
+  C:5ED9H         LINE#         623
+  C:5EE1H         LINE#         624
+  C:5EE1H         LINE#         625
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 18
+
+
+  C:5EE8H         LINE#         626
+  C:5EE8H         LINE#         627
+  C:5EEAH         LINE#         628
+  C:5EF2H         LINE#         629
+  C:5EF2H         LINE#         630
+  C:5F05H         LINE#         631
+  C:5F05H         LINE#         632
+  C:5F07H         LINE#         633
+  C:5F0EH         LINE#         634
+  C:5F0EH         LINE#         635
+  C:5F14H         LINE#         636
+  C:5F16H         LINE#         637
+  C:5F1DH         LINE#         638
+  C:5F1DH         LINE#         639
+  C:5F30H         LINE#         640
+  C:5F30H         LINE#         641
+  C:5F37H         LINE#         642
+  C:5F37H         LINE#         643
+  C:5F37H         LINE#         644
+  C:5F39H         LINE#         645
+  C:5F40H         LINE#         646
+  C:5F40H         LINE#         647
+  C:5F46H         LINE#         648
+  C:5F48H         LINE#         649
+  C:5F50H         LINE#         650
+  C:5F50H         LINE#         651
+  C:5F59H         LINE#         652
+  C:5F62H         LINE#         653
+  C:5F62H         LINE#         655
+  C:5F62H         LINE#         657
+  C:5F62H         LINE#         661
+  -------         ENDPROC       _HUIZHIDIAN
+  -------         PROC          _SHUAPINGZHIYI
+  X:05B1H         SYMBOL        huanchong
+  -------         DO            
+  X:05B4H         SYMBOL        i
+  X:05B5H         SYMBOL        j
+  -------         ENDDO         
+  C:6831H         LINE#         663
+  C:683CH         LINE#         664
+  C:683CH         LINE#         665
+  C:6841H         LINE#         666
+  C:6845H         LINE#         667
+  C:6845H         LINE#         668
+  C:684AH         LINE#         669
+  C:687CH         LINE#         670
+  C:6886H         LINE#         671
+  -------         ENDPROC       _SHUAPINGZHIYI
+  -------         PROC          L?0609
+  -------         ENDPROC       L?0609
+  -------         PROC          _SHUAPINGZHILING
+  X:05B1H         SYMBOL        huanchong
+  -------         DO            
+  X:05B4H         SYMBOL        i
+  X:05B5H         SYMBOL        j
+  -------         ENDDO         
+  C:6618H         LINE#         672
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 19
+
+
+  C:6623H         LINE#         673
+  C:6623H         LINE#         674
+  C:6628H         LINE#         675
+  C:662CH         LINE#         676
+  C:662CH         LINE#         677
+  C:6631H         LINE#         678
+  C:6664H         LINE#         679
+  C:666EH         LINE#         680
+  -------         ENDPROC       _SHUAPINGZHILING
+  -------         PROC          _SHUAPING
+  D:0005H         SYMBOL        a
+  C:691BH         LINE#         681
+  C:691DH         LINE#         682
+  C:691DH         LINE#         684
+  C:6920H         LINE#         685
+  C:6920H         LINE#         686
+  C:6923H         LINE#         687
+  C:6923H         LINE#         688
+  C:6925H         LINE#         689
+  C:6929H         LINE#         690
+  C:6929H         LINE#         691
+  C:6932H         LINE#         692
+  C:6938H         LINE#         693
+  C:693AH         LINE#         694
+  C:693EH         LINE#         695
+  C:693EH         LINE#         696
+  C:6941H         LINE#         697
+  C:694AH         LINE#         698
+  C:694AH         LINE#         699
+  C:694EH         LINE#         700
+  C:694EH         LINE#         701
+  C:6957H         LINE#         702
+  C:6960H         LINE#         703
+  C:6960H         LINE#         705
+  C:6960H         LINE#         709
+  C:6960H         LINE#         712
+  -------         ENDPROC       _SHUAPING
+  -------         PROC          _BAOCUNQUYUTIQU
+  X:05CAH         SYMBOL        huanchong
+  X:05CDH         SYMBOL        x
+  X:05CEH         SYMBOL        y
+  X:05CFH         SYMBOL        temp
+  X:05D2H         SYMBOL        ti
+  -------         DO            
+  D:0005H         SYMBOL        xs
+  -------         ENDDO         
+  C:522BH         LINE#         714
+  C:5239H         LINE#         715
+  C:5239H         LINE#         716
+  C:525BH         LINE#         717
+  C:527FH         LINE#         718
+  C:528FH         LINE#         719
+  C:52FDH         LINE#         720
+  C:5323H         LINE#         721
+  C:53A0H         LINE#         722
+  -------         ENDPROC       _BAOCUNQUYUTIQU
+  -------         PROC          _BAOCUNQUYU
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 20
+
+
+  X:05BCH         SYMBOL        x
+  X:05BDH         SYMBOL        y
+  X:05BEH         SYMBOL        templv
+  X:05C1H         SYMBOL        temphong
+  X:05C4H         SYMBOL        h
+  X:05C5H         SYMBOL        w
+  -------         DO            
+  X:05C6H         SYMBOL        ti
+  X:05C7H         SYMBOL        max
+  X:05C8H         SYMBOL        xz
+  X:05C9H         SYMBOL        yz
+  -------         ENDDO         
+  C:598BH         LINE#         723
+  C:599CH         LINE#         724
+  C:599CH         LINE#         725
+  C:59B1H         LINE#         726
+  C:59C9H         LINE#         727
+  C:59C9H         LINE#         728
+  C:59E5H         LINE#         729
+  C:59F6H         LINE#         730
+  C:5A05H         LINE#         731
+  C:5A05H         LINE#         732
+  C:5A35H         LINE#         733
+  C:5A66H         LINE#         734
+  C:5A66H         LINE#         735
+  C:5A6FH         LINE#         737
+  -------         ENDPROC       _BAOCUNQUYU
+  -------         PROC          _TANCHUQUYUTANCHU
+  X:05CAH         SYMBOL        huanchong
+  X:05CDH         SYMBOL        x
+  X:05CEH         SYMBOL        y
+  X:05CFH         SYMBOL        temp
+  X:05D2H         SYMBOL        ti
+  -------         DO            
+  D:0005H         SYMBOL        xs
+  -------         ENDDO         
+  C:4EB2H         LINE#         739
+  C:4EC0H         LINE#         740
+  C:4EC0H         LINE#         741
+  C:4EE2H         LINE#         742
+  C:4EF8H         LINE#         743
+  C:4EF8H         LINE#         744
+  C:4F46H         LINE#         745
+  C:4FA8H         LINE#         746
+  C:4FA8H         LINE#         747
+  C:4FCEH         LINE#         748
+  C:4FCEH         LINE#         749
+  C:501EH         LINE#         750
+  C:508EH         LINE#         751
+  C:508EH         LINE#         752
+  -------         ENDPROC       _TANCHUQUYUTANCHU
+  -------         PROC          _TANCHUQUYU
+  X:05BCH         SYMBOL        x
+  X:05BDH         SYMBOL        y
+  X:05BEH         SYMBOL        templv
+  X:05C1H         SYMBOL        temphong
+  X:05C4H         SYMBOL        h
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 21
+
+
+  X:05C5H         SYMBOL        w
+  -------         DO            
+  X:05C6H         SYMBOL        ti
+  X:05C7H         SYMBOL        max
+  X:05C8H         SYMBOL        xz
+  X:05C9H         SYMBOL        yz
+  -------         ENDDO         
+  C:5B54H         LINE#         753
+  C:5B65H         LINE#         754
+  C:5B65H         LINE#         755
+  C:5B7AH         LINE#         756
+  C:5B92H         LINE#         757
+  C:5B92H         LINE#         758
+  C:5BACH         LINE#         759
+  C:5BBAH         LINE#         760
+  C:5BC9H         LINE#         761
+  C:5BC9H         LINE#         762
+  C:5BF9H         LINE#         763
+  C:5C2AH         LINE#         764
+  C:5C2AH         LINE#         765
+  C:5C33H         LINE#         767
+  -------         ENDPROC       _TANCHUQUYU
+  -------         PROC          _ZHENGTIYIDONGHENGW
+  X:0669H         SYMBOL        w
+  X:066AH         SYMBOL        se
+  -------         DO            
+  X:066BH         SYMBOL        x
+  X:066CH         SYMBOL        y
+  X:066DH         SYMBOL        xi
+  X:066EH         SYMBOL        wi
+  -------         ENDDO         
+  C:3C71H         LINE#         769
+  C:3C7CH         LINE#         770
+  C:3C7CH         LINE#         771
+  C:3C90H         LINE#         772
+  C:3CB2H         LINE#         773
+  C:3CD5H         LINE#         774
+  C:3CD5H         LINE#         775
+  C:3D0FH         LINE#         776
+  C:3D3CH         LINE#         777
+  C:3D4CH         LINE#         778
+  C:3D4CH         LINE#         779
+  C:3D9FH         LINE#         780
+  C:3DEAH         LINE#         781
+  C:3DEDH         LINE#         783
+  C:3DEDH         LINE#         784
+  C:3DF4H         LINE#         785
+  C:3E2BH         LINE#         786
+  C:3E2FH         LINE#         787
+  C:3E67H         LINE#         788
+  C:3E6FH         LINE#         789
+  C:3E6FH         LINE#         790
+  C:3EA9H         LINE#         791
+  C:3EDEH         LINE#         792
+  C:3EDEH         LINE#         793
+  C:3EDEH         LINE#         794
+  C:3EF0H         LINE#         795
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 22
+
+
+  -------         ENDPROC       _ZHENGTIYIDONGHENGW
+  -------         PROC          _ZHENGTIYIDONGHENGE
+  X:066FH         SYMBOL        w
+  X:0670H         SYMBOL        se
+  -------         DO            
+  X:0671H         SYMBOL        x
+  X:0672H         SYMBOL        y
+  X:0673H         SYMBOL        xi
+  X:0674H         SYMBOL        wi
+  -------         ENDDO         
+  C:31C3H         LINE#         796
+  C:31CDH         LINE#         797
+  C:31CDH         LINE#         799
+  C:31E0H         LINE#         800
+  C:3209H         LINE#         801
+  C:322CH         LINE#         802
+  C:322CH         LINE#         803
+  C:326BH         LINE#         804
+  C:32A4H         LINE#         805
+  C:32BFH         LINE#         806
+  C:32BFH         LINE#         807
+  C:331EH         LINE#         808
+  C:3372H         LINE#         809
+  C:3375H         LINE#         811
+  C:3375H         LINE#         812
+  C:337CH         LINE#         813
+  C:33B7H         LINE#         814
+  C:33BBH         LINE#         815
+  C:33F7H         LINE#         816
+  C:33FFH         LINE#         817
+  C:33FFH         LINE#         818
+  C:343EH         LINE#         819
+  C:3479H         LINE#         820
+  C:3479H         LINE#         821
+  C:3479H         LINE#         822
+  C:348BH         LINE#         823
+  -------         ENDPROC       _ZHENGTIYIDONGHENGE
+  -------         PROC          _ZHENGTIYIDONGSHUN
+  X:0694H         SYMBOL        h
+  X:0695H         SYMBOL        se
+  -------         DO            
+  X:0696H         SYMBOL        x
+  X:0697H         SYMBOL        y
+  -------         ENDDO         
+  C:4855H         LINE#         824
+  C:485DH         LINE#         825
+  C:485DH         LINE#         827
+  C:4887H         LINE#         828
+  C:48A7H         LINE#         829
+  C:48A7H         LINE#         830
+  C:48D1H         LINE#         831
+  C:48D1H         LINE#         832
+  C:493DH         LINE#         833
+  C:49B1H         LINE#         835
+  C:49B4H         LINE#         837
+  C:49B4H         LINE#         838
+  C:49BBH         LINE#         839
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 23
+
+
+  C:49D0H         LINE#         840
+  C:49D4H         LINE#         841
+  C:4A0BH         LINE#         842
+  C:4A12H         LINE#         843
+  C:4A12H         LINE#         844
+  C:4A4DH         LINE#         845
+  C:4A64H         LINE#         846
+  C:4A64H         LINE#         847
+  C:4A64H         LINE#         849
+  C:4A76H         LINE#         850
+  -------         ENDPROC       _ZHENGTIYIDONGSHUN
+  -------         PROC          _ZHENGTIYIDONGSHUS
+  X:0698H         SYMBOL        h
+  X:0699H         SYMBOL        se
+  -------         DO            
+  X:069AH         SYMBOL        x
+  X:069BH         SYMBOL        y
+  -------         ENDDO         
+  C:462CH         LINE#         851
+  C:4634H         LINE#         852
+  C:4634H         LINE#         854
+  C:465EH         LINE#         855
+  C:467FH         LINE#         856
+  C:467FH         LINE#         857
+  C:46A9H         LINE#         858
+  C:46A9H         LINE#         859
+  C:4715H         LINE#         860
+  C:4789H         LINE#         862
+  C:478CH         LINE#         864
+  C:478CH         LINE#         865
+  C:4793H         LINE#         866
+  C:47AEH         LINE#         867
+  C:47B2H         LINE#         868
+  C:47E9H         LINE#         869
+  C:47F0H         LINE#         870
+  C:47F0H         LINE#         871
+  C:482BH         LINE#         872
+  C:4842H         LINE#         873
+  C:4842H         LINE#         874
+  C:4842H         LINE#         876
+  C:4854H         LINE#         877
+  -------         ENDPROC       _ZHENGTIYIDONGSHUS
+  -------         PROC          _ZHENGTIYIDONG
+  D:0006H         SYMBOL        w
+  X:069CH         SYMBOL        h
+  X:069DH         SYMBOL        se
+  C:65B2H         LINE#         878
+  C:65BCH         LINE#         879
+  C:65BCH         LINE#         881
+  C:65CBH         LINE#         882
+  C:65CBH         LINE#         884
+  C:65D0H         LINE#         885
+  C:65D2H         LINE#         886
+  C:65E1H         LINE#         887
+  C:65E1H         LINE#         888
+  C:65EDH         LINE#         889
+  C:65EDH         LINE#         890
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 24
+
+
+  C:65F9H         LINE#         891
+  C:65F9H         LINE#         892
+  C:65FFH         LINE#         893
+  C:65FFH         LINE#         894
+  C:660BH         LINE#         895
+  C:660BH         LINE#         896
+  C:6611H         LINE#         897
+  C:6611H         LINE#         900
+  -------         ENDPROC       _ZHENGTIYIDONG
+  -------         PROC          _QUYUCACHUCACHU
+  X:05CDH         SYMBOL        huanchong
+  -------         DO            
+  D:0005H         SYMBOL        x
+  X:05D0H         SYMBOL        y
+  X:05D1H         SYMBOL        ws
+  X:05D2H         SYMBOL        wy
+  X:05D3H         SYMBOL        es
+  X:05D4H         SYMBOL        ey
+  -------         ENDDO         
+  C:4A77H         LINE#         903
+  C:4A82H         LINE#         904
+  C:4A82H         LINE#         905
+  C:4AACH         LINE#         906
+  C:4AB3H         LINE#         907
+  C:4AB3H         LINE#         908
+  C:4AD3H         LINE#         909
+  C:4B4BH         LINE#         911
+  C:4B4BH         LINE#         913
+  C:4B4BH         LINE#         914
+  C:4B68H         LINE#         915
+  C:4BB7H         LINE#         916
+  C:4BCBH         LINE#         917
+  C:4BE8H         LINE#         918
+  C:4C27H         LINE#         919
+  C:4C44H         LINE#         920
+  C:4C98H         LINE#         921
+  C:4C98H         LINE#         922
+  -------         ENDPROC       _QUYUCACHUCACHU
+  -------         PROC          QUYUCACHU
+  C:6C39H         LINE#         923
+  C:6C39H         LINE#         924
+  C:6C39H         LINE#         925
+  C:6C42H         LINE#         926
+  -------         ENDPROC       QUYUCACHU
+  -------         PROC          _HUIZHIDUOBIANXING
+  X:0675H         SYMBOL        xqi
+  X:0676H         SYMBOL        yqi
+  X:0677H         SYMBOL        temp
+  X:067AH         SYMBOL        c
+  C:550AH         LINE#         929
+  C:551BH         LINE#         930
+  C:551BH         LINE#         932
+  C:557FH         LINE#         934
+  C:558EH         LINE#         935
+  C:558EH         LINE#         936
+  C:563AH         LINE#         938
+  C:5643H         LINE#         940
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 25
+
+
+  -------         ENDPROC       _HUIZHIDUOBIANXING
+  -------         PROC          _HUIZHITUJUXING
+  X:0651H         SYMBOL        x
+  X:0652H         SYMBOL        y
+  D:0003H         SYMBOL        h
+  X:0654H         SYMBOL        w
+  -------         DO            
+  X:0655H         SYMBOL        xn
+  X:0656H         SYMBOL        yn
+  X:0657H         SYMBOL        axw
+  X:0658H         SYMBOL        axh
+  -------         ENDDO         
+  C:623FH         LINE#         941
+  C:6247H         LINE#         942
+  C:6247H         LINE#         943
+  C:6262H         LINE#         947
+  C:6277H         LINE#         948
+  C:6277H         LINE#         949
+  C:627FH         LINE#         950
+  C:628CH         LINE#         951
+  C:6294H         LINE#         952
+  C:62A9H         LINE#         953
+  C:62A9H         LINE#         954
+  C:62B1H         LINE#         955
+  C:62BEH         LINE#         956
+  C:62C6H         LINE#         958
+  -------         ENDPROC       _HUIZHITUJUXING
+  -------         PROC          _HUIZHIXIANDUAN
+  X:0646H         SYMBOL        xqi
+  X:0647H         SYMBOL        yqi
+  X:0648H         SYMBOL        xzhong
+  X:0649H         SYMBOL        yzhong
+  -------         DO            
+  X:064AH         SYMBOL        h
+  X:064BH         SYMBOL        hj
+  X:064CH         SYMBOL        w
+  X:064DH         SYMBOL        x
+  X:064EH         SYMBOL        y
+  X:064FH         SYMBOL        xi
+  X:0650H         SYMBOL        yi
+  -------         ENDDO         
+  C:508FH         LINE#         960
+  C:509EH         LINE#         961
+  C:509EH         LINE#         966
+  C:50A9H         LINE#         967
+  C:50A9H         LINE#         968
+  C:50B2H         LINE#         969
+  C:50BAH         LINE#         970
+  C:50BFH         LINE#         971
+  C:50C6H         LINE#         972
+  C:50CEH         LINE#         973
+  C:50D3H         LINE#         974
+  C:50D3H         LINE#         976
+  C:50E1H         LINE#         977
+  C:50E9H         LINE#         978
+  C:50F9H         LINE#         979
+  C:510DH         LINE#         980
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 26
+
+
+  C:510DH         LINE#         982
+  C:512AH         LINE#         983
+  C:512AH         LINE#         985
+  C:5174H         LINE#         986
+  C:5183H         LINE#         989
+  C:5186H         LINE#         990
+  C:518EH         LINE#         991
+  C:518EH         LINE#         994
+  C:518EH         LINE#         996
+  C:51ABH         LINE#         997
+  C:51ABH         LINE#         998
+  C:51F4H         LINE#         999
+  C:5219H         LINE#         1002
+  C:5221H         LINE#         1003
+  C:522AH         LINE#         1004
+  C:522AH         LINE#         1005
+  -------         ENDPROC       _HUIZHIXIANDUAN
+  -------         PROC          _JUEDUIZHI
+  D:0007H         SYMBOL        temp
+  C:6C93H         LINE#         1008
+  C:6C93H         LINE#         1009
+  C:6C93H         LINE#         1010
+  C:6C9BH         LINE#         1011
+  C:6CA0H         LINE#         1013
+  C:6CA0H         LINE#         1014
+  -------         ENDPROC       _JUEDUIZHI
+  -------         ENDMOD        2048HZAPI
+
+  -------         MODULE        2048JDAPI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  X:0613H         PUBLIC        _jdA_hong
+  D:0080H         PUBLIC        P0
+  X:0616H         PUBLIC        _jdA_1
+  D:0090H         PUBLIC        P1
+  X:0619H         PUBLIC        _jdA_2
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:62C7H         PUBLIC        _gbjiaodian
+  C:6C25H         PUBLIC        _chaxunjiaodianA
+  C:6887H         PUBLIC        _ggjiaodian
+  C:64ECH         PUBLIC        _huizhijd_END
+  C:6488H         PUBLIC        _huizhijd_ONE
+  C:6AC7H         PUBLIC        _ggzongdian
+  X:061CH         PUBLIC        _jdA_lv
+  C:25A6H         PUBLIC        _huizhijiaodian
+  X:061FH         PUBLIC        _jiaodianA
+  C:68D2H         PUBLIC        _ggysijiaodian
+  C:6BE2H         PUBLIC        chaxunjiaodian_A
+  -------         PROC          CHAXUNJIAODIAN_A
+  -------         DO            
+  D:0004H         SYMBOL        a
+  -------         ENDDO         
+  C:6BE2H         LINE#         12
+  C:6BE2H         LINE#         13
+  C:6BE2H         LINE#         14
+  C:6BE2H         LINE#         15
+  C:6BECH         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 27
+
+
+  C:6BF6H         LINE#         18
+  C:6BF8H         LINE#         19
+  -------         ENDPROC       CHAXUNJIAODIAN_A
+  -------         PROC          _CHAXUNJIAODIANA
+  D:0001H         SYMBOL        temp
+  C:6C25H         LINE#         24
+  C:6C25H         LINE#         25
+  C:6C25H         LINE#         26
+  C:6C2FH         LINE#         27
+  -------         ENDPROC       _CHAXUNJIAODIANA
+  -------         PROC          _HUIZHIJIAODIAN
+  X:05B3H         SYMBOL        temp
+  D:0005H         SYMBOL        se
+  C:25A6H         LINE#         31
+  C:25B1H         LINE#         32
+  C:25B1H         LINE#         34
+  C:25DCH         LINE#         35
+  C:25DCH         LINE#         36
+  C:25DCH         LINE#         38
+  C:262EH         LINE#         39
+  C:262EH         LINE#         40
+  C:2631H         LINE#         42
+  C:2631H         LINE#         43
+  C:2683H         LINE#         44
+  C:2683H         LINE#         45
+  C:2686H         LINE#         47
+  C:2686H         LINE#         49
+  C:26D8H         LINE#         50
+  C:272AH         LINE#         51
+  C:272AH         LINE#         52
+  C:272AH         LINE#         54
+  C:277CH         LINE#         55
+  C:277CH         LINE#         56
+  C:277EH         LINE#         57
+  C:277EH         LINE#         59
+  C:27CDH         LINE#         60
+  C:27CFH         LINE#         61
+  C:27CFH         LINE#         63
+  C:2821H         LINE#         64
+  C:2821H         LINE#         65
+  C:2821H         LINE#         67
+  C:2870H         LINE#         68
+  C:2872H         LINE#         69
+  C:2872H         LINE#         71
+  C:28C4H         LINE#         72
+  C:28C4H         LINE#         73
+  C:28C4H         LINE#         75
+  -------         ENDPROC       _HUIZHIJIAODIAN
+  -------         PROC          _GGYSIJIAODIAN
+  X:0659H         SYMBOL        temp
+  X:065CH         SYMBOL        ysi
+  X:065FH         SYMBOL        h
+  X:0660H         SYMBOL        w
+  C:68D2H         LINE#         78
+  C:68DDH         LINE#         79
+  C:68DDH         LINE#         80
+  C:68FAH         LINE#         81
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 28
+
+
+  C:6911H         LINE#         82
+  -------         ENDPROC       _GGYSIJIAODIAN
+  -------         PROC          _GGZONGDIAN
+  D:0001H         SYMBOL        temp
+  D:0005H         SYMBOL        qzx
+  X:068EH         SYMBOL        qzy
+  C:6AC7H         LINE#         86
+  C:6AC7H         LINE#         87
+  C:6AC7H         LINE#         88
+  C:6ACEH         LINE#         89
+  C:6AD9H         LINE#         90
+  C:6AE6H         LINE#         91
+  -------         ENDPROC       _GGZONGDIAN
+  -------         PROC          _GGJIAODIAN
+  D:0001H         SYMBOL        temp
+  D:0005H         SYMBOL        x
+  X:05BBH         SYMBOL        y
+  C:6887H         LINE#         95
+  C:6887H         LINE#         96
+  C:6887H         LINE#         97
+  C:6896H         LINE#         98
+  C:6896H         LINE#         99
+  C:689DH         LINE#         100
+  C:68AAH         LINE#         101
+  C:68AAH         LINE#         102
+  C:68BDH         LINE#         103
+  C:68BDH         LINE#         104
+  C:68C4H         LINE#         105
+  C:68D1H         LINE#         106
+  C:68D1H         LINE#         107
+  -------         ENDPROC       _GGJIAODIAN
+  -------         PROC          _GBJIAODIAN
+  D:0001H         SYMBOL        temp
+  X:05BBH         SYMBOL        xi
+  X:05BCH         SYMBOL        yi
+  C:62C7H         LINE#         110
+  C:62CCH         LINE#         111
+  C:62CCH         LINE#         112
+  C:62F3H         LINE#         113
+  C:62F3H         LINE#         114
+  C:62FEH         LINE#         115
+  C:6305H         LINE#         116
+  C:6305H         LINE#         117
+  C:6330H         LINE#         118
+  C:6330H         LINE#         119
+  C:6338H         LINE#         120
+  C:633FH         LINE#         121
+  C:633FH         LINE#         122
+  -------         ENDPROC       _GBJIAODIAN
+  -------         PROC          _HUIZHIJD_ONE
+  X:05B3H         SYMBOL        temp
+  X:05B6H         SYMBOL        tutemplv
+  X:05B9H         SYMBOL        tutemphong
+  C:6488H         LINE#         124
+  C:6493H         LINE#         125
+  C:6493H         LINE#         126
+  -------         ENDPROC       _HUIZHIJD_ONE
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 29
+
+
+  -------         PROC          _HUIZHIJD_END
+  X:05B3H         SYMBOL        temp
+  X:05B6H         SYMBOL        tutemplv
+  X:05B9H         SYMBOL        tutemphong
+  C:64ECH         LINE#         131
+  C:64F7H         LINE#         132
+  C:64F7H         LINE#         133
+  -------         ENDPROC       _HUIZHIJD_END
+  -------         ENDMOD        2048JDAPI
+
+  -------         MODULE        2048JGT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0092H         PUBLIC        P1M0
+  D:0093H         PUBLIC        P0M1
+  D:0096H         PUBLIC        P2M0
+  D:0091H         PUBLIC        P1M1
+  D:0080H         PUBLIC        P0
+  D:00B2H         PUBLIC        P3M0
+  D:0095H         PUBLIC        P2M1
+  D:0090H         PUBLIC        P1
+  C:6A3EH         PUBLIC        MainPing_F_ONE
+  D:00B1H         PUBLIC        P3M1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A0H.0       PUBLIC        S1
+  B:00A0H.1       PUBLIC        S2
+  B:00A0H.2       PUBLIC        S3
+  B:00A0H.3       PUBLIC        S4
+  C:6090H         PUBLIC        main
+  C:6B67H         PUBLIC        MainPing_F_END
+  D:0094H         PUBLIC        P0M0
+  -------         PROC          MAIN
+  C:6090H         LINE#         3
+  C:6090H         LINE#         4
+  C:6090H         LINE#         5
+  C:6093H         LINE#         6
+  C:6095H         LINE#         7
+  C:6097H         LINE#         8
+  C:6099H         LINE#         9
+  C:609BH         LINE#         10
+  C:609DH         LINE#         11
+  C:609FH         LINE#         12
+  C:60A1H         LINE#         13
+  C:60A3H         LINE#         14
+  C:60A5H         LINE#         15
+  C:60A7H         LINE#         16
+  C:60A9H         LINE#         17
+  C:60A9H         LINE#         18
+  C:60A9H         LINE#         23
+  C:60ACH         LINE#         26
+  C:60B4H         LINE#         27
+  C:60B4H         LINE#         28
+  C:60BCH         LINE#         29
+  C:60BFH         LINE#         30
+  C:60BFH         LINE#         33
+  C:60C5H         LINE#         34
+  C:60E1H         LINE#         36
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 30
+
+
+  C:60F4H         LINE#         38
+  C:60FCH         LINE#         39
+  C:60FFH         LINE#         41
+  C:6102H         LINE#         43
+  C:610AH         LINE#         44
+  C:610DH         LINE#         46
+  C:6120H         LINE#         47
+  -------         ENDPROC       MAIN
+  -------         PROC          MAINPING_F_ONE
+  C:6A3EH         LINE#         52
+  C:6A3EH         LINE#         53
+  C:6A3EH         LINE#         54
+  C:6A61H         LINE#         55
+  -------         ENDPROC       MAINPING_F_ONE
+  -------         PROC          MAINPING_F_END
+  C:6B67H         LINE#         57
+  C:6B67H         LINE#         58
+  C:6B67H         LINE#         59
+  -------         ENDPROC       MAINPING_F_END
+  -------         ENDMOD        2048JGT
+
+  -------         MODULE        2048SXAPI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:0090H.6       PUBLIC        R1
+  D:00B0H         PUBLIC        P3
+  B:0090H.5       PUBLIC        R2
+  C:6961H         PUBLIC        shuaxin
+  C:53A1H         PUBLIC        _shuaxinyihang
+  B:0080H.5       PUBLIC        IA
+  B:0080H.6       PUBLIC        IB
+  B:0080H.7       PUBLIC        IC
+  B:0090H.0       PUBLIC        ID
+  B:0090H.7       PUBLIC        OE
+  C:6CA1H         PUBLIC        _sleep
+  C:5CDBH         PUBLIC        _hang
+  B:0090H.3       PUBLIC        rck
+  B:0090H.4       PUBLIC        sck
+  B:0090H.1       PUBLIC        G1
+  B:0090H.2       PUBLIC        G2
+  -------         PROC          _SLEEP
+  D:0006H         SYMBOL        a
+  C:6CA1H         LINE#         3
+  C:6CA1H         LINE#         4
+  C:6CA1H         LINE#         5
+  C:6CABH         LINE#         6
+  -------         ENDPROC       _SLEEP
+  -------         PROC          _SHUAXINYIHANG
+  D:0007H         SYMBOL        hi
+  -------         DO            
+  D:0005H         SYMBOL        wi
+  D:0006H         SYMBOL        i
+  D:0001H         SYMBOL        temp
+  -------         ENDDO         
+  C:53A1H         LINE#         8
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 31
+
+
+  C:53A1H         LINE#         9
+  C:53A1H         LINE#         10
+  C:53A3H         LINE#         11
+  C:53A3H         LINE#         12
+  C:53A3H         LINE#         13
+  C:53A5H         LINE#         14
+  C:53A7H         LINE#         15
+  C:53A7H         LINE#         17
+  C:53CCH         LINE#         18
+  C:53F0H         LINE#         19
+  C:5414H         LINE#         20
+  C:5438H         LINE#         21
+  C:543AH         LINE#         22
+  C:543CH         LINE#         23
+  C:5440H         LINE#         24
+  C:5449H         LINE#         26
+  C:5452H         LINE#         27
+  C:5454H         LINE#         28
+  C:5454H         LINE#         29
+  C:5456H         LINE#         30
+  C:5458H         LINE#         31
+  C:5458H         LINE#         33
+  C:547DH         LINE#         34
+  C:54A1H         LINE#         35
+  C:54C5H         LINE#         36
+  C:54E9H         LINE#         37
+  C:54EBH         LINE#         38
+  C:54EDH         LINE#         39
+  C:54F1H         LINE#         40
+  C:54FAH         LINE#         43
+  C:5503H         LINE#         48
+  C:5505H         LINE#         49
+  C:5507H         LINE#         50
+  C:5509H         LINE#         51
+  -------         ENDPROC       _SHUAXINYIHANG
+  -------         PROC          _HANG
+  D:0007H         SYMBOL        a
+  C:5CDBH         LINE#         54
+  C:5CDBH         LINE#         55
+  C:5CDBH         LINE#         56
+  C:5D1BH         LINE#         57
+  C:5D1BH         LINE#         58
+  C:5D1FH         LINE#         59
+  C:5D25H         LINE#         60
+  C:5D2BH         LINE#         61
+  C:5D34H         LINE#         62
+  C:5D38H         LINE#         63
+  C:5D3EH         LINE#         64
+  C:5D44H         LINE#         65
+  C:5D4DH         LINE#         66
+  C:5D51H         LINE#         67
+  C:5D57H         LINE#         68
+  C:5D5DH         LINE#         69
+  C:5D66H         LINE#         70
+  C:5D6AH         LINE#         71
+  C:5D70H         LINE#         72
+  C:5D76H         LINE#         73
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 32
+
+
+  C:5D7EH         LINE#         74
+  C:5D7EH         LINE#         75
+  C:5D7EH         LINE#         78
+  -------         ENDPROC       _HANG
+  -------         PROC          SHUAXIN
+  -------         DO            
+  X:05B1H         SYMBOL        hi
+  X:05B2H         SYMBOL        a
+  -------         ENDDO         
+  C:6961H         LINE#         79
+  C:6961H         LINE#         80
+  C:6961H         LINE#         81
+  C:6967H         LINE#         83
+  C:6971H         LINE#         84
+  C:6980H         LINE#         85
+  C:6983H         LINE#         86
+  C:698BH         LINE#         87
+  C:698DH         LINE#         88
+  C:6994H         LINE#         89
+  C:6996H         LINE#         90
+  C:699EH         LINE#         91
+  -------         ENDPROC       SHUAXIN
+  -------         ENDMOD        2048SXAPI
+
+  -------         MODULE        2048XIZTAPI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:6CC3H         PUBLIC        jiancexiaoxi
+  C:6BC6H         PUBLIC        fuweizhuangtaibiao
+  C:6727H         PUBLIC        tanchuxiaoxi
+  C:666FH         PUBLIC        _charuxiaoxi
+  C:6B1CH         PUBLIC        _jianchajiemian
+  X:05EAH         PUBLIC        _jiemiant
+  X:05F2H         PUBLIC        _jiemian
+  X:05FAH         PUBLIC        _zhuangtaibiao
+  X:0602H         PUBLIC        _shijianbiao
+  C:6C81H         PUBLIC        _chaxunjiemian
+  C:6C6FH         PUBLIC        _xiugaijiemian
+  C:6B8AH         PUBLIC        _tongbujiemian
+  X:060AH         PUBLIC        _xiaoxiduilie
+  C:6C5DH         PUBLIC        _chaxunzhuangtaibiao
+  C:6C4BH         PUBLIC        _xiugaizhuangtaibiao
+  -------         PROC          _XIUGAIZHUANGTAIBIAO
+  D:0007H         SYMBOL        temp
+  D:0005H         SYMBOL        key
+  C:6C4BH         LINE#         17
+  C:6C4BH         LINE#         18
+  C:6C4BH         LINE#         19
+  C:6C5CH         LINE#         20
+  -------         ENDPROC       _XIUGAIZHUANGTAIBIAO
+  -------         PROC          _CHAXUNZHUANGTAIBIAO
+  D:0007H         SYMBOL        key
+  C:6C5DH         LINE#         23
+  C:6C5DH         LINE#         24
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 33
+
+
+  C:6C5DH         LINE#         25
+  C:6C6EH         LINE#         26
+  -------         ENDPROC       _CHAXUNZHUANGTAIBIAO
+  -------         PROC          FUWEIZHUANGTAIBIAO
+  C:6BC6H         LINE#         29
+  C:6BC6H         LINE#         30
+  C:6BC6H         LINE#         31
+  C:6BCCH         LINE#         32
+  C:6BCFH         LINE#         33
+  C:6BD2H         LINE#         34
+  C:6BD5H         LINE#         35
+  C:6BD8H         LINE#         36
+  C:6BDBH         LINE#         37
+  C:6BDEH         LINE#         38
+  C:6BE1H         LINE#         40
+  -------         ENDPROC       FUWEIZHUANGTAIBIAO
+  -------         PROC          _XIUGAIJIEMIAN
+  D:0007H         SYMBOL        temp
+  D:0005H         SYMBOL        ceng
+  C:6C6FH         LINE#         43
+  C:6C6FH         LINE#         44
+  C:6C6FH         LINE#         45
+  C:6C80H         LINE#         46
+  -------         ENDPROC       _XIUGAIJIEMIAN
+  -------         PROC          _JIANCHAJIEMIAN
+  D:0007H         SYMBOL        ceng
+  C:6B1CH         LINE#         49
+  C:6B1CH         LINE#         50
+  C:6B1CH         LINE#         51
+  C:6B3CH         LINE#         52
+  C:6B3CH         LINE#         53
+  C:6B3FH         LINE#         54
+  C:6B3FH         LINE#         55
+  C:6B41H         LINE#         56
+  -------         ENDPROC       _JIANCHAJIEMIAN
+  -------         PROC          _CHAXUNJIEMIAN
+  D:0007H         SYMBOL        ceng
+  C:6C81H         LINE#         59
+  C:6C81H         LINE#         60
+  C:6C81H         LINE#         61
+  C:6C92H         LINE#         62
+  -------         ENDPROC       _CHAXUNJIEMIAN
+  -------         PROC          _TONGBUJIEMIAN
+  D:0007H         SYMBOL        ceng
+  C:6B8AH         LINE#         65
+  C:6B8AH         LINE#         66
+  C:6B8AH         LINE#         67
+  C:6BA8H         LINE#         68
+  -------         ENDPROC       _TONGBUJIEMIAN
+  -------         PROC          _CHARUXIAOXI
+  D:0007H         SYMBOL        i
+  D:0005H         SYMBOL        tdata
+  -------         DO            
+  D:0007H         SYMBOL        ix
+  -------         ENDDO         
+  C:666FH         LINE#         71
+  C:666FH         LINE#         72
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 34
+
+
+  C:666FH         LINE#         74
+  C:6679H         LINE#         75
+  C:6679H         LINE#         76
+  C:667DH         LINE#         77
+  C:667DH         LINE#         78
+  C:6687H         LINE#         79
+  C:6687H         LINE#         82
+  C:6689H         LINE#         83
+  C:6689H         LINE#         84
+  C:668CH         LINE#         85
+  C:668CH         LINE#         86
+  C:6691H         LINE#         87
+  C:6699H         LINE#         88
+  C:6699H         LINE#         89
+  C:66B7H         LINE#         90
+  C:66BAH         LINE#         91
+  C:66BFH         LINE#         92
+  C:66C5H         LINE#         93
+  C:66C8H         LINE#         94
+  C:66C8H         LINE#         95
+  C:66C8H         LINE#         96
+  C:66CAH         LINE#         97
+  -------         ENDPROC       _CHARUXIAOXI
+  -------         PROC          TANCHUXIAOXI
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        tdata
+  -------         ENDDO         
+  C:6727H         LINE#         100
+  C:6727H         LINE#         101
+  C:6727H         LINE#         104
+  C:672DH         LINE#         105
+  C:672DH         LINE#         106
+  C:6730H         LINE#         107
+  C:6730H         LINE#         109
+  C:6730H         LINE#         110
+  C:6732H         LINE#         111
+  C:6737H         LINE#         113
+  C:6746H         LINE#         114
+  C:6746H         LINE#         115
+  C:6764H         LINE#         116
+  C:6767H         LINE#         117
+  C:6779H         LINE#         118
+  C:677FH         LINE#         119
+  C:6781H         LINE#         120
+  C:6781H         LINE#         122
+  -------         ENDPROC       TANCHUXIAOXI
+  -------         PROC          JIANCEXIAOXI
+  C:6CC3H         LINE#         125
+  C:6CC3H         LINE#         126
+  C:6CC3H         LINE#         127
+  C:6CC8H         LINE#         128
+  -------         ENDPROC       JIANCEXIAOXI
+  -------         ENDMOD        2048XIZTAPI
+
+  -------         MODULE        ______
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 35
+
+
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A0H.0       PUBLIC        S1
+  B:00A0H.1       PUBLIC        S2
+  B:00A0H.2       PUBLIC        S3
+  X:04D0H         PUBLIC        jiaodian_b
+  B:00A0H.3       PUBLIC        S4
+  B:00B0H.3       PUBLIC        S5
+  C:5C34H         PUBLIC        _xjdb
+  C:348CH         PUBLIC        _MainPing_D
+  C:6CACH         PUBLIC        _MainPing_FY_END
+  C:5A70H         PUBLIC        _MainPing_Z
+  C:67DAH         PUBLIC        _MainPing_FY_ONE
+  C:6A0BH         PUBLIC        xjdb2
+  C:6550H         PUBLIC        Main_Xiaoxi
+  X:04DBH         PUBLIC        i
+  -------         PROC          MAIN_XIAOXI
+  C:6550H         LINE#         11
+  C:6550H         LINE#         12
+  C:6550H         LINE#         13
+  C:6553H         LINE#         14
+  C:655AH         LINE#         16
+  C:655DH         LINE#         17
+  C:6564H         LINE#         19
+  C:6567H         LINE#         20
+  C:656EH         LINE#         22
+  C:6571H         LINE#         23
+  C:6578H         LINE#         25
+  C:657BH         LINE#         26
+  C:6583H         LINE#         27
+  C:6591H         LINE#         28
+  C:6598H         LINE#         29
+  C:6598H         LINE#         30
+  C:65A0H         LINE#         31
+  C:65A3H         LINE#         32
+  C:65B1H         LINE#         34
+  -------         ENDPROC       MAIN_XIAOXI
+  -------         PROC          _MAINPING_D
+  D:0007H         SYMBOL        dizhi
+  C:348CH         LINE#         35
+  C:348CH         LINE#         36
+  C:348CH         LINE#         37
+  C:34C5H         LINE#         38
+  C:34C5H         LINE#         39
+  C:34C5H         LINE#         40
+  C:34CAH         LINE#         41
+  C:34CFH         LINE#         42
+  C:34E6H         LINE#         43
+  C:34FDH         LINE#         44
+  C:3514H         LINE#         45
+  C:352BH         LINE#         46
+  C:3542H         LINE#         47
+  C:3559H         LINE#         48
+  C:3570H         LINE#         49
+  C:3587H         LINE#         50
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 36
+
+
+  C:359EH         LINE#         51
+  C:35B5H         LINE#         52
+  C:35B8H         LINE#         53
+  C:35BBH         LINE#         54
+  C:35C2H         LINE#         55
+  C:35C9H         LINE#         56
+  C:35C9H         LINE#         57
+  C:35CCH         LINE#         58
+  C:35CCH         LINE#         60
+  C:35CFH         LINE#         62
+  C:35CFH         LINE#         63
+  C:35CFH         LINE#         65
+  C:35D2H         LINE#         67
+  C:35D2H         LINE#         68
+  C:35D2H         LINE#         69
+  C:35D7H         LINE#         70
+  C:35EEH         LINE#         71
+  C:35F1H         LINE#         72
+  C:35FDH         LINE#         73
+  C:35FDH         LINE#         74
+  C:3600H         LINE#         75
+  C:3600H         LINE#         76
+  C:3605H         LINE#         77
+  C:361CH         LINE#         78
+  C:361FH         LINE#         79
+  C:362BH         LINE#         80
+  C:362BH         LINE#         81
+  C:362EH         LINE#         82
+  C:362EH         LINE#         83
+  C:3633H         LINE#         84
+  C:364AH         LINE#         85
+  C:364DH         LINE#         86
+  C:3659H         LINE#         87
+  C:3659H         LINE#         88
+  C:365CH         LINE#         89
+  C:365CH         LINE#         90
+  C:3661H         LINE#         91
+  C:3678H         LINE#         92
+  C:367BH         LINE#         93
+  C:3687H         LINE#         94
+  C:3687H         LINE#         95
+  C:368AH         LINE#         96
+  C:368AH         LINE#         97
+  C:368FH         LINE#         98
+  C:36A6H         LINE#         99
+  C:36A9H         LINE#         100
+  C:36B5H         LINE#         101
+  C:36B5H         LINE#         102
+  C:36B8H         LINE#         103
+  C:36B8H         LINE#         104
+  C:36BDH         LINE#         105
+  C:36D4H         LINE#         106
+  C:36D7H         LINE#         107
+  C:36E3H         LINE#         108
+  C:36E3H         LINE#         109
+  C:36E5H         LINE#         110
+  C:36E5H         LINE#         111
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 37
+
+
+  C:36EAH         LINE#         112
+  C:3701H         LINE#         113
+  C:3704H         LINE#         114
+  C:3710H         LINE#         115
+  C:3710H         LINE#         116
+  C:3712H         LINE#         117
+  C:3712H         LINE#         118
+  C:3717H         LINE#         119
+  C:372EH         LINE#         120
+  C:3731H         LINE#         121
+  C:373DH         LINE#         122
+  C:3742H         LINE#         123
+  C:3742H         LINE#         124
+  C:3742H         LINE#         125
+  -------         ENDPROC       _MAINPING_D
+  -------         PROC          _MAINPING_Z
+  D:0004H         SYMBOL        dizhi
+  X:05B1H         SYMBOL        x_xiaoxi
+  D:0002H         SYMBOL        JA_XY
+  -------         DO            
+  D:0004H         SYMBOL        z
+  X:05B2H         SYMBOL        x
+  X:05B3H         SYMBOL        y
+  -------         ENDDO         
+  C:5A70H         LINE#         126
+  C:5A77H         LINE#         127
+  C:5A77H         LINE#         129
+  C:5A7DH         LINE#         130
+  C:5AB6H         LINE#         131
+  C:5AB6H         LINE#         132
+  C:5AB6H         LINE#         134
+  C:5ABEH         LINE#         135
+  C:5ABEH         LINE#         136
+  C:5ABEH         LINE#         137
+  C:5B07H         LINE#         138
+  C:5B07H         LINE#         139
+  C:5B07H         LINE#         140
+  C:5B07H         LINE#         141
+  C:5B07H         LINE#         142
+  C:5B07H         LINE#         143
+  C:5B07H         LINE#         144
+  C:5B07H         LINE#         145
+  C:5B07H         LINE#         146
+  C:5B07H         LINE#         147
+  C:5B07H         LINE#         148
+  C:5B07H         LINE#         149
+  C:5B19H         LINE#         150
+  C:5B19H         LINE#         151
+  C:5B19H         LINE#         153
+  C:5B19H         LINE#         155
+  C:5B19H         LINE#         156
+  C:5B1BH         LINE#         157
+  C:5B1BH         LINE#         158
+  C:5B29H         LINE#         160
+  C:5B29H         LINE#         161
+  C:5B29H         LINE#         162
+  C:5B37H         LINE#         164
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 38
+
+
+  C:5B37H         LINE#         165
+  C:5B37H         LINE#         169
+  C:5B37H         LINE#         173
+  C:5B37H         LINE#         177
+  C:5B37H         LINE#         181
+  C:5B37H         LINE#         185
+  C:5B37H         LINE#         189
+  C:5B37H         LINE#         190
+  C:5B4BH         LINE#         191
+  C:5B4BH         LINE#         192
+  C:5B4BH         LINE#         193
+  C:5B53H         LINE#         196
+  C:5B53H         LINE#         197
+  C:5B53H         LINE#         200
+  -------         ENDPROC       _MAINPING_Z
+  -------         PROC          XJDB2
+  C:6A0BH         LINE#         202
+  C:6A0BH         LINE#         203
+  C:6A0BH         LINE#         204
+  C:6A13H         LINE#         205
+  C:6A13H         LINE#         206
+  C:6A36H         LINE#         207
+  C:6A3DH         LINE#         208
+  C:6A3DH         LINE#         210
+  -------         ENDPROC       XJDB2
+  -------         PROC          _XJDB
+  X:05B1H         SYMBOL        z
+  C:5C34H         LINE#         211
+  C:5C3CH         LINE#         212
+  C:5C3CH         LINE#         213
+  C:5C6CH         LINE#         214
+  C:5C6CH         LINE#         215
+  C:5C6FH         LINE#         216
+  C:5C8DH         LINE#         217
+  C:5CB0H         LINE#         218
+  C:5CBBH         LINE#         219
+  C:5CD3H         LINE#         220
+  C:5CDAH         LINE#         221
+  C:5CDAH         LINE#         222
+  -------         ENDPROC       _XJDB
+  -------         PROC          _MAINPING_FY_ONE
+  D:0003H         SYMBOL        dizhi
+  D:0004H         SYMBOL        JA_XY
+  -------         DO            
+  D:0007H         SYMBOL        x
+  D:0006H         SYMBOL        y
+  D:0006H         SYMBOL        z
+  -------         ENDDO         
+  C:67DAH         LINE#         224
+  C:67DCH         LINE#         225
+  C:67DCH         LINE#         227
+  C:67E0H         LINE#         229
+  C:67E4H         LINE#         230
+  C:67E4H         LINE#         231
+  C:67E4H         LINE#         232
+  C:6823H         LINE#         233
+  C:6823H         LINE#         234
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 39
+
+
+  C:6823H         LINE#         235
+  C:6823H         LINE#         236
+  C:6823H         LINE#         237
+  C:6823H         LINE#         238
+  C:6823H         LINE#         239
+  C:6823H         LINE#         240
+  C:6823H         LINE#         241
+  C:6823H         LINE#         242
+  C:6823H         LINE#         243
+  C:6823H         LINE#         244
+  C:6826H         LINE#         245
+  C:6826H         LINE#         246
+  C:6830H         LINE#         247
+  C:6830H         LINE#         248
+  C:6830H         LINE#         249
+  C:6830H         LINE#         251
+  C:6830H         LINE#         252
+  C:6830H         LINE#         254
+  C:6830H         LINE#         256
+  C:6830H         LINE#         258
+  C:6830H         LINE#         259
+  C:6830H         LINE#         261
+  C:6830H         LINE#         262
+  C:6830H         LINE#         264
+  C:6830H         LINE#         265
+  C:6830H         LINE#         267
+  C:6830H         LINE#         268
+  C:6830H         LINE#         270
+  C:6830H         LINE#         271
+  C:6830H         LINE#         273
+  C:6830H         LINE#         274
+  C:6830H         LINE#         276
+  C:6830H         LINE#         277
+  C:6830H         LINE#         279
+  C:6830H         LINE#         280
+  C:6830H         LINE#         283
+  -------         ENDPROC       _MAINPING_FY_ONE
+  -------         PROC          _MAINPING_FY_END
+  D:0007H         SYMBOL        dizhi
+  X:05B1H         SYMBOL        JA_XY
+  C:6CACH         LINE#         285
+  C:6CB4H         LINE#         286
+  C:6CB4H         LINE#         288
+  C:6CB4H         LINE#         289
+  C:6CB4H         LINE#         290
+  C:6CB4H         LINE#         293
+  C:6CB4H         LINE#         294
+  C:6CB4H         LINE#         296
+  C:6CB4H         LINE#         297
+  C:6CB4H         LINE#         299
+  C:6CB4H         LINE#         300
+  C:6CB4H         LINE#         302
+  C:6CB4H         LINE#         303
+  C:6CB4H         LINE#         305
+  C:6CB4H         LINE#         306
+  C:6CB4H         LINE#         308
+  C:6CB4H         LINE#         309
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 40
+
+
+  C:6CB4H         LINE#         311
+  C:6CB4H         LINE#         312
+  C:6CB4H         LINE#         314
+  C:6CB4H         LINE#         315
+  C:6CB4H         LINE#         317
+  C:6CB4H         LINE#         318
+  C:6CB4H         LINE#         320
+  C:6CB4H         LINE#         321
+  C:6CB4H         LINE#         323
+  C:6CB4H         LINE#         324
+  C:6CB4H         LINE#         328
+  -------         ENDPROC       _MAINPING_FY_END
+  -------         ENDMOD        ______
+
+  -------         MODULE        2048GJAPI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  X:053BH         PUBLIC        tuichu_123
+  X:0540H         PUBLIC        logo2048_1
+  X:055EH         PUBLIC        logo2048_2
+  X:0565H         PUBLIC        tuichu
+  C:5644H         PUBLIC        _jiancechongdietu
+  C:600BH         PUBLIC        __jiancechongdiedianjiance
+  C:6AF3H         PUBLIC        _tuichujian
+  C:66CBH         PUBLIC        _morenchuli
+  C:6BF9H         PUBLIC        _gjwanggejiance
+  C:63B7H         PUBLIC        _jiancechongdiedian
+  C:69D6H         PUBLIC        _gjjuxingjiance
+  C:3A26H         PUBLIC        __jiancechongdietujiance
+  C:699FH         PUBLIC        dalogo
+  -------         PROC          L?0073
+  -------         ENDPROC       L?0073
+  -------         PROC          __JIANCECHONGDIETUJIANCE
+  X:062AH         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:062EH         SYMBOL        y
+  X:062FH         SYMBOL        temp
+  X:0632H         SYMBOL        h
+  X:0633H         SYMBOL        w
+  -------         DO            
+  X:0634H         SYMBOL        i
+  X:0635H         SYMBOL        chicun
+  X:0636H         SYMBOL        xy
+  X:0637H         SYMBOL        xs
+  X:0638H         SYMBOL        ihs
+  X:0639H         SYMBOL        ihy
+  -------         ENDDO         
+  C:3A26H         LINE#         5
+  C:3A31H         LINE#         6
+  C:3A31H         LINE#         11
+  C:3A41H         LINE#         12
+  C:3A66H         LINE#         13
+  C:3A88H         LINE#         14
+  C:3AA5H         LINE#         15
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 41
+
+
+  C:3AA5H         LINE#         16
+  C:3AB7H         LINE#         17
+  C:3AE2H         LINE#         18
+  C:3AE2H         LINE#         19
+  C:3AF1H         LINE#         21
+  C:3B1BH         LINE#         22
+  C:3B1BH         LINE#         27
+  C:3B9DH         LINE#         29
+  C:3BA0H         LINE#         30
+  C:3BA0H         LINE#         32
+  C:3BD5H         LINE#         33
+  C:3BD5H         LINE#         37
+  C:3C62H         LINE#         38
+  C:3C65H         LINE#         39
+  C:3C65H         LINE#         40
+  C:3C65H         LINE#         41
+  C:3C6EH         LINE#         42
+  C:3C70H         LINE#         43
+  -------         ENDPROC       __JIANCECHONGDIETUJIANCE
+  -------         PROC          _JIANCECHONGDIETU
+  X:0661H         SYMBOL        x
+  X:0662H         SYMBOL        y
+  X:0663H         SYMBOL        temp
+  X:0666H         SYMBOL        h
+  X:0667H         SYMBOL        w
+  X:0668H         SYMBOL        yanse
+  C:5644H         LINE#         44
+  C:5655H         LINE#         45
+  C:5655H         LINE#         46
+  C:565DH         LINE#         47
+  C:565DH         LINE#         48
+  C:56A5H         LINE#         51
+  C:56A5H         LINE#         52
+  C:56ABH         LINE#         53
+  C:56ABH         LINE#         54
+  C:56E3H         LINE#         55
+  C:56E3H         LINE#         56
+  C:56EBH         LINE#         57
+  C:56EBH         LINE#         58
+  C:5724H         LINE#         59
+  C:5724H         LINE#         60
+  C:572CH         LINE#         61
+  C:572CH         LINE#         62
+  C:5774H         LINE#         65
+  C:5774H         LINE#         68
+  -------         ENDPROC       _JIANCECHONGDIETU
+  C:6001H         SYMBOL        L?0075
+  -------         PROC          L?0074
+  -------         ENDPROC       L?0074
+  C:6001H         SYMBOL        L?0075
+  -------         PROC          __JIANCECHONGDIEDIANJIANCE
+  D:0001H         SYMBOL        huanchong
+  D:0005H         SYMBOL        x
+  X:0693H         SYMBOL        y
+  C:600BH         LINE#         72
+  C:600BH         LINE#         73
+  C:600BH         LINE#         74
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 42
+
+
+  C:6048H         LINE#         75
+  C:6048H         LINE#         76
+  C:608AH         LINE#         77
+  C:608DH         LINE#         78
+  C:608DH         LINE#         79
+  C:608FH         LINE#         80
+  -------         ENDPROC       __JIANCECHONGDIEDIANJIANCE
+  -------         PROC          _JIANCECHONGDIEDIAN
+  X:069EH         SYMBOL        x
+  D:0004H         SYMBOL        y
+  X:069FH         SYMBOL        yanse
+  C:63B7H         LINE#         81
+  C:63C1H         LINE#         82
+  C:63C1H         LINE#         83
+  C:63C5H         LINE#         84
+  C:63C5H         LINE#         85
+  C:63DBH         LINE#         88
+  C:63DBH         LINE#         89
+  C:63E1H         LINE#         90
+  C:63E1H         LINE#         91
+  C:63E9H         LINE#         92
+  C:63E9H         LINE#         93
+  C:63F0H         LINE#         94
+  C:63F0H         LINE#         95
+  C:6403H         LINE#         96
+  C:6403H         LINE#         97
+  C:640BH         LINE#         98
+  C:640BH         LINE#         99
+  C:6421H         LINE#         102
+  C:6421H         LINE#         104
+  -------         ENDPROC       _JIANCECHONGDIEDIAN
+  -------         PROC          _GJWANGGEJIANCE
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  D:0003H         SYMBOL        wx
+  X:05B7H         SYMBOL        hy
+  C:6BF9H         LINE#         108
+  C:6BF9H         LINE#         109
+  C:6BF9H         LINE#         110
+  C:6C00H         LINE#         111
+  C:6C0AH         LINE#         112
+  C:6C0EH         LINE#         113
+  -------         ENDPROC       _GJWANGGEJIANCE
+  -------         PROC          _GJJUXINGJIANCE
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  D:0003H         SYMBOL        w
+  X:05D0H         SYMBOL        n
+  X:05D1H         SYMBOL        e
+  X:05D2H         SYMBOL        s
+  C:69D6H         LINE#         116
+  C:69D6H         LINE#         117
+  C:69D6H         LINE#         118
+  C:6A05H         LINE#         119
+  C:6A08H         LINE#         120
+  C:6A0AH         LINE#         121
+  -------         ENDPROC       _GJJUXINGJIANCE
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 43
+
+
+  -------         PROC          _MORENCHULI
+  X:05B7H         SYMBOL        xiaoxi
+  C:66CBH         LINE#         124
+  C:66D0H         LINE#         125
+  C:66D0H         LINE#         126
+  C:66D8H         LINE#         127
+  C:66EAH         LINE#         128
+  C:66EAH         LINE#         129
+  C:66EAH         LINE#         130
+  C:66F5H         LINE#         131
+  C:66F7H         LINE#         132
+  C:66F7H         LINE#         133
+  C:6704H         LINE#         134
+  C:6706H         LINE#         135
+  C:6706H         LINE#         136
+  C:6714H         LINE#         137
+  C:6716H         LINE#         138
+  C:6716H         LINE#         139
+  C:6726H         LINE#         140
+  C:6726H         LINE#         141
+  C:6726H         LINE#         144
+  -------         ENDPROC       _MORENCHULI
+  -------         PROC          _TUICHUJIAN
+  D:0007H         SYMBOL        xiaoxi
+  D:0004H         SYMBOL        x
+  D:0006H         SYMBOL        y
+  X:05BAH         SYMBOL        q
+  C:6AF3H         LINE#         150
+  C:6AF7H         LINE#         151
+  C:6AF7H         LINE#         152
+  C:6B0AH         LINE#         153
+  C:6B11H         LINE#         154
+  C:6B11H         LINE#         155
+  C:6B1BH         LINE#         156
+  C:6B1BH         LINE#         157
+  -------         ENDPROC       _TUICHUJIAN
+  -------         PROC          DALOGO
+  C:699FH         LINE#         165
+  C:699FH         LINE#         166
+  C:699FH         LINE#         167
+  C:69A4H         LINE#         168
+  C:69BAH         LINE#         169
+  C:69BFH         LINE#         170
+  -------         ENDPROC       DALOGO
+  -------         ENDMOD        2048GJAPI
+
+  -------         MODULE        2048SJK
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:619DH         PUBLIC        jb_t_1
+  C:6122H         PUBLIC        t_mnu_0
+  C:6129H         PUBLIC        t_mnu_1
+  C:6130H         PUBLIC        t_mnu_2
+  C:6137H         PUBLIC        t_mnu_3
+  C:613EH         PUBLIC        t_mnu_4
+  C:6145H         PUBLIC        t_mnu_5
+  C:614CH         PUBLIC        t_mnu_6
+  C:6153H         PUBLIC        t_mnu_7
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 44
+
+
+  C:615AH         PUBLIC        t_mnu_8
+  C:6161H         PUBLIC        t_mnu_9
+  C:616FH         PUBLIC        t_mnut_upf
+  C:6168H         PUBLIC        t_mnut_up
+  C:6176H         PUBLIC        t_mnut_l
+  C:617DH         PUBLIC        yu
+  -------         ENDMOD        2048SJK
+
+  -------         MODULE        2048KJAPI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:6CB5H         PUBLIC        _chaxunkjanniu
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:6BA9H         PUBLIC        _gbkjhuakuai
+  C:6C0FH         PUBLIC        _kjhuakuaichabiao
+  C:6A9AH         PUBLIC        _tbkjhuakuai
+  C:1E88H         PUBLIC        _kjhuakuai
+  C:4C99H         PUBLIC        _zuheanniu
+  X:063AH         PUBLIC        kjhuakuaibiao
+  C:28C5H         PUBLIC        _kjanniu
+  -------         PROC          _KJANNIU
+  X:05C3H         SYMBOL        temp
+  X:05C6H         SYMBOL        xiaoxi
+  X:05C7H         SYMBOL        x
+  X:05C8H         SYMBOL        y
+  -------         DO            
+  X:05C9H         SYMBOL        ctemp
+  -------         ENDDO         
+  C:28C5H         LINE#         4
+  C:28D3H         LINE#         5
+  C:28D3H         LINE#         7
+  C:28DCH         LINE#         8
+  C:28E4H         LINE#         9
+  C:28E4H         LINE#         10
+  C:28EFH         LINE#         11
+  C:28EFH         LINE#         12
+  C:28EFH         LINE#         13
+  C:28EFH         LINE#         14
+  C:28EFH         LINE#         15
+  C:28F2H         LINE#         16
+  C:28FDH         LINE#         17
+  C:28FDH         LINE#         18
+  C:2944H         LINE#         19
+  C:2944H         LINE#         20
+  C:2959H         LINE#         21
+  C:2959H         LINE#         22
+  C:2959H         LINE#         23
+  C:2959H         LINE#         24
+  C:2959H         LINE#         25
+  C:2959H         LINE#         26
+  C:2959H         LINE#         27
+  C:295CH         LINE#         29
+  C:295CH         LINE#         30
+  C:2991H         LINE#         31
+  C:2994H         LINE#         32
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 45
+
+
+  C:29A9H         LINE#         33
+  C:29F3H         LINE#         34
+  C:2A03H         LINE#         35
+  C:2A03H         LINE#         36
+  C:2A03H         LINE#         37
+  C:2A06H         LINE#         38
+  C:2A4FH         LINE#         39
+  C:2A4FH         LINE#         40
+  C:2A67H         LINE#         41
+  C:2A67H         LINE#         42
+  C:2A91H         LINE#         43
+  C:2A94H         LINE#         44
+  C:2AA9H         LINE#         45
+  C:2AF3H         LINE#         46
+  C:2B03H         LINE#         47
+  C:2B03H         LINE#         48
+  C:2B06H         LINE#         50
+  C:2B06H         LINE#         51
+  C:2B1EH         LINE#         52
+  C:2B1EH         LINE#         53
+  C:2B48H         LINE#         54
+  C:2B4BH         LINE#         55
+  C:2B60H         LINE#         56
+  C:2BAAH         LINE#         57
+  C:2BBDH         LINE#         58
+  C:2BBDH         LINE#         60
+  C:2BBDH         LINE#         61
+  -------         ENDPROC       _KJANNIU
+  -------         PROC          _CHAXUNKJANNIU
+  D:0001H         SYMBOL        temp
+  C:6CB5H         LINE#         66
+  C:6CB5H         LINE#         67
+  C:6CB5H         LINE#         68
+  C:6CBCH         LINE#         70
+  -------         ENDPROC       _CHAXUNKJANNIU
+  -------         PROC          _ZUHEANNIU
+  X:05B7H         SYMBOL        temp
+  X:05BAH         SYMBOL        xiaoxi
+  X:05BBH         SYMBOL        x
+  X:05BCH         SYMBOL        y
+  X:05BDH         SYMBOL        i
+  X:05BEH         SYMBOL        z
+  -------         DO            
+  X:05C1H         SYMBOL        a
+  X:05C2H         SYMBOL        b
+  -------         ENDDO         
+  C:4C99H         LINE#         72
+  C:4CA7H         LINE#         73
+  C:4CA7H         LINE#         74
+  C:4CAEH         LINE#         75
+  C:4CCDH         LINE#         76
+  C:4CCDH         LINE#         77
+  C:4CFAH         LINE#         78
+  C:4D95H         LINE#         79
+  C:4D95H         LINE#         80
+  C:4DB5H         LINE#         81
+  C:4DB5H         LINE#         82
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 46
+
+
+  C:4DE1H         LINE#         83
+  C:4DE1H         LINE#         85
+  C:4E06H         LINE#         86
+  C:4E29H         LINE#         87
+  C:4E29H         LINE#         88
+  C:4E32H         LINE#         89
+  C:4E46H         LINE#         90
+  C:4E46H         LINE#         91
+  C:4E4FH         LINE#         92
+  C:4E6CH         LINE#         93
+  C:4E6CH         LINE#         94
+  C:4E8CH         LINE#         95
+  C:4E8CH         LINE#         96
+  C:4E91H         LINE#         97
+  C:4E93H         LINE#         98
+  C:4E93H         LINE#         99
+  C:4E9BH         LINE#         100
+  C:4EA1H         LINE#         101
+  C:4EA1H         LINE#         102
+  C:4EB1H         LINE#         103
+  C:4EB1H         LINE#         106
+  -------         ENDPROC       _ZUHEANNIU
+  -------         PROC          _KJHUAKUAICHABIAO
+  D:0007H         SYMBOL        x
+  C:6C0FH         LINE#         110
+  C:6C0FH         LINE#         111
+  C:6C0FH         LINE#         112
+  C:6C15H         LINE#         113
+  C:6C15H         LINE#         114
+  C:6C22H         LINE#         115
+  C:6C22H         LINE#         116
+  C:6C24H         LINE#         117
+  -------         ENDPROC       _KJHUAKUAICHABIAO
+  -------         PROC          _GBKJHUAKUAI
+  D:0001H         SYMBOL        temp
+  D:0005H         SYMBOL        x
+  X:05C5H         SYMBOL        y
+  C:6BA9H         LINE#         119
+  C:6BA9H         LINE#         120
+  C:6BA9H         LINE#         121
+  C:6BADH         LINE#         122
+  C:6BB4H         LINE#         123
+  C:6BBFH         LINE#         124
+  -------         ENDPROC       _GBKJHUAKUAI
+  -------         PROC          _TBKJHUAKUAI
+  D:0001H         SYMBOL        temp
+  C:6A9AH         LINE#         127
+  C:6A9AH         LINE#         128
+  C:6A9AH         LINE#         130
+  C:6AA3H         LINE#         131
+  C:6AAFH         LINE#         132
+  C:6ABBH         LINE#         133
+  -------         ENDPROC       _TBKJHUAKUAI
+  -------         PROC          _KJHUAKUAI
+  X:05B7H         SYMBOL        temp
+  X:05BAH         SYMBOL        xiaoxi
+  X:05BBH         SYMBOL        x
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 47
+
+
+  X:05BCH         SYMBOL        y
+  -------         DO            
+  X:05BDH         SYMBOL        ctemp
+  -------         ENDDO         
+  C:1E88H         LINE#         137
+  C:1E96H         LINE#         138
+  C:1E96H         LINE#         140
+  C:1E9FH         LINE#         141
+  C:1EA7H         LINE#         142
+  C:1EA7H         LINE#         143
+  C:1EB2H         LINE#         144
+  C:1EB2H         LINE#         145
+  C:1EB2H         LINE#         146
+  C:1EB2H         LINE#         147
+  C:1EB2H         LINE#         148
+  C:1EB5H         LINE#         149
+  C:1EC0H         LINE#         150
+  C:1EC0H         LINE#         151
+  C:1F07H         LINE#         152
+  C:1F07H         LINE#         153
+  C:1F1FH         LINE#         154
+  C:1F1FH         LINE#         155
+  C:1F49H         LINE#         156
+  C:1F4CH         LINE#         157
+  C:1F4CH         LINE#         158
+  C:1F4CH         LINE#         159
+  C:1F4CH         LINE#         160
+  C:1F4CH         LINE#         161
+  C:1F4CH         LINE#         162
+  C:1F4FH         LINE#         163
+  C:1F57H         LINE#         164
+  C:1F57H         LINE#         165
+  C:1F6FH         LINE#         166
+  C:1F6FH         LINE#         167
+  C:1F6FH         LINE#         168
+  C:1F6FH         LINE#         169
+  C:1F6FH         LINE#         170
+  C:1F6FH         LINE#         171
+  C:1F6FH         LINE#         172
+  C:1F6FH         LINE#         173
+  C:1F72H         LINE#         174
+  C:1F98H         LINE#         175
+  C:1F98H         LINE#         176
+  C:1FAAH         LINE#         177
+  C:1FAAH         LINE#         178
+  C:1FAAH         LINE#         179
+  C:1FAFH         LINE#         180
+  C:1FB1H         LINE#         181
+  C:1FB1H         LINE#         182
+  C:1FC3H         LINE#         183
+  C:1FC5H         LINE#         184
+  C:1FC5H         LINE#         185
+  C:1FD8H         LINE#         186
+  C:1FDAH         LINE#         187
+  C:1FDAH         LINE#         188
+  C:1FEFH         LINE#         189
+  C:1FEFH         LINE#         190
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 48
+
+
+  C:1FEFH         LINE#         192
+  C:2027H         LINE#         193
+  C:202AH         LINE#         194
+  C:2038H         LINE#         195
+  C:204DH         LINE#         196
+  C:2097H         LINE#         197
+  C:20A7H         LINE#         198
+  C:20AAH         LINE#         199
+  C:20F3H         LINE#         200
+  C:20F3H         LINE#         201
+  C:210BH         LINE#         202
+  C:210BH         LINE#         203
+  C:2135H         LINE#         204
+  C:2138H         LINE#         205
+  C:214DH         LINE#         206
+  C:2197H         LINE#         207
+  C:21A7H         LINE#         208
+  C:21A7H         LINE#         209
+  C:21AAH         LINE#         211
+  C:21AAH         LINE#         212
+  C:21C2H         LINE#         213
+  C:21C2H         LINE#         214
+  C:21ECH         LINE#         215
+  C:21EFH         LINE#         216
+  C:2204H         LINE#         217
+  C:224EH         LINE#         218
+  C:2261H         LINE#         219
+  C:2261H         LINE#         221
+  C:2261H         LINE#         222
+  -------         ENDPROC       _KJHUAKUAI
+  -------         ENDMOD        2048KJAPI
+
+  -------         MODULE        2048HBAPP
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  X:0428H         PUBLIC        cheng
+  C:6340H         PUBLIC        hubandicen
+  C:6422H         PUBLIC        HB_anniu_1
+  C:642AH         PUBLIC        HB_anniu_2
+  X:043BH         PUBLIC        hbanniu2
+  C:6432H         PUBLIC        HB_anniu_3
+  C:643AH         PUBLIC        HB_anniu_4
+  C:6442H         PUBLIC        HB_anniu_5
+  C:644AH         PUBLIC        HB_anniu_6
+  C:6452H         PUBLIC        HB_anniu_7
+  C:645AH         PUBLIC        HB_anniu_8
+  X:0444H         PUBLIC        zhong
+  X:0457H         PUBLIC        z1
+  X:0458H         PUBLIC        z2
+  X:0459H         PUBLIC        hong
+  X:046CH         PUBLIC        hbh
+  X:046FH         PUBLIC        hbt
+  C:5775H         PUBLIC        _huabanxiaoxichuliceng
+  C:6462H         PUBLIC        HB_anniu_10
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 49
+
+
+  X:0478H         PUBLIC        hc
+  C:646AH         PUBLIC        HB_anniu_11
+  C:6CC9H         PUBLIC        huabanfudongceng1
+  C:6472H         PUBLIC        HB_anniu_12
+  C:6CCAH         PUBLIC        huabanfudongceng2
+  C:647AH         PUBLIC        HB_anniu_13
+  C:6482H         PUBLIC        HB_anniu_14
+  C:6483H         PUBLIC        HB_anniu_15
+  C:6485H         PUBLIC        HB_anniu_16
+  X:048BH         PUBLIC        cu
+  X:049EH         PUBLIC        xi
+  X:04B1H         PUBLIC        lv
+  X:04C4H         PUBLIC        hbanniu
+  -------         PROC          HUBANDICEN
+  C:6340H         LINE#         40
+  C:6340H         LINE#         41
+  C:6340H         LINE#         42
+  C:6345H         LINE#         43
+  C:6368H         LINE#         44
+  C:638BH         LINE#         46
+  C:638EH         LINE#         47
+  C:6394H         LINE#         48
+  C:6396H         LINE#         50
+  C:639CH         LINE#         51
+  C:63A3H         LINE#         53
+  C:63A6H         LINE#         55
+  C:63B2H         LINE#         57
+  -------         ENDPROC       HUBANDICEN
+  -------         PROC          _HUABANXIAOXICHULICENG
+  X:05B4H         SYMBOL        xiaoxi
+  X:05B5H         SYMBOL        x
+  X:05B6H         SYMBOL        y
+  C:5775H         LINE#         59
+  C:5782H         LINE#         60
+  C:5782H         LINE#         61
+  C:57A5H         LINE#         62
+  C:57D1H         LINE#         65
+  C:57E5H         LINE#         66
+  C:57F0H         LINE#         67
+  C:580BH         LINE#         68
+  C:5823H         LINE#         69
+  C:5823H         LINE#         71
+  C:5832H         LINE#         72
+  C:583AH         LINE#         73
+  C:5872H         LINE#         74
+  C:5879H         LINE#         75
+  C:5880H         LINE#         76
+  C:5880H         LINE#         78
+  C:5894H         LINE#         80
+  -------         ENDPROC       _HUABANXIAOXICHULICENG
+  -------         PROC          HUABANFUDONGCENG1
+  C:6CC9H         LINE#         82
+  C:6CC9H         LINE#         83
+  C:6CC9H         LINE#         85
+  -------         ENDPROC       HUABANFUDONGCENG1
+  -------         PROC          HUABANFUDONGCENG2
+  C:6CCAH         LINE#         86
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 50
+
+
+  C:6CCAH         LINE#         87
+  C:6CCAH         LINE#         89
+  -------         ENDPROC       HUABANFUDONGCENG2
+  -------         ENDMOD        2048HBAPP
+
+  -------         MODULE        TDXRAPP
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00B0H.3       PUBLIC        S5
+  C:6A6CH         PUBLIC        tuodongappdc
+  C:589CH         PUBLIC        _tuodongappzc
+  X:0578H         PUBLIC        TD_1
+  X:0580H         PUBLIC        TD_2
+  X:0588H         PUBLIC        TD_3
+  X:0590H         PUBLIC        yucex
+  X:0595H         PUBLIC        yucey
+  X:059AH         PUBLIC        xr
+  -------         PROC          TUODONGAPPDC
+  C:6A6CH         LINE#         13
+  C:6A6CH         LINE#         14
+  C:6A6CH         LINE#         15
+  C:6A71H         LINE#         16
+  C:6A83H         LINE#         17
+  C:6A86H         LINE#         18
+  C:6A89H         LINE#         19
+  C:6A95H         LINE#         20
+  -------         ENDPROC       TUODONGAPPDC
+  -------         PROC          _TUODONGAPPZC
+  X:05B4H         SYMBOL        xiaoxi
+  X:05B5H         SYMBOL        x
+  X:05B6H         SYMBOL        y
+  C:589CH         LINE#         26
+  C:58A7H         LINE#         27
+  C:58A7H         LINE#         28
+  C:58AAH         LINE#         29
+  C:58AAH         LINE#         30
+  C:58C5H         LINE#         31
+  C:58C5H         LINE#         33
+  C:590AH         LINE#         34
+  C:590AH         LINE#         35
+  C:5939H         LINE#         36
+  C:5953H         LINE#         38
+  C:596FH         LINE#         39
+  C:5977H         LINE#         40
+  C:5977H         LINE#         41
+  -------         ENDPROC       _TUODONGAPPZC
+  -------         ENDMOD        TDXRAPP
+
+  -------         MODULE        ?C?SCDIV
+  C:3743H         PUBLIC        ?C?SCDIV
+  -------         ENDMOD        ?C?SCDIV
+
+  -------         MODULE        ?C?CLDPTR
+  C:3765H         PUBLIC        ?C?CLDPTR
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 51
+
+
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:377EH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CILDPTR
+  C:37ABH         PUBLIC        ?C?CILDPTR
+  -------         ENDMOD        ?C?CILDPTR
+
+  -------         MODULE        ?C?CILDOPTR
+  C:37CDH         PUBLIC        ?C?CILDOPTR
+  -------         ENDMOD        ?C?CILDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:3800H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?CSTOPTR
+  C:3812H         PUBLIC        ?C?CSTOPTR
+  -------         ENDMOD        ?C?CSTOPTR
+
+  -------         MODULE        ?C?IMUL
+  C:3834H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+  -------         MODULE        ?C?SIDIV
+  C:3846H         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?OFFX256
+  C:387CH         PUBLIC        ?C?OFFX256
+  -------         ENDMOD        ?C?OFFX256
+
+  -------         MODULE        ?C?PLDPTR
+  C:388DH         PUBLIC        ?C?PLDPTR
+  -------         ENDMOD        ?C?PLDPTR
+
+  -------         MODULE        ?C?PSTPTR
+  C:38ADH         PUBLIC        ?C?PSTPTR
+  -------         ENDMOD        ?C?PSTPTR
+
+  -------         MODULE        ?C?PLDOPTR
+  C:38FCH         PUBLIC        ?C?PLDOPTR
+  -------         ENDMOD        ?C?PLDOPTR
+
+  -------         MODULE        ?C?ICASE
+  C:392CH         PUBLIC        ?C?ICASE
+  -------         ENDMOD        ?C?ICASE
+
+  -------         MODULE        ?C?UIDIV
+  C:3959H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+  -------         MODULE        ?C?PLDIDATA
+  C:39AEH         PUBLIC        ?C?PLDIDATA
+  -------         ENDMOD        ?C?PLDIDATA
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 52
+
+
+
+  -------         MODULE        ?C?PSTIDATA
+  C:39B7H         PUBLIC        ?C?PSTIDATA
+  -------         ENDMOD        ?C?PSTIDATA
+
+  -------         MODULE        ?C?PLDXDATA
+  C:39C0H         PUBLIC        ?C?PLDXDATA
+  -------         ENDMOD        ?C?PLDXDATA
+
+  -------         MODULE        ?C?PSTXDATA
+  C:39C9H         PUBLIC        ?C?PSTXDATA
+  -------         ENDMOD        ?C?PSTXDATA
+
+  -------         MODULE        ?C?PLDPDATA
+  C:39D2H         PUBLIC        ?C?PLDPDATA
+  -------         ENDMOD        ?C?PLDPDATA
+
+  -------         MODULE        ?C?PSTPDATA
+  C:39DBH         PUBLIC        ?C?PSTPDATA
+  -------         ENDMOD        ?C?PSTPDATA
+
+  -------         MODULE        ?C?PLDCODE
+  C:39E4H         PUBLIC        ?C?PLDCODE
+  -------         ENDMOD        ?C?PLDCODE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ZHENGTIYIDONG?2048HZAPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HUIZHIDUOBIANXING?2048HZAPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HUIZHITUJUXING?2048HZAPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CHAXUNJIAODIANA?2048JDAPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GGYSIJIAODIAN?2048JDAPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GGZONGDIAN?2048JDAPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_JIANCECHONGDIETU?2048GJAPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_JIANCECHONGDIEDIAN?2048GJAPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CHAXUNKJANNIU?2048KJAPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?HUABANFUDONGCENG1?2048HBAPP
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?HUABANFUDONGCENG2?2048HBAPP
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/22/2017  14:02:57  PAGE 53
+
+
+
+Program Size: data=9.0 xdata=1697 code=27851
+LINK/LOCATE RUN COMPLETE.  11 WARNING(S),  0 ERROR(S)

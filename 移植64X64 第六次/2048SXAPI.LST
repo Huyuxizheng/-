@@ -1,0 +1,116 @@
+C51 COMPILER V9.54   2048SXAPI                                                             12/22/2017 14:02:54 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE 2048SXAPI
+OBJECT MODULE PLACED IN 2048SXAPI.OBJ
+COMPILER INVOKED BY: D:\K5\MAIN\C51\BIN\C51.EXE 2048SXAPI.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include"to2048moni.h"
+   2          
+   3          void sleep(uint a)
+   4          {
+   5   1        while(a--);
+   6   1      }
+   7          
+   8          void shuaxinyihang(uchar hi)
+   9          {
+  10   1        char wi = 0, i, temp = 1;
+  11   1        for( wi = 0; wi < MAXW/8; wi++)
+  12   1        {
+  13   2          temp = 1;
+  14   2          for(i = 0; i <= 7; i++)
+  15   2          {
+  16   3       
+  17   3            G1 = (bit)(huanchonglv[hi][wi] & ( temp));
+  18   3            R1 = (bit)(huanchonghong[hi][wi] & ( temp));  
+  19   3            G2 = (bit)(huanchonglv[hi+16][wi] & ( temp));
+  20   3            R2 = (bit)(huanchonghong[hi+16][wi] & ( temp));   
+  21   3            sck = 0;
+  22   3            sck = 1;
+  23   3            temp <<= 1; 
+  24   3          }
+  25   2      
+  26   2        }
+  27   1        for( wi = 0; wi < MAXW/8; wi++)
+  28   1        {
+  29   2            temp = 1;
+  30   2          for(i = 0; i <= 7; i++)
+  31   2          {
+  32   3      
+  33   3            G1 = (bit)(huanchonglv[hi+32][wi] & ( temp));
+  34   3            R1 = (bit)(huanchonghong[hi+32][wi] & ( temp)); 
+  35   3            G2 = (bit)(huanchonglv[hi+48][wi] & ( temp));
+  36   3            R2 = (bit)(huanchonghong[hi+48][wi] & ( temp));   
+  37   3            sck = 0;
+  38   3            sck = 1;
+  39   3            temp <<= 1; 
+  40   3          }
+  41   2             
+  42   2      
+  43   2        }
+  44   1      
+  45   1      
+  46   1      
+  47   1      
+  48   1          rck = 1;
+  49   1          rck = 0;
+  50   1            rck = 1;
+  51   1      }
+  52          
+  53          
+  54          void hang(char a)
+  55          {
+C51 COMPILER V9.54   2048SXAPI                                                             12/22/2017 14:02:54 PAGE 2   
+
+  56   1        switch(a)
+  57   1              {
+  58   2          case  0: scan0;break;
+  59   2            case  1: scan1;break;
+  60   2             case  2: scan2;break;
+  61   2              case  3: scan3;break;
+  62   2                   case  4: scan4;break;
+  63   2                case  5: scan5;break;
+  64   2                 case  6: scan6;break;
+  65   2                  case  7: scan7;break;
+  66   2                       case  8: scan8;break;
+  67   2                 case  9: scan9;break;
+  68   2                case 10:scan10;break;
+  69   2               case 11:scan11;break;
+  70   2                  case 12:scan12;break;
+  71   2             case 13:scan13;break;
+  72   2            case 14:scan14;break;
+  73   2             case 15:scan15;break;
+  74   2           default:break;
+  75   2             } 
+  76   1      
+  77   1      
+  78   1      }
+  79          void shuaxin()
+  80          { 
+  81   1        uchar hi,a = 6; 
+  82   1      
+  83   1        while(a--)
+  84   1        for(hi = 0;hi<16;hi++){
+  85   2        hang(hi);
+  86   2        shuaxinyihang(hi);
+  87   2        OE = 0;
+  88   2        sleep(600);
+  89   2        OE = 1;
+  90   2        } 
+  91   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    598    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       2
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

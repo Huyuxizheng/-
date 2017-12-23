@@ -1,0 +1,125 @@
+C51 COMPILER V9.54   2048HBAPP                                                             12/22/2017 14:02:56 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE 2048HBAPP
+OBJECT MODULE PLACED IN 2048HBAPP.OBJ
+COMPILER INVOKED BY: D:\K5\MAIN\C51\BIN\C51.EXE 2048HBAPP.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include"to2048moni.h"
+   2          #include"2048SJK.h"
+   3          
+   4          code uchar HB_anniu_1[] =  { 0x00, 0x00, 0x18, 0x3C, 0x3C, 0x18, 0x00, 0x00 };/*颜色1*/
+   5          code uchar HB_anniu_2[] =  { 0x00, 0x18, 0x3C, 0x7E, 0x7E, 0x3C, 0x18, 0x00 };/*颜色2*/
+   6          code uchar HB_anniu_3[] =  { 0xFF, 0x99, 0xBD, 0xFF, 0xFF, 0xBD, 0x99, 0xFF };/*颜色3*/
+   7          code uchar HB_anniu_4[] =  { 0x00, 0x00, 0x00, 0x14, 0x1C, 0x14, 0x00, 0x00 };/*橡皮1*/
+   8          code uchar HB_anniu_5[] =  { 0x00, 0x00, 0x24, 0x3C, 0x24, 0x24, 0x00, 0x00 };/*橡皮2*/
+   9          code uchar HB_anniu_6[] =  { 0xFF, 0x81, 0xA5, 0xBD, 0xA5, 0xA5, 0x81, 0xFF };/*橡皮3*/
+  10          code uchar HB_anniu_7[] =  { 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 };/*线11*/
+  11          code uchar HB_anniu_8[] =  { 0xFF, 0x81, 0x81, 0x89, 0x81, 0x81, 0x81, 0xFF };/*线12*/
+  12          code uchar HB_anniu_10[] = { 0x00, 0x00, 0x00, 0x18, 0x18, 0x00, 0x00, 0x00 };/*线21*/
+  13          code uchar HB_anniu_11[] = { 0xFF, 0x81, 0x81, 0x99, 0x99, 0x81, 0x81, 0xFF };/*线22*/
+  14          code uchar HB_anniu_12[] = { 0x00, 0x00, 0x00, 0x38, 0x38, 0x38, 0x00, 0x00 };/*线31*/
+  15          code uchar HB_anniu_13[] = { 0xFF, 0x81, 0x81, 0xB9, 0xB9, 0xB9, 0x81, 0xFF };/*线32*/
+  16          code uchar HB_anniu_14[] = { 0x01 };/*线1*/
+  17          code uchar HB_anniu_15[] = { 0x03, 0x03 };/*线2*/
+  18          code uchar HB_anniu_16[] = { 0x07, 0x07, 0x07 };/*线3*/
+  19            //  ****按钮结构****  //
+  20           ANNIU lv =     { 0, 0, 8, 8, HB_anniu_1, SE_LVTOU, HB_anniu_2, SE_LVTOU, HB_anniu_3, SE_LVTOU, 8, 1, 1 };
+  21           ANNIU hong =   { 0, 8, 8, 16, HB_anniu_1, SE_HONGTOU, HB_anniu_2, SE_HONGTOU, HB_anniu_3, SE_HONGTOU, 8, 
+             -1, 1 };
+  22           ANNIU cheng =  { 0, 16, 8, 24, HB_anniu_1, SE_CHENG, HB_anniu_2, SE_CHENG, HB_anniu_3, SE_CHENG, 8, 1, 1 
+             -};
+  23           ANNIU hc =     { 0, 24, 8, 32, HB_anniu_4, SE_CHENG, HB_anniu_5, SE_HONGTOU, HB_anniu_6, SE_CHENG, 8, 1, 
+             -1 };
+  24           ANNIU xi =     { 0, 32, 8, 40, HB_anniu_7, SE_LVTOU, HB_anniu_7, SE_HONGTOU, HB_anniu_8, SE_CHENG, 8, 1, 
+             -1 };
+  25           ANNIU zhong =  { 0, 40, 8, 48, HB_anniu_10, SE_LVTOU, HB_anniu_10, SE_HONGTOU, HB_anniu_11, SE_CHENG, 8, 
+             -1, 1 };
+  26           ANNIU cu =     { 0, 48, 8, 56, HB_anniu_12, SE_LVTOU, HB_anniu_12, SE_HONGTOU, HB_anniu_13, SE_CHENG, 8, 
+             -1, 1 };
+  27           //***********//
+  28           
+  29           //组合按钮结构//
+  30           ZANNIU hbanniu[] = { &lv, &hong, &hc, &cheng};
+  31           ZANNIU hbanniu2[] = { &xi, &zhong, &cu};
+  32           
+  33           //辅助：线指针 查询表
+  34           uchar *hbt[] = { HB_anniu_14, HB_anniu_15, HB_anniu_16 };
+  35           uchar hbh[] = { 1, 2, 3 };
+  36           
+  37           //此应用专用标志位
+  38          uchar z1 = NOP;
+  39          uchar z2 = NOP;
+  40          void hubandicen()
+  41          {//画板底层
+  42   1         shuaping(SE_HEI);
+  43   1        zuheanniu(hbanniu, NOP, NOP, NOP, 4, &z1);//初始化组合按键
+*** WARNING C182 IN LINE 43 OF 2048HBAPP.c: pointer to different objects
+  44   1        zuheanniu(hbanniu2, NOP, NOP, NOP, 3, &z2);
+*** WARNING C182 IN LINE 44 OF 2048HBAPP.c: pointer to different objects
+  45   1        
+  46   1        fuweizhuangtaibiao();//初始化状态表标志位
+  47   1         z1 = NOP;
+C51 COMPILER V9.54   2048HBAPP                                                             12/22/2017 14:02:56 PAGE 2   
+
+  48   1         z2 = NOP;
+  49   1        
+  50   1        xiugaizhuangtaibiao(NOP, 7);//占用状态表后两位 作为本应用标志变量
+  51   1        xiugaizhuangtaibiao(NOP, 6);
+  52   1        
+  53   1          dalogo();//打LOGO
+  54   1        
+  55   1          tuichujian(NOP, NOP, NOP, NOP);//初始化退出键
+  56   1        
+  57   1          tongbujiemian(J_Z);//完成底层绘制 同步界面
+  58   1      }
+  59          void huabanxiaoxichuliceng(uchar xiaoxi,char x,char y)
+  60          {//画板消息处理层
+  61   1        zuheanniu(hbanniu, xiaoxi, x, y, 4, &z1);//相应组合按键消息
+*** WARNING C182 IN LINE 61 OF 2048HBAPP.c: pointer to different objects
+  62   1        zuheanniu(hbanniu2, xiaoxi, x, y, 3, &z2);
+*** WARNING C182 IN LINE 62 OF 2048HBAPP.c: pointer to different objects
+  63   1        
+  64   1        //检查各个元素是否已设置
+  65   1        if (z1 != NOP && z2 != NOP)
+  66   1        if (xiaoxi == 5)
+  67   1        if (gjjuxingjiance(x,y,9,0,64,56))
+  68   1        if (chaxunzhuangtaibiao(6) != x || chaxunzhuangtaibiao(7) != y)
+  69   1        {
+  70   2          //根据鼠标位置作画
+  71   2          shezhihuizhiquyu(9, 0, 64, 57);
+  72   2          shezhihuabiyanse(z1);
+  73   2          huizhiex(x, y, hbt[z2],hbh[z2] , 1 );
+*** WARNING C182 IN LINE 73 OF 2048HBAPP.c: pointer to different objects
+  74   2          xiugaizhuangtaibiao(NOP, 7);
+  75   2          xiugaizhuangtaibiao(NOP, 6);
+  76   2        }
+  77   1        
+  78   1          tuichujian(xiaoxi, x, y, 1);//响应退出键消息
+  79   1        
+  80   1          morenchuli(xiaoxi);//其他消息按系统默认方法处理
+  81   1      }
+  82          void huabanfudongceng1()
+  83          {//画板浮动层1
+  84   1      //服务于特殊需要的APP大多数一般任务都不必在此层完成
+  85   1      }
+  86          void huabanfudongceng2()
+  87          {//画板浮动层2
+  88   1      //服务于特殊需要的APP大多数一般任务都不必在此层完成
+  89   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    416    ----
+   CONSTANT SIZE    =    102    ----
+   XDATA SIZE       =    168       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  5 WARNING(S),  0 ERROR(S)

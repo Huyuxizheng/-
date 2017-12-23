@@ -1,0 +1,253 @@
+C51 COMPILER V9.54   2048KJAPI                                                             12/22/2017 14:02:56 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE 2048KJAPI
+OBJECT MODULE PLACED IN 2048KJAPI.OBJ
+COMPILER INVOKED BY: D:\K5\MAIN\C51\BIN\C51.EXE 2048KJAPI.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include"to2048moni.h"
+   2          
+   3          //按钮控件
+   4          void kjanniu(ZANNIU temp,uchar xiaoxi, char x, char y)
+   5          {
+   6   1        JUXING ctemp;
+   7   1        huodequyu(&ctemp);
+   8   1        if (xiaoxi == NOP)
+   9   1        {
+  10   2          shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+  11   2          quyucachu();
+  12   2          shezhihuabiyanse(temp->ys1se);
+  13   2          huizhi(temp->w, temp->n, temp->ys1, temp->ysh, temp->ysw);
+  14   2              temp->xz = 1;
+  15   2        }
+  16   1        else if (xiaoxi == 7)
+  17   1        {
+  18   2          if (gjjuxingjiance(x, y, temp->w, temp->n, temp->e, temp->s))
+  19   2          {
+  20   3            if (temp->xz == 3)
+  21   3            {
+  22   4            shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+  23   4            quyucachu();
+  24   4            shezhihuabiyanse(temp->ys2se);
+  25   4            huizhi(temp->w, temp->n, temp->ys2, temp->ysh, temp->ysw);
+  26   4            temp->xz = 2;
+  27   4            }
+  28   3            else
+  29   3            {
+  30   4              shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+  31   4              quyucachu();
+  32   4              shezhihuabiyanse(temp->ys3se);
+  33   4              huizhi(temp->w, temp->n, temp->ys3, temp->ysh, temp->ysw);
+  34   4              temp->xz = 3;
+  35   4            }
+  36   3          }
+  37   2        }
+  38   1        else if (gjjuxingjiance(x, y, temp->w, temp->n, temp->e, temp->s))
+  39   1        {
+  40   2          if (temp->xz == 1)
+  41   2          {
+  42   3            shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+  43   3            quyucachu();
+  44   3            shezhihuabiyanse(temp->ys2se);
+  45   3            huizhi(temp->w, temp->n, temp->ys2, temp->ysh, temp->ysw);
+  46   3            temp->xz = 2;
+  47   3          }
+  48   2        }
+  49   1        else
+  50   1        {
+  51   2          if (temp->xz == 2)
+  52   2          {
+  53   3            shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+  54   3            quyucachu();
+  55   3            shezhihuabiyanse(temp->ys1se);
+C51 COMPILER V9.54   2048KJAPI                                                             12/22/2017 14:02:56 PAGE 2   
+
+  56   3            huizhi(temp->w, temp->n, temp->ys1, temp->ysh, temp->ysw);
+  57   3            temp->xz = 1;
+  58   3          }
+  59   2      
+  60   2        }
+  61   1        shezhihuizhiquyu(ctemp.w, ctemp.n, ctemp.e, ctemp.s);
+  62   1      
+  63   1      }
+  64          
+  65          //查询按钮状态
+  66          char chaxunkjanniu(ZANNIU temp)
+  67          {
+  68   1        return temp->xz;
+  69   1      
+  70   1      }
+  71          //组合关联选择按钮(单选)
+  72          void zuheanniu(ZANNIU((*temp)[]), uchar xiaoxi, char x, char y, uchar i,uchar *z)
+  73          {
+  74   1        char a = 0,b = 0;
+  75   1        for (a = 0; a < i; a++)
+  76   1        {
+  77   2          kjanniu((*temp)[a], xiaoxi, x, y);
+  78   2          if ((*temp)[a]->xz == 3&&gjjuxingjiance(x,y,(*temp)[a]->w,(*temp)[a]->n,(*temp)[a]->e,(*temp)[a]->s))
+  79   2          {
+  80   3            for (b = 0; b < i; b++)
+  81   3            {
+  82   4              if ((*temp)[b]->xz == 3&&b != a)
+  83   4              {
+  84   5      
+  85   5                (*temp)[b]->xz = 1;
+  86   5                kjanniu((*temp)[b],NOP, NOP, NOP);          
+  87   5              }
+  88   4            }
+  89   3            (*z) = a;
+  90   3          }
+  91   2        }
+  92   1        for (a = 0; a < i; a++)
+  93   1        {
+  94   2          if ((*temp)[a]->xz == 3)
+  95   2          {
+  96   3            b = 0;
+  97   3            break;
+  98   3          }
+  99   2        }
+ 100   1        if (b)
+ 101   1        {
+ 102   2          (*z) = NOP;
+ 103   2        }
+ 104   1      
+ 105   1      
+ 106   1      }
+ 107          
+ 108          //滑块查表
+ 109          uchar kjhuakuaibiao[] = { 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1,1};
+ 110          uchar kjhuakuaichabiao(uchar x)
+ 111          {
+ 112   1        if (x < 12)
+ 113   1        {
+ 114   2          return(kjhuakuaibiao[x]);
+ 115   2        }
+ 116   1        return 0;
+ 117   1      }
+C51 COMPILER V9.54   2048KJAPI                                                             12/22/2017 14:02:56 PAGE 3   
+
+ 118          //改变滑块
+ 119          void gbkjhuakuai(ZHUAKUAI temp,char x, char y)
+ 120          {
+ 121   1        temp->w += x;
+ 122   1        temp->e += x;
+ 123   1        temp->n += y;
+ 124   1        temp->s += y;
+ 125   1      }
+ 126          //同步滑块
+ 127          void tbkjhuakuai(ZHUAKUAI temp)
+ 128          {
+ 129   1      
+ 130   1        temp->wi = temp->w;
+ 131   1        temp->ei = temp->e;
+ 132   1        temp->ni = temp->n;
+ 133   1        temp->si = temp->s;
+ 134   1      
+ 135   1      }
+ 136          //控件无限制滑块
+ 137          void kjhuakuai(ZHUAKUAI temp, uchar xiaoxi, char x, char y)
+ 138          {
+ 139   1        JUXING ctemp;
+ 140   1        huodequyu(&ctemp);
+ 141   1        if (xiaoxi == NOP)
+ 142   1        {
+ 143   2          shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+ 144   2          quyucachu();
+ 145   2          shezhihuabiyanse(temp->ys1se);
+ 146   2          huizhi(temp->w, temp->n, temp->ys1, temp->ysh, temp->ysw);
+ 147   2          temp->xz = 1;
+ 148   2        }
+ 149   1        else if (xiaoxi == 6)
+ 150   1        {
+ 151   2          if (gjjuxingjiance(x, y, temp->w, temp->n, temp->e, temp->s))
+ 152   2          {
+ 153   3            if (temp->xz == 2)
+ 154   3            {
+ 155   4              shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+ 156   4              quyucachu();
+ 157   4              shezhihuabiyanse(temp->ys3se);
+ 158   4              huizhi(temp->w, temp->n, temp->ys3, temp->ysh, temp->ysw);
+ 159   4              temp->xz = 3;
+ 160   4            }
+ 161   3          }
+ 162   2        }
+ 163   1        else if (xiaoxi == 7 )
+ 164   1        {
+ 165   2            if (temp->xz == 3)
+ 166   2            {
+ 167   3              shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+ 168   3              quyucachu();
+ 169   3              shezhihuabiyanse(temp->ys2se);
+ 170   3              huizhi(temp->w, temp->n, temp->ys2, temp->ysh, temp->ysw);
+ 171   3              temp->xz = 2;
+ 172   3          }
+ 173   2        }
+ 174   1        else if (kjhuakuaichabiao(xiaoxi) && temp->xz == 3)
+ 175   1        {
+ 176   2          switch (xiaoxi)
+ 177   2          {
+ 178   3          case 1:
+ 179   3            gbkjhuakuai(temp, 0, 1);
+C51 COMPILER V9.54   2048KJAPI                                                             12/22/2017 14:02:56 PAGE 4   
+
+ 180   3            break;
+ 181   3          case 2:
+ 182   3            gbkjhuakuai(temp, -1, 0);
+ 183   3            break;
+ 184   3          case 3:
+ 185   3            gbkjhuakuai(temp, 0, -1);
+ 186   3            break;
+ 187   3          case 4:
+ 188   3            gbkjhuakuai(temp, 1, 0);
+ 189   3            break;
+ 190   3          }
+ 191   2      
+ 192   2          shezhihuizhiquyu(temp->wi, temp->ni, temp->ei, temp->si);
+ 193   2          quyucachu();
+ 194   2          tbkjhuakuai(temp);
+ 195   2          shezhihuabiyanse(temp->ys3se);
+ 196   2          huizhi(temp->w, temp->n, temp->ys3, temp->ysh, temp->ysw);
+ 197   2          temp->xz = 3;
+ 198   2        }
+ 199   1        else if (gjjuxingjiance(x, y, temp->w, temp->n, temp->e, temp->s))
+ 200   1        {
+ 201   2          if (temp->xz == 1)
+ 202   2          {
+ 203   3            shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+ 204   3            quyucachu();
+ 205   3            shezhihuabiyanse(temp->ys2se);
+ 206   3            huizhi(temp->w, temp->n, temp->ys2, temp->ysh, temp->ysw);
+ 207   3            temp->xz = 2;
+ 208   3          }
+ 209   2        }
+ 210   1        else
+ 211   1        {
+ 212   2          if (temp->xz == 2)
+ 213   2          {
+ 214   3            shezhihuizhiquyu(temp->w, temp->n, temp->e, temp->s);
+ 215   3            quyucachu();
+ 216   3            shezhihuabiyanse(temp->ys1se);
+ 217   3            huizhi(temp->w, temp->n, temp->ys1, temp->ysh, temp->ysw);
+ 218   3            temp->xz = 1;
+ 219   3          }
+ 220   2      
+ 221   2        }
+ 222   1        shezhihuizhiquyu(ctemp.w, ctemp.n, ctemp.e, ctemp.s);
+ 223   1      
+ 224   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   2426    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     12      37
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

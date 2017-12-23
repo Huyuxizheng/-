@@ -1,0 +1,193 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\C1\ÒÆÖ²64X64 µÚ¶þ´Î\111.uvproj
+Project File Date:  12/14/2017
+
+<h2>Output:</h2>
+Build target 'Ä¿±ê 1'
+compiling 2048HZAPI.c...
+2048HZAPI.C(175): warning C182: pointer to different objects
+2048HZAPI.C(176): warning C182: pointer to different objects
+2048HZAPI.C(180): warning C182: pointer to different objects
+2048HZAPI.C(181): warning C182: pointer to different objects
+2048HZAPI.C(185): warning C182: pointer to different objects
+2048HZAPI.C(186): warning C182: pointer to different objects
+2048HZAPI.C(191): warning C182: pointer to different objects
+2048HZAPI.C(195): warning C182: pointer to different objects
+2048HZAPI.C(199): warning C182: pointer to different objects
+2048HZAPI.C(203): warning C182: pointer to different objects
+2048HZAPI.C(207): warning C182: pointer to different objects
+2048HZAPI.C(208): warning C182: pointer to different objects
+2048HZAPI.C(167): warning C280: 'i': unreferenced local variable
+2048HZAPI.C(167): warning C280: 'chicun': unreferenced local variable
+2048HZAPI.C(168): warning C280: 'xy': unreferenced local variable
+2048HZAPI.C(168): warning C280: 'xs': unreferenced local variable
+2048HZAPI.C(169): warning C280: 'ihs': unreferenced local variable
+2048HZAPI.C(169): warning C280: 'ihy': unreferenced local variable
+2048HZAPI.C(526): warning C182: pointer to different objects
+2048HZAPI.C(527): warning C182: pointer to different objects
+2048HZAPI.C(531): warning C182: pointer to different objects
+2048HZAPI.C(532): warning C182: pointer to different objects
+2048HZAPI.C(536): warning C182: pointer to different objects
+2048HZAPI.C(537): warning C182: pointer to different objects
+2048HZAPI.C(542): warning C182: pointer to different objects
+2048HZAPI.C(546): warning C182: pointer to different objects
+2048HZAPI.C(550): warning C182: pointer to different objects
+2048HZAPI.C(554): warning C182: pointer to different objects
+2048HZAPI.C(558): warning C182: pointer to different objects
+2048HZAPI.C(559): warning C182: pointer to different objects
+2048HZAPI.C(518): warning C280: 'i': unreferenced local variable
+2048HZAPI.C(518): warning C280: 'chicun': unreferenced local variable
+2048HZAPI.C(519): warning C280: 'xy': unreferenced local variable
+2048HZAPI.C(519): warning C280: 'xs': unreferenced local variable
+2048HZAPI.C(520): warning C280: 'ihs': unreferenced local variable
+2048HZAPI.C(520): warning C280: 'ihy': unreferenced local variable
+2048HZAPI.C(602): warning C182: pointer to different objects
+2048HZAPI.C(603): warning C182: pointer to different objects
+2048HZAPI.C(608): warning C182: pointer to different objects
+2048HZAPI.C(609): warning C182: pointer to different objects
+2048HZAPI.C(613): warning C182: pointer to different objects
+2048HZAPI.C(614): warning C182: pointer to different objects
+2048HZAPI.C(618): warning C182: pointer to different objects
+2048HZAPI.C(622): warning C182: pointer to different objects
+2048HZAPI.C(626): warning C182: pointer to different objects
+2048HZAPI.C(630): warning C182: pointer to different objects
+2048HZAPI.C(634): warning C182: pointer to different objects
+2048HZAPI.C(635): warning C182: pointer to different objects
+2048HZAPI.C(669): warning C182: pointer to different objects
+2048HZAPI.C(670): warning C182: pointer to different objects
+2048HZAPI.C(674): warning C182: pointer to different objects
+2048HZAPI.C(675): warning C182: pointer to different objects
+2048HZAPI.C(679): warning C182: pointer to different objects
+2048HZAPI.C(680): warning C182: pointer to different objects
+2048HZAPI.C(684): warning C182: pointer to different objects
+2048HZAPI.C(685): warning C182: pointer to different objects
+2048HZAPI.C(707): warning C235: parameter 3: different types
+2048HZAPI.C(707): warning C235: parameter 4: different types
+2048HZAPI.C(715): warning C182: pointer to different objects
+2048HZAPI.C(716): warning C182: pointer to different objects
+2048HZAPI.C(745): warning C182: pointer to different objects
+2048HZAPI.C(746): warning C182: pointer to different objects
+2048HZAPI.C(908): warning C182: pointer to different objects
+2048HZAPI.C(909): warning C182: pointer to different objects
+compiling 2048JDAPI.c...
+2048JDAPI.C(34): warning C182: pointer to different objects
+2048JDAPI.C(34): warning C182: pointer to different objects
+2048JDAPI.C(35): warning C182: pointer to different objects
+2048JDAPI.C(35): warning C182: pointer to different objects
+2048JDAPI.C(50): warning C182: pointer to different objects
+2048JDAPI.C(50): warning C182: pointer to different objects
+2048JDAPI.C(57): warning C182: pointer to different objects
+2048JDAPI.C(57): warning C182: pointer to different objects
+compiling 2048JGT.c...
+compiling 2048SXAPI.c...
+compiling 2048XIZTAPI.c...
+compiling Ö÷³ÌÐò.c...
+Ö÷³ÌÐò.C(40): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(41): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(42): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(43): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(44): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(45): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(46): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(47): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(48): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(49): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(50): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(51): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(111): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(111): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(136): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(136): warning C182: pointer to different objects
+Ö÷³ÌÐò.C(129): warning C280: 'JA_XY': unreferenced local variable
+compiling 2048GJAPI.c...
+2048GJAPI.C(48): warning C182: pointer to different objects
+2048GJAPI.C(50): warning C182: pointer to different objects
+2048GJAPI.C(54): warning C182: pointer to different objects
+2048GJAPI.C(58): warning C182: pointer to different objects
+2048GJAPI.C(62): warning C182: pointer to different objects
+2048GJAPI.C(64): warning C182: pointer to different objects
+2048GJAPI.C(85): warning C182: pointer to different objects
+2048GJAPI.C(87): warning C182: pointer to different objects
+2048GJAPI.C(91): warning C182: pointer to different objects
+2048GJAPI.C(95): warning C182: pointer to different objects
+2048GJAPI.C(99): warning C182: pointer to different objects
+2048GJAPI.C(101): warning C182: pointer to different objects
+2048GJAPI.C(68): warning C291: not every exit path returns a value
+2048GJAPI.C(104): warning C291: not every exit path returns a value
+compiling 2048HZAPIEX.c...
+2048HZAPIEX.C(1554): warning C182: pointer to different objects
+2048HZAPIEX.C(1555): warning C182: pointer to different objects
+2048HZAPIEX.C(1560): warning C182: pointer to different objects
+2048HZAPIEX.C(1561): warning C182: pointer to different objects
+2048HZAPIEX.C(1565): warning C182: pointer to different objects
+2048HZAPIEX.C(1566): warning C182: pointer to different objects
+2048HZAPIEX.C(1570): warning C182: pointer to different objects
+2048HZAPIEX.C(1574): warning C182: pointer to different objects
+2048HZAPIEX.C(1578): warning C182: pointer to different objects
+2048HZAPIEX.C(1582): warning C182: pointer to different objects
+2048HZAPIEX.C(1586): warning C182: pointer to different objects
+2048HZAPIEX.C(1587): warning C182: pointer to different objects
+compiling 2048SJK.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SHEZHIHUIZHIQUYU?2048HZAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HUIZHIEXHUIZHI?2048HZAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HUIZHIEXCACHU?2048HZAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HUIZHIEXQUFAN?2048HZAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HUIZHIEX?2048HZAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ZHENGTIYIDONG?2048HZAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?QUYUCACHU?2048HZAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HUIZHIDUOBIANXING?2048HZAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CHAXUNJIAODIANA?2048JDAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XIUGAIZHUANGTAIBIAO?2048XIZTAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?FUWEIZHUANGTAIBIAO?2048XIZTAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XIUGAIJIEMIAN?2048XIZTAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CHAXUNJIEMIAN?2048XIZTAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_JIANCECHONGDIETU?2048GJAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_JIANCECHONGDIEDIAN?2048GJAPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HUIZHIJUXINGQUYU?2048HZAPIEX
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  I
+    MODULE:  Ö÷³ÌÐò.obj (_÷³ÌÐò)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I
+    MODULE:  Ö÷³ÌÐò.obj (_÷³ÌÐò)
+    ADDRESS: F61CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I
+    MODULE:  Ö÷³ÌÐò.obj (_÷³ÌÐò)
+    ADDRESS: F62BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I
+    MODULE:  Ö÷³ÌÐò.obj (_÷³ÌÐò)
+    ADDRESS: F62FH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I
+    MODULE:  Ö÷³ÌÐò.obj (_÷³ÌÐò)
+    ADDRESS: F63BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I
+    MODULE:  Ö÷³ÌÐò.obj (_÷³ÌÐò)
+    ADDRESS: F63DH
+Program Size: data=9.0 xdata=905 code=63643
+creating hex file from "111"...
+"111" - 0 Error(s), 137 Warning(s).

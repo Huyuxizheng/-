@@ -1,0 +1,1686 @@
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE 2048HZAPIEX
+OBJECT MODULE PLACED IN 2048HZAPIEX.OBJ
+COMPILER INVOKED BY: D:\K5\MAIN\C51\BIN\C51.EXE 2048HZAPIEX.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include"to2048moni.h"
+   2          
+   3          
+   4          void huizhijuxingquyuhuizhi(uchar(*huanchong)[MAXH][MAXW / 8], ZJUXING temp, char tianchong)
+   5          {
+   6   1        char x, y, ws = (temp->w / 8), wy = (temp->w & 7), es = (temp->e / 8), ey = (temp->e & 7);
+   7   1        if (es == ws)
+   8   1        {
+   9   2      
+  10   2          //1///////////////////////////////////////////////
+  11   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < (_huizhiquyu.e / 8))
+  12   2          {
+  13   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+  14   3              (*huanchong)[temp->n][ws] =
+  15   3              ~((~(*huanchong)[temp->n][ws])
+  16   3              |
+  17   3              (_hui_juxing[ey - wy] << (wy)));
+  18   3            if (tianchong)
+  19   3            {
+  20   4              for (y = temp->n + 1; y < temp->s; y++)
+  21   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+  22   4                (*huanchong)[y][ws] =
+  23   4                ~((~(*huanchong)[y][ws]) |
+  24   4                (_hui_juxing[ey - wy] << (wy)));
+  25   4            }
+  26   3            else
+  27   3            {
+  28   4              for (y = temp->n + 1; y < temp->s; y++)
+  29   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+  30   4                (*huanchong)[y][ws] =
+  31   4                ~((~(*huanchong)[y][ws]) |
+  32   4                (0x01 << (wy)));
+  33   4      
+  34   4            }
+  35   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+  36   3              (*huanchong)[temp->s][ws] =
+  37   3              ~((~(*huanchong)[temp->s][ws])
+  38   3              |
+  39   3              (_hui_juxing[ey - wy] << wy));
+  40   3            if (tianchong)
+  41   3            {
+  42   4              for (y = temp->n + 1; y < temp->s; y++)
+  43   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+  44   4                (*huanchong)[y][ws] =
+  45   4                ~((~(*huanchong)[y][ws]) |
+  46   4                (_hui_juxing[ey - wy] << wy));
+  47   4            }
+  48   3            else
+  49   3            {
+  50   4              for (y = temp->n + 1; y < temp->s; y++)
+  51   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+  52   4                (*huanchong)[y][ws] =
+  53   4                ~((~(*huanchong)[y][ws]) |
+  54   4                (0x01 << (ey)));
+  55   4            }
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 2   
+
+  56   3          }
+  57   2          /////////2//////////////////////////////////////////////////////////////////
+  58   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < ((_huizhiquyu.e + 7) / 8))
+  59   2          {
+  60   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+  61   3              (*huanchong)[temp->n][ws] =
+  62   3              ~((~(*huanchong)[temp->n][ws])
+  63   3              |
+  64   3              ((_hui_juxing[ey - wy] << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+  65   3            if (tianchong)
+  66   3            {
+  67   4              for (y = temp->n + 1; y < temp->s; y++)
+  68   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+  69   4                (*huanchong)[y][ws] =
+  70   4                ~((~(*huanchong)[y][ws]) |
+  71   4                ((_hui_juxing[ey - wy] << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+  72   4            }
+  73   3            else
+  74   3            {
+  75   4              for (y = temp->n + 1; y < temp->s; y++)
+  76   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+  77   4                (*huanchong)[y][ws] =
+  78   4                ~((~(*huanchong)[y][ws]) |
+  79   4                ((0x01 << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+  80   4      
+  81   4            }
+  82   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+  83   3              (*huanchong)[temp->s][ws] =
+  84   3              ~((~(*huanchong)[temp->s][ws])
+  85   3              |
+  86   3              ((_hui_juxing[ey - wy] << wy)&_huizhi_buhou[_huizhiquyu.e & 7]));
+  87   3            if (tianchong)
+  88   3            {
+  89   4              for (y = temp->n + 1; y < temp->s; y++)
+  90   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+  91   4                (*huanchong)[y][ws] =
+  92   4                ~((~(*huanchong)[y][ws]) |
+  93   4                ((_hui_juxing[ey - wy] << wy)&_huizhi_buhou[_huizhiquyu.e & 7]));
+  94   4            }
+  95   3            else
+  96   3            {
+  97   4              for (y = temp->n + 1; y < temp->s; y++)
+  98   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+  99   4                (*huanchong)[y][ws] =
+ 100   4                ~((~(*huanchong)[y][ws]) |
+ 101   4                ((0x01 << (ey))&_huizhi_buhou[_huizhiquyu.e & 7]));
+ 102   4            }
+ 103   3          }
+ 104   2      
+ 105   2          ///////3////////////////////////////////////////////////////////////////////////
+ 106   2          if (ws >= (_huizhiquyu.w) / 8 && ws < ((_huizhiquyu.e) / 8))
+ 107   2          {
+ 108   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 109   3              (*huanchong)[temp->n][ws] =
+ 110   3              ~((~(*huanchong)[temp->n][ws])
+ 111   3              |
+ 112   3              ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 113   3            if (tianchong)
+ 114   3            {
+ 115   4              for (y = temp->n + 1; y < temp->s; y++)
+ 116   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 117   4                (*huanchong)[y][ws] =
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 3   
+
+ 118   4                ~((~(*huanchong)[y][ws]) |
+ 119   4                ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 120   4            }
+ 121   3            else
+ 122   3            {
+ 123   4              for (y = temp->n + 1; y < temp->s; y++)
+ 124   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 125   4                (*huanchong)[y][ws] =
+ 126   4                ~((~(*huanchong)[y][ws]) |
+ 127   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 128   4      
+ 129   4            }
+ 130   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 131   3              (*huanchong)[temp->s][ws] =
+ 132   3              ~((~(*huanchong)[temp->s][ws])
+ 133   3              |
+ 134   3              ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 135   3            if (tianchong)
+ 136   3            {
+ 137   4              for (y = temp->n + 1; y < temp->s; y++)
+ 138   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 139   4                (*huanchong)[y][ws] =
+ 140   4                ~((~(*huanchong)[y][ws]) |
+ 141   4                ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 142   4            }
+ 143   3            else
+ 144   3            {
+ 145   4              for (y = temp->n + 1; y < temp->s; y++)
+ 146   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 147   4                (*huanchong)[y][ws] =
+ 148   4                ~((~(*huanchong)[y][ws]) |
+ 149   4                ((0x01 << (ey))&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 150   4            }
+ 151   3          }
+ 152   2          //////////////4////////////////////////////////////////////////////////////////
+ 153   2          if (ws == (_huizhiquyu.w) / 8 && ws == ((_huizhiquyu.e) / 8))
+ 154   2          {
+ 155   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 156   3              (*huanchong)[temp->n][ws] =
+ 157   3              ~((~(*huanchong)[temp->n][ws])
+ 158   3              |
+ 159   3              ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]))
+             -;
+ 160   3            if (tianchong)
+ 161   3            {
+ 162   4              for (y = temp->n + 1; y < temp->s; y++)
+ 163   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 164   4                (*huanchong)[y][ws] =
+ 165   4                ~((~(*huanchong)[y][ws]) |
+ 166   4                ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7])
+             -);
+ 167   4            }
+ 168   3            else
+ 169   3            {
+ 170   4              for (y = temp->n + 1; y < temp->s; y++)
+ 171   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 172   4                (*huanchong)[y][ws] =
+ 173   4                ~((~(*huanchong)[y][ws]) |
+ 174   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 175   4      
+ 176   4            }
+ 177   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 4   
+
+ 178   3              (*huanchong)[temp->s][ws] =
+ 179   3              ~((~(*huanchong)[temp->s][ws])
+ 180   3              |
+ 181   3              ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 182   3            if (tianchong)
+ 183   3            {
+ 184   4              for (y = temp->n + 1; y < temp->s; y++)
+ 185   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 186   4                (*huanchong)[y][ws] =
+ 187   4                ~((~(*huanchong)[y][ws]) |
+ 188   4                ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 189   4            }
+ 190   3            else
+ 191   3            {
+ 192   4              for (y = temp->n + 1; y < temp->s; y++)
+ 193   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 194   4                (*huanchong)[y][ws] =
+ 195   4                ~((~(*huanchong)[y][ws]) |
+ 196   4                ((0x01 << (ey))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 197   4            }
+ 198   3          }
+ 199   2      
+ 200   2        }
+ 201   1        ///////////////////////分界////////////////////////////////////////////////////
+ 202   1        else
+ 203   1        {
+ 204   2          ////////1///////////////////////////////////////////////////////////////////////
+ 205   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < (_huizhiquyu.e / 8))
+ 206   2          {
+ 207   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 208   3              (*huanchong)[temp->n][ws] =
+ 209   3              ~((~(*huanchong)[temp->n][ws]) | (0xff << (wy)));
+ 210   3            if (tianchong)
+ 211   3            {
+ 212   4              for (y = temp->n + 1; y < temp->s; y++)
+ 213   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 214   4                (*huanchong)[y][ws] =
+ 215   4                ~((~(*huanchong)[y][ws]) | (0xff << (wy)));
+ 216   4            }
+ 217   3            else
+ 218   3            {
+ 219   4              for (y = temp->n + 1; y < temp->s; y++)
+ 220   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 221   4                (*huanchong)[y][ws] =
+ 222   4                ~((~(*huanchong)[y][ws]) |
+ 223   4                (0x01 << (wy)));
+ 224   4            }
+ 225   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 226   3              (*huanchong)[temp->s][ws] =
+ 227   3              ~((~(*huanchong)[temp->s][ws]) | (0xff << (wy)));
+ 228   3          }
+ 229   2          //////2///////////////////////////////////////////////////////////////////////////
+ 230   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < ((_huizhiquyu.e + 7) / 8))
+ 231   2          {
+ 232   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 233   3              (*huanchong)[temp->n][ws] =
+ 234   3              ~((~(*huanchong)[temp->n][ws]) |
+ 235   3              ((0xff << (wy)))&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 236   3            if (tianchong)
+ 237   3            {
+ 238   4              for (y = temp->n + 1; y < temp->s; y++)
+ 239   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 5   
+
+ 240   4                (*huanchong)[y][ws] =
+ 241   4                ~((~(*huanchong)[y][ws]) |
+ 242   4                ((0xff << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+ 243   4            }
+ 244   3            else
+ 245   3            {
+ 246   4              for (y = temp->n + 1; y < temp->s; y++)
+ 247   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 248   4                (*huanchong)[y][ws] =
+ 249   4                ~((~(*huanchong)[y][ws]) |
+ 250   4                ((0x01 << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+ 251   4            }
+ 252   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 253   3              (*huanchong)[temp->s][ws] =
+ 254   3              ~((~(*huanchong)[temp->s][ws]) |
+ 255   3              ((0xff << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+ 256   3          }
+ 257   2          ////////3///////////////////////////////////////////////////////////
+ 258   2          if (ws >= (_huizhiquyu.w) / 8 && ws < ((_huizhiquyu.e) / 8))
+ 259   2          {
+ 260   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 261   3              (*huanchong)[temp->n][ws] =
+ 262   3              ~((~(*huanchong)[temp->n][ws]) |
+ 263   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 264   3            if (tianchong)
+ 265   3            {
+ 266   4              for (y = temp->n + 1; y < temp->s; y++)
+ 267   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 268   4                (*huanchong)[y][ws] =
+ 269   4                ~((~(*huanchong)[y][ws]) |
+ 270   4                ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 271   4            }
+ 272   3            else
+ 273   3            {
+ 274   4              for (y = temp->n + 1; y < temp->s; y++)
+ 275   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 276   4                (*huanchong)[y][ws] =
+ 277   4                ~((~(*huanchong)[y][ws]) |
+ 278   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 279   4            }
+ 280   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 281   3              (*huanchong)[temp->s][ws] =
+ 282   3              ~((~(*huanchong)[temp->s][ws]) |
+ 283   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+ 284   3          }
+ 285   2          ////////4/////////////////////////////////////////////////////////////////////
+ 286   2          if (ws == (_huizhiquyu.w) / 8 && ws == ((_huizhiquyu.e) / 8))
+ 287   2          {
+ 288   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 289   3              (*huanchong)[temp->n][ws] =
+ 290   3              ~((~(*huanchong)[temp->n][ws]) |
+ 291   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 292   3            if (tianchong)
+ 293   3            {
+ 294   4              for (y = temp->n + 1; y < temp->s; y++)
+ 295   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 296   4                (*huanchong)[y][ws] =
+ 297   4                ~((~(*huanchong)[y][ws]) |
+ 298   4                ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 299   4            }
+ 300   3            else
+ 301   3            {
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 6   
+
+ 302   4              for (y = temp->n + 1; y < temp->s; y++)
+ 303   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 304   4                (*huanchong)[y][ws] =
+ 305   4                ~((~(*huanchong)[y][ws]) |
+ 306   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 307   4            }
+ 308   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 309   3              (*huanchong)[temp->s][ws] =
+ 310   3              ~((~(*huanchong)[temp->s][ws]) |
+ 311   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 312   3          }
+ 313   2      
+ 314   2          ///////////分界2/////////////////////////////////////////////////////////////////////////
+ 315   2          x = ws;
+ 316   2          for (x++; x < es; x++)
+ 317   2          {
+ 318   3            //////////1///////////////////////////////////////////////////////////////////////////
+ 319   3            if (x >= (_huizhiquyu.w + 7) / 8 && x < (_huizhiquyu.e / 8))
+ 320   3            {
+ 321   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 322   4                (*huanchong)[temp->n][x] = 0;
+ 323   4              if (tianchong)
+ 324   4              {
+ 325   5                for (y = temp->n + 1; y < temp->s; y++)
+ 326   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 327   5                  (*huanchong)[y][x] = 0;
+ 328   5      
+ 329   5              }
+ 330   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 331   4                (*huanchong)[temp->s][x] = 0;
+ 332   4            }
+ 333   3            ////////2///////////////////////////////////////////////////////////////////
+ 334   3            if (x >= (_huizhiquyu.w + 7) / 8 && x < ((_huizhiquyu.e + 7) / 8))
+ 335   3            {
+ 336   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 337   4                (*huanchong)[temp->n][x] = ~((~(*huanchong)[temp->n][x]) |
+ 338   4                (0xff & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 339   4              if (tianchong)
+ 340   4              {
+ 341   5                for (y = temp->n + 1; y < temp->s; y++)
+ 342   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 343   5                  (*huanchong)[y][x] = ~((~(*huanchong)[y][x]) |
+ 344   5                  (0xff & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 345   5      
+ 346   5              }
+ 347   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 348   4                (*huanchong)[temp->s][x] = ~((~(*huanchong)[temp->s][x]) |
+ 349   4                (0xff & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 350   4            }
+ 351   3            //////////3////////////////////////////////////////////////////////////////////////////
+ 352   3            if (x >= (_huizhiquyu.w) / 8 && x < ((_huizhiquyu.e) / 8))
+ 353   3            {
+ 354   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 355   4                (*huanchong)[temp->n][x] = ~((~(*huanchong)[temp->n][x]) |
+ 356   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7]));
+ 357   4              if (tianchong)
+ 358   4              {
+ 359   5                for (y = temp->n + 1; y < temp->s; y++)
+ 360   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 361   5                  (*huanchong)[y][x] = ~((~(*huanchong)[y][x]) |
+ 362   5                  (0xff & _huizhi_buqian[_huizhiquyu.w & 7]));
+ 363   5      
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 7   
+
+ 364   5              }
+ 365   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 366   4                (*huanchong)[temp->s][x] = ~((~(*huanchong)[temp->s][x]) |
+ 367   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7]));
+ 368   4            }
+ 369   3            ////////4/////////////////////////////////////////////////////////
+ 370   3            if (x == (_huizhiquyu.w) / 8 && x == ((_huizhiquyu.e) / 8))
+ 371   3            {
+ 372   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 373   4                (*huanchong)[temp->n][x] = ~((~(*huanchong)[temp->n][x]) |
+ 374   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 375   4              if (tianchong)
+ 376   4              {
+ 377   5                for (y = temp->n + 1; y < temp->s; y++)
+ 378   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 379   5                  (*huanchong)[y][x] = ~((~(*huanchong)[y][x]) |
+ 380   5                  (0xff & _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 381   5      
+ 382   5              }
+ 383   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 384   4                (*huanchong)[temp->s][x] = ~((~(*huanchong)[temp->s][x]) |
+ 385   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 386   4            }
+ 387   3      
+ 388   3      
+ 389   3          }
+ 390   2          ///////////分界3///////////////////////////////////////////////////////
+ 391   2          ///////1////////////////////////////////////////////////////////
+ 392   2          if (es >= (_huizhiquyu.w + 7) / 8 && es < (_huizhiquyu.e / 8))
+ 393   2          {
+ 394   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 395   3              (*huanchong)[temp->n][es] =
+ 396   3              ~((~(*huanchong)[temp->n][es]) | (~(0xff << (ey)+1)));
+ 397   3            if (tianchong)
+ 398   3            {
+ 399   4      
+ 400   4              for (y = temp->n + 1; y < temp->s; y++)
+ 401   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 402   4                (*huanchong)[y][es] =
+ 403   4                ~((~(*huanchong)[y][es]) | (~(0xff << (ey)+1)));
+ 404   4      
+ 405   4            }
+ 406   3            else
+ 407   3            {
+ 408   4              for (y = temp->n + 1; y < temp->s; y++)
+ 409   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 410   4                (*huanchong)[y][es] =
+ 411   4                ~((~(*huanchong)[y][es]) |
+ 412   4                (0x01 << (ey)));
+ 413   4      
+ 414   4            }
+ 415   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 416   3              (*huanchong)[temp->s][es] =
+ 417   3              ~((~(*huanchong)[temp->s][es]) | (~(0xff << (ey)+1)));
+ 418   3          }
+ 419   2          ////2////////////////////////////////////////////////////////////////////////////////
+ 420   2          if (es >= (_huizhiquyu.w + 7) / 8 && es < ((_huizhiquyu.e + 7) / 8))
+ 421   2          {
+ 422   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 423   3              (*huanchong)[temp->n][es] =
+ 424   3              ~((~(*huanchong)[temp->n][es]) |
+ 425   3              ((~(0xff << (ey)+1))& _huizhi_buhou[_huizhiquyu.e & 7]));
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 8   
+
+ 426   3            if (tianchong)
+ 427   3            {
+ 428   4      
+ 429   4              for (y = temp->n + 1; y < temp->s; y++)
+ 430   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 431   4                (*huanchong)[y][es] =
+ 432   4                ~((~(*huanchong)[y][es]) |
+ 433   4                ((~(0xff << (ey)+1))& _huizhi_buhou[_huizhiquyu.e & 7]));
+ 434   4      
+ 435   4            }
+ 436   3            else
+ 437   3            {
+ 438   4              for (y = temp->n + 1; y < temp->s; y++)
+ 439   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 440   4                (*huanchong)[y][es] =
+ 441   4                ~((~(*huanchong)[y][es]) |
+ 442   4                ((0x01 << (ey))& _huizhi_buhou[_huizhiquyu.e & 7]));
+ 443   4      
+ 444   4            }
+ 445   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 446   3              (*huanchong)[temp->s][es] =
+ 447   3              ~((~(*huanchong)[temp->s][es]) |
+ 448   3              ((~(0xff << (ey)+1))& _huizhi_buhou[_huizhiquyu.e & 7]));
+ 449   3          }
+ 450   2          /////3///////////////////////////////////////////////////////////////////////////
+ 451   2          if (es >= (_huizhiquyu.w) / 8 && es < ((_huizhiquyu.e) / 8))
+ 452   2          {
+ 453   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 454   3              (*huanchong)[temp->n][es] =
+ 455   3              ~((~(*huanchong)[temp->n][es]) |
+ 456   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7]));
+ 457   3            if (tianchong)
+ 458   3            {
+ 459   4      
+ 460   4              for (y = temp->n + 1; y < temp->s; y++)
+ 461   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 462   4                (*huanchong)[y][es] =
+ 463   4                ~((~(*huanchong)[y][es]) |
+ 464   4                ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7]));
+ 465   4      
+ 466   4            }
+ 467   3            else
+ 468   3            {
+ 469   4              for (y = temp->n + 1; y < temp->s; y++)
+ 470   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 471   4                (*huanchong)[y][es] =
+ 472   4                ~((~(*huanchong)[y][es]) |
+ 473   4                ((0x01 << (ey))& _huizhi_buqian[_huizhiquyu.w & 7]));
+ 474   4      
+ 475   4            }
+ 476   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 477   3              (*huanchong)[temp->s][es] =
+ 478   3              ~((~(*huanchong)[temp->s][es]) |
+ 479   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7]));
+ 480   3          }
+ 481   2      
+ 482   2          /////////4////////////////////////////////////////////////////////////////////////////
+ 483   2          if (es == (_huizhiquyu.w) / 8 && es == ((_huizhiquyu.e) / 8))
+ 484   2          {
+ 485   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 486   3              (*huanchong)[temp->n][es] =
+ 487   3              ~((~(*huanchong)[temp->n][es]) |
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 9   
+
+ 488   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 489   3            if (tianchong)
+ 490   3            {
+ 491   4      
+ 492   4              for (y = temp->n + 1; y < temp->s; y++)
+ 493   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 494   4                (*huanchong)[y][es] =
+ 495   4                ~((~(*huanchong)[y][es]) |
+ 496   4                ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 497   4      
+ 498   4            }
+ 499   3            else
+ 500   3            {
+ 501   4              for (y = temp->n + 1; y < temp->s; y++)
+ 502   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 503   4                (*huanchong)[y][es] =
+ 504   4                ~((~(*huanchong)[y][es]) |
+ 505   4                ((0x01 << (ey))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 506   4      
+ 507   4            }
+ 508   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 509   3              (*huanchong)[temp->s][es] =
+ 510   3              ~((~(*huanchong)[temp->s][es]) |
+ 511   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+ 512   3          }
+ 513   2      
+ 514   2      
+ 515   2        }
+ 516   1      
+ 517   1      
+ 518   1      }
+ 519          void huizhijuxingquyucachu(uchar(*huanchong)[MAXH][MAXW / 8], ZJUXING temp, char tianchong)
+ 520          {
+ 521   1        char x, y, ws = (temp->w / 8), wy = (temp->w & 7), es = (temp->e / 8), ey = (temp->e & 7);
+ 522   1        if (es == ws)
+ 523   1        {
+ 524   2      
+ 525   2          //1///////////////////////////////////////////////
+ 526   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < (_huizhiquyu.e / 8))
+ 527   2          {
+ 528   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 529   3              (*huanchong)[temp->n][ws] =
+ 530   3              ((*huanchong)[temp->n][ws])
+ 531   3              |
+ 532   3              (_hui_juxing[ey - wy] << (wy));
+ 533   3            if (tianchong)
+ 534   3            {
+ 535   4              for (y = temp->n + 1; y < temp->s; y++)
+ 536   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 537   4                (*huanchong)[y][ws] =
+ 538   4                ((*huanchong)[y][ws]) |
+ 539   4                (_hui_juxing[ey - wy] << (wy));
+ 540   4            }
+ 541   3            else
+ 542   3            {
+ 543   4              for (y = temp->n + 1; y < temp->s; y++)
+ 544   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 545   4                (*huanchong)[y][ws] =
+ 546   4                ((*huanchong)[y][ws]) |
+ 547   4                (0x01 << (wy));
+ 548   4      
+ 549   4            }
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 10  
+
+ 550   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 551   3              (*huanchong)[temp->s][ws] =
+ 552   3              ((*huanchong)[temp->s][ws])
+ 553   3              |
+ 554   3              (_hui_juxing[ey - wy] << wy);
+ 555   3            if (tianchong)
+ 556   3            {
+ 557   4              for (y = temp->n + 1; y < temp->s; y++)
+ 558   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 559   4                (*huanchong)[y][ws] =
+ 560   4                ((*huanchong)[y][ws]) |
+ 561   4                (_hui_juxing[ey - wy] << wy);
+ 562   4            }
+ 563   3            else
+ 564   3            {
+ 565   4              for (y = temp->n + 1; y < temp->s; y++)
+ 566   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 567   4                (*huanchong)[y][ws] =
+ 568   4                ((*huanchong)[y][ws]) |
+ 569   4                (0x01 << (ey));
+ 570   4            }
+ 571   3          }
+ 572   2          /////////2//////////////////////////////////////////////////////////////////
+ 573   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < ((_huizhiquyu.e + 7) / 8))
+ 574   2          {
+ 575   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 576   3              (*huanchong)[temp->n][ws] =
+ 577   3              ((*huanchong)[temp->n][ws])
+ 578   3              |
+ 579   3              ((_hui_juxing[ey - wy] << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 580   3            if (tianchong)
+ 581   3            {
+ 582   4              for (y = temp->n + 1; y < temp->s; y++)
+ 583   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 584   4                (*huanchong)[y][ws] =
+ 585   4                ((*huanchong)[y][ws]) |
+ 586   4                ((_hui_juxing[ey - wy] << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 587   4            }
+ 588   3            else
+ 589   3            {
+ 590   4              for (y = temp->n + 1; y < temp->s; y++)
+ 591   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 592   4                (*huanchong)[y][ws] =
+ 593   4                ((*huanchong)[y][ws]) |
+ 594   4                ((0x01 << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 595   4      
+ 596   4            }
+ 597   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 598   3              (*huanchong)[temp->s][ws] =
+ 599   3              ((*huanchong)[temp->s][ws])
+ 600   3              |
+ 601   3              ((_hui_juxing[ey - wy] << wy)&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 602   3            if (tianchong)
+ 603   3            {
+ 604   4              for (y = temp->n + 1; y < temp->s; y++)
+ 605   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 606   4                (*huanchong)[y][ws] =
+ 607   4                ((*huanchong)[y][ws]) |
+ 608   4                ((_hui_juxing[ey - wy] << wy)&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 609   4            }
+ 610   3            else
+ 611   3            {
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 11  
+
+ 612   4              for (y = temp->n + 1; y < temp->s; y++)
+ 613   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 614   4                (*huanchong)[y][ws] =
+ 615   4                ((*huanchong)[y][ws]) |
+ 616   4                ((0x01 << (ey))&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 617   4            }
+ 618   3          }
+ 619   2      
+ 620   2          ///////3////////////////////////////////////////////////////////////////////////
+ 621   2          if (ws >= (_huizhiquyu.w) / 8 && ws < ((_huizhiquyu.e) / 8))
+ 622   2          {
+ 623   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 624   3              (*huanchong)[temp->n][ws] =
+ 625   3              ((*huanchong)[temp->n][ws])
+ 626   3              |
+ 627   3              ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 628   3            if (tianchong)
+ 629   3            {
+ 630   4              for (y = temp->n + 1; y < temp->s; y++)
+ 631   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 632   4                (*huanchong)[y][ws] =
+ 633   4                ((*huanchong)[y][ws]) |
+ 634   4                ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 635   4            }
+ 636   3            else
+ 637   3            {
+ 638   4              for (y = temp->n + 1; y < temp->s; y++)
+ 639   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 640   4                (*huanchong)[y][ws] =
+ 641   4                ((*huanchong)[y][ws]) |
+ 642   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 643   4      
+ 644   4            }
+ 645   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 646   3              (*huanchong)[temp->s][ws] =
+ 647   3              ((*huanchong)[temp->s][ws])
+ 648   3              |
+ 649   3              ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 650   3            if (tianchong)
+ 651   3            {
+ 652   4              for (y = temp->n + 1; y < temp->s; y++)
+ 653   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 654   4                (*huanchong)[y][ws] =
+ 655   4                ((*huanchong)[y][ws]) |
+ 656   4                ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 657   4            }
+ 658   3            else
+ 659   3            {
+ 660   4              for (y = temp->n + 1; y < temp->s; y++)
+ 661   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 662   4                (*huanchong)[y][ws] =
+ 663   4                ((*huanchong)[y][ws]) |
+ 664   4                ((0x01 << (ey))&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 665   4            }
+ 666   3          }
+ 667   2          //////////////4////////////////////////////////////////////////////////////////
+ 668   2          if (ws == (_huizhiquyu.w) / 8 && ws == ((_huizhiquyu.e) / 8))
+ 669   2          {
+ 670   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 671   3              (*huanchong)[temp->n][ws] =
+ 672   3              ((*huanchong)[temp->n][ws])
+ 673   3              |
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 12  
+
+ 674   3              ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 675   3            if (tianchong)
+ 676   3            {
+ 677   4              for (y = temp->n + 1; y < temp->s; y++)
+ 678   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 679   4                (*huanchong)[y][ws] =
+ 680   4                ((*huanchong)[y][ws]) |
+ 681   4                ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7])
+             -;
+ 682   4            }
+ 683   3            else
+ 684   3            {
+ 685   4              for (y = temp->n + 1; y < temp->s; y++)
+ 686   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 687   4                (*huanchong)[y][ws] =
+ 688   4                ((*huanchong)[y][ws]) |
+ 689   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 690   4      
+ 691   4            }
+ 692   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 693   3              (*huanchong)[temp->s][ws] =
+ 694   3              ((*huanchong)[temp->s][ws])
+ 695   3              |
+ 696   3              ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 697   3            if (tianchong)
+ 698   3            {
+ 699   4              for (y = temp->n + 1; y < temp->s; y++)
+ 700   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 701   4                (*huanchong)[y][ws] =
+ 702   4                ((*huanchong)[y][ws]) |
+ 703   4                ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 704   4            }
+ 705   3            else
+ 706   3            {
+ 707   4              for (y = temp->n + 1; y < temp->s; y++)
+ 708   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 709   4                (*huanchong)[y][ws] =
+ 710   4                ((*huanchong)[y][ws]) |
+ 711   4                ((0x01 << (ey))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 712   4            }
+ 713   3          }
+ 714   2      
+ 715   2        }
+ 716   1        ///////////////////////分界////////////////////////////////////////////////////
+ 717   1        else
+ 718   1        {
+ 719   2          ////////1///////////////////////////////////////////////////////////////////////
+ 720   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < (_huizhiquyu.e / 8))
+ 721   2          {
+ 722   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 723   3              (*huanchong)[temp->n][ws] =
+ 724   3              ((*huanchong)[temp->n][ws]) | (0xff << (wy));
+ 725   3            if (tianchong)
+ 726   3            {
+ 727   4              for (y = temp->n + 1; y < temp->s; y++)
+ 728   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 729   4                (*huanchong)[y][ws] =
+ 730   4                ((*huanchong)[y][ws]) | (0xff << (wy));
+ 731   4            }
+ 732   3            else
+ 733   3            {
+ 734   4              for (y = temp->n + 1; y < temp->s; y++)
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 13  
+
+ 735   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 736   4                (*huanchong)[y][ws] =
+ 737   4                ((*huanchong)[y][ws]) |
+ 738   4                (0x01 << (wy));
+ 739   4            }
+ 740   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 741   3              (*huanchong)[temp->s][ws] =
+ 742   3              ((*huanchong)[temp->s][ws]) | (0xff << (wy));
+ 743   3          }
+ 744   2          //////2///////////////////////////////////////////////////////////////////////////
+ 745   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < ((_huizhiquyu.e + 7) / 8))
+ 746   2          {
+ 747   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 748   3              (*huanchong)[temp->n][ws] =
+ 749   3              ((*huanchong)[temp->n][ws]) |
+ 750   3              ((0xff << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 751   3            if (tianchong)
+ 752   3            {
+ 753   4              for (y = temp->n + 1; y < temp->s; y++)
+ 754   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 755   4                (*huanchong)[y][ws] =
+ 756   4                ((*huanchong)[y][ws]) |
+ 757   4                ((0xff << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 758   4            }
+ 759   3            else
+ 760   3            {
+ 761   4              for (y = temp->n + 1; y < temp->s; y++)
+ 762   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 763   4                (*huanchong)[y][ws] =
+ 764   4                ((*huanchong)[y][ws]) |
+ 765   4                ((0x01 << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 766   4            }
+ 767   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 768   3              (*huanchong)[temp->s][ws] =
+ 769   3              ((*huanchong)[temp->s][ws]) |
+ 770   3              ((0xff << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]);
+ 771   3          }
+ 772   2          ////////3///////////////////////////////////////////////////////////
+ 773   2          if (ws >= (_huizhiquyu.w) / 8 && ws < ((_huizhiquyu.e) / 8))
+ 774   2          {
+ 775   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 776   3              (*huanchong)[temp->n][ws] =
+ 777   3              ((*huanchong)[temp->n][ws]) |
+ 778   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 779   3            if (tianchong)
+ 780   3            {
+ 781   4              for (y = temp->n + 1; y < temp->s; y++)
+ 782   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 783   4                (*huanchong)[y][ws] =
+ 784   4                ((*huanchong)[y][ws]) |
+ 785   4                ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 786   4            }
+ 787   3            else
+ 788   3            {
+ 789   4              for (y = temp->n + 1; y < temp->s; y++)
+ 790   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 791   4                (*huanchong)[y][ws] =
+ 792   4                ((*huanchong)[y][ws]) |
+ 793   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 794   4            }
+ 795   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 796   3              (*huanchong)[temp->s][ws] =
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 14  
+
+ 797   3              ((*huanchong)[temp->s][ws]) |
+ 798   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]);
+ 799   3          }
+ 800   2          ////////4/////////////////////////////////////////////////////////////////////
+ 801   2          if (ws == (_huizhiquyu.w) / 8 && ws == ((_huizhiquyu.e) / 8))
+ 802   2          {
+ 803   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 804   3              (*huanchong)[temp->n][ws] =
+ 805   3              ((*huanchong)[temp->n][ws]) |
+ 806   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 807   3            if (tianchong)
+ 808   3            {
+ 809   4              for (y = temp->n + 1; y < temp->s; y++)
+ 810   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 811   4                (*huanchong)[y][ws] =
+ 812   4                ((*huanchong)[y][ws]) |
+ 813   4                ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 814   4            }
+ 815   3            else
+ 816   3            {
+ 817   4              for (y = temp->n + 1; y < temp->s; y++)
+ 818   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 819   4                (*huanchong)[y][ws] =
+ 820   4                ((*huanchong)[y][ws]) |
+ 821   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 822   4            }
+ 823   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 824   3              (*huanchong)[temp->s][ws] =
+ 825   3              ((*huanchong)[temp->s][ws]) |
+ 826   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 827   3          }
+ 828   2      
+ 829   2          ///////////分界2/////////////////////////////////////////////////////////////////////////
+ 830   2          x = ws;
+ 831   2          for (x++; x < es; x++)
+ 832   2          {
+ 833   3            //////////1///////////////////////////////////////////////////////////////////////////
+ 834   3            if (x >= (_huizhiquyu.w + 7) / 8 && x < (_huizhiquyu.e / 8))
+ 835   3            {
+ 836   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 837   4                (*huanchong)[temp->n][x] = 0xff;
+ 838   4              if (tianchong)
+ 839   4              {
+ 840   5                for (y = temp->n + 1; y < temp->s; y++)
+ 841   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 842   5                  (*huanchong)[y][x] = 0xff;
+ 843   5      
+ 844   5              }
+ 845   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 846   4                (*huanchong)[temp->s][x] = 0xff;
+ 847   4            }
+ 848   3            ////////2///////////////////////////////////////////////////////////////////
+ 849   3            if (x >= (_huizhiquyu.w + 7) / 8 && x < ((_huizhiquyu.e + 7) / 8))
+ 850   3            {
+ 851   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 852   4                (*huanchong)[temp->n][x] = ((*huanchong)[temp->n][x]) |
+ 853   4                (0xff & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 854   4              if (tianchong)
+ 855   4              {
+ 856   5                for (y = temp->n + 1; y < temp->s; y++)
+ 857   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 858   5                  (*huanchong)[y][x] = ((*huanchong)[y][x]) |
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 15  
+
+ 859   5                  (0xff & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 860   5      
+ 861   5              }
+ 862   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 863   4                (*huanchong)[temp->s][x] = ((*huanchong)[temp->s][x]) |
+ 864   4                (0xff & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 865   4            }
+ 866   3            //////////3////////////////////////////////////////////////////////////////////////////
+ 867   3            if (x >= (_huizhiquyu.w) / 8 && x < ((_huizhiquyu.e) / 8))
+ 868   3            {
+ 869   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 870   4                (*huanchong)[temp->n][x] = ((*huanchong)[temp->n][x]) |
+ 871   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7]);
+ 872   4              if (tianchong)
+ 873   4              {
+ 874   5                for (y = temp->n + 1; y < temp->s; y++)
+ 875   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 876   5                  (*huanchong)[y][x] = ((*huanchong)[y][x]) |
+ 877   5                  (0xff & _huizhi_buqian[_huizhiquyu.w & 7]);
+ 878   5      
+ 879   5              }
+ 880   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 881   4                (*huanchong)[temp->s][x] = ((*huanchong)[temp->s][x]) |
+ 882   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7]);
+ 883   4            }
+ 884   3            ////////4/////////////////////////////////////////////////////////
+ 885   3            if (x == (_huizhiquyu.w) / 8 && x == ((_huizhiquyu.e) / 8))
+ 886   3            {
+ 887   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 888   4                (*huanchong)[temp->n][x] = ((*huanchong)[temp->n][x]) |
+ 889   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 890   4              if (tianchong)
+ 891   4              {
+ 892   5                for (y = temp->n + 1; y < temp->s; y++)
+ 893   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 894   5                  (*huanchong)[y][x] = ((*huanchong)[y][x]) |
+ 895   5                  (0xff & _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 896   5      
+ 897   5              }
+ 898   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 899   4                (*huanchong)[temp->s][x] = ((*huanchong)[temp->s][x]) |
+ 900   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+ 901   4            }
+ 902   3      
+ 903   3      
+ 904   3          }
+ 905   2          ///////////分界3///////////////////////////////////////////////////////
+ 906   2          ///////1////////////////////////////////////////////////////////
+ 907   2          if (es >= (_huizhiquyu.w + 7) / 8 && es < (_huizhiquyu.e / 8))
+ 908   2          {
+ 909   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 910   3              (*huanchong)[temp->n][es] =
+ 911   3              ((*huanchong)[temp->n][es]) | (~(0xff << (ey)+1));
+ 912   3            if (tianchong)
+ 913   3            {
+ 914   4      
+ 915   4              for (y = temp->n + 1; y < temp->s; y++)
+ 916   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 917   4                (*huanchong)[y][es] =
+ 918   4                ((*huanchong)[y][es]) | (~(0xff << (ey)+1));
+ 919   4      
+ 920   4            }
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 16  
+
+ 921   3            else
+ 922   3            {
+ 923   4              for (y = temp->n + 1; y < temp->s; y++)
+ 924   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 925   4                (*huanchong)[y][es] =
+ 926   4                ((*huanchong)[y][es]) |
+ 927   4                (0x01 << (ey));
+ 928   4      
+ 929   4            }
+ 930   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 931   3              (*huanchong)[temp->s][es] =
+ 932   3              ((*huanchong)[temp->s][es]) | (~(0xff << (ey)+1));
+ 933   3          }
+ 934   2          ////2////////////////////////////////////////////////////////////////////////////////
+ 935   2          if (es >= (_huizhiquyu.w + 7) / 8 && es < ((_huizhiquyu.e + 7) / 8))
+ 936   2          {
+ 937   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 938   3              (*huanchong)[temp->n][es] =
+ 939   3              ((*huanchong)[temp->n][es]) |
+ 940   3              ((~(0xff << (ey)+1))& _huizhi_buhou[_huizhiquyu.e & 7]);
+ 941   3            if (tianchong)
+ 942   3            {
+ 943   4      
+ 944   4              for (y = temp->n + 1; y < temp->s; y++)
+ 945   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 946   4                (*huanchong)[y][es] =
+ 947   4                ((*huanchong)[y][es]) |
+ 948   4                ((~(0xff << (ey)+1))& _huizhi_buhou[_huizhiquyu.e & 7]);
+ 949   4      
+ 950   4            }
+ 951   3            else
+ 952   3            {
+ 953   4              for (y = temp->n + 1; y < temp->s; y++)
+ 954   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 955   4                (*huanchong)[y][es] =
+ 956   4                ((*huanchong)[y][es]) |
+ 957   4                ((0x01 << (ey))& _huizhi_buhou[_huizhiquyu.e & 7]);
+ 958   4      
+ 959   4            }
+ 960   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 961   3              (*huanchong)[temp->s][es] =
+ 962   3              ((*huanchong)[temp->s][es]) |
+ 963   3              ((~(0xff << (ey)+1))& _huizhi_buhou[_huizhiquyu.e & 7]);
+ 964   3          }
+ 965   2          /////3///////////////////////////////////////////////////////////////////////////
+ 966   2          if (es >= (_huizhiquyu.w) / 8 && es < ((_huizhiquyu.e) / 8))
+ 967   2          {
+ 968   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+ 969   3              (*huanchong)[temp->n][es] =
+ 970   3              ((*huanchong)[temp->n][es]) |
+ 971   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7]);
+ 972   3            if (tianchong)
+ 973   3            {
+ 974   4      
+ 975   4              for (y = temp->n + 1; y < temp->s; y++)
+ 976   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 977   4                (*huanchong)[y][es] =
+ 978   4                ((*huanchong)[y][es]) |
+ 979   4                ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7]);
+ 980   4      
+ 981   4            }
+ 982   3            else
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 17  
+
+ 983   3            {
+ 984   4              for (y = temp->n + 1; y < temp->s; y++)
+ 985   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+ 986   4                (*huanchong)[y][es] =
+ 987   4                ((*huanchong)[y][es]) |
+ 988   4                ((0x01 << (ey))& _huizhi_buqian[_huizhiquyu.w & 7]);
+ 989   4      
+ 990   4            }
+ 991   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+ 992   3              (*huanchong)[temp->s][es] =
+ 993   3              ((*huanchong)[temp->s][es]) |
+ 994   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7]);
+ 995   3          }
+ 996   2      
+ 997   2          /////////4////////////////////////////////////////////////////////////////////////////
+ 998   2          if (es == (_huizhiquyu.w) / 8 && es == ((_huizhiquyu.e) / 8))
+ 999   2          {
+1000   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1001   3              (*huanchong)[temp->n][es] =
+1002   3              ((*huanchong)[temp->n][es]) |
+1003   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+1004   3            if (tianchong)
+1005   3            {
+1006   4      
+1007   4              for (y = temp->n + 1; y < temp->s; y++)
+1008   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1009   4                (*huanchong)[y][es] =
+1010   4                ((*huanchong)[y][es]) |
+1011   4                ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+1012   4      
+1013   4            }
+1014   3            else
+1015   3            {
+1016   4              for (y = temp->n + 1; y < temp->s; y++)
+1017   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1018   4                (*huanchong)[y][es] =
+1019   4                ((*huanchong)[y][es]) |
+1020   4                ((0x01 << (ey))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+1021   4      
+1022   4            }
+1023   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1024   3              (*huanchong)[temp->s][es] =
+1025   3              ((*huanchong)[temp->s][es]) |
+1026   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]);
+1027   3          }
+1028   2      
+1029   2      
+1030   2        }
+1031   1      
+1032   1      
+1033   1      }
+1034          void huizhijuxingquyuqufan(uchar(*huanchong)[MAXH][MAXW / 8], ZJUXING temp, char tianchong)
+1035          {
+1036   1        char x, y, ws = (temp->w / 8), wy = (temp->w & 7), es = (temp->e / 8), ey = (temp->e & 7);
+1037   1        if (es == ws)
+1038   1        {
+1039   2      
+1040   2          //1///////////////////////////////////////////////
+1041   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < (_huizhiquyu.e / 8))
+1042   2          {
+1043   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1044   3              (*huanchong)[temp->n][ws] =
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 18  
+
+1045   3              ~((~(*huanchong)[temp->n][ws])
+1046   3              ^
+1047   3              (_hui_juxing[ey - wy] << (wy)));
+1048   3            if (tianchong)
+1049   3            {
+1050   4              for (y = temp->n + 1; y < temp->s; y++)
+1051   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1052   4                (*huanchong)[y][ws] =
+1053   4                ~((~(*huanchong)[y][ws]) ^
+1054   4                (_hui_juxing[ey - wy] << (wy)));
+1055   4            }
+1056   3            else
+1057   3            {
+1058   4              for (y = temp->n + 1; y < temp->s; y++)
+1059   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1060   4                (*huanchong)[y][ws] =
+1061   4                ~((~(*huanchong)[y][ws]) ^
+1062   4                (0x01 << (wy)));
+1063   4      
+1064   4            }
+1065   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1066   3              (*huanchong)[temp->s][ws] =
+1067   3              ~((~(*huanchong)[temp->s][ws])
+1068   3              ^
+1069   3              (_hui_juxing[ey - wy] << wy));
+1070   3            if (tianchong)
+1071   3            {
+1072   4              for (y = temp->n + 1; y < temp->s; y++)
+1073   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1074   4                (*huanchong)[y][ws] =
+1075   4                ~((~(*huanchong)[y][ws]) ^
+1076   4                (_hui_juxing[ey - wy] << wy));
+1077   4            }
+1078   3            else
+1079   3            {
+1080   4              for (y = temp->n + 1; y < temp->s; y++)
+1081   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1082   4                (*huanchong)[y][ws] =
+1083   4                ~((~(*huanchong)[y][ws]) ^
+1084   4                (0x01 << (ey)));
+1085   4            }
+1086   3          }
+1087   2          /////////2//////////////////////////////////////////////////////////////////
+1088   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < ((_huizhiquyu.e + 7) / 8))
+1089   2          {
+1090   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1091   3              (*huanchong)[temp->n][ws] =
+1092   3              ~((~(*huanchong)[temp->n][ws])
+1093   3              ^
+1094   3              ((_hui_juxing[ey - wy] << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+1095   3            if (tianchong)
+1096   3            {
+1097   4              for (y = temp->n + 1; y < temp->s; y++)
+1098   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1099   4                (*huanchong)[y][ws] =
+1100   4                ~((~(*huanchong)[y][ws]) ^
+1101   4                ((_hui_juxing[ey - wy] << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+1102   4            }
+1103   3            else
+1104   3            {
+1105   4              for (y = temp->n + 1; y < temp->s; y++)
+1106   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 19  
+
+1107   4                (*huanchong)[y][ws] =
+1108   4                ~((~(*huanchong)[y][ws]) ^
+1109   4                ((0x01 << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+1110   4      
+1111   4            }
+1112   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1113   3              (*huanchong)[temp->s][ws] =
+1114   3              ~((~(*huanchong)[temp->s][ws])
+1115   3              ^
+1116   3              ((_hui_juxing[ey - wy] << wy)&_huizhi_buhou[_huizhiquyu.e & 7]));
+1117   3            if (tianchong)
+1118   3            {
+1119   4              for (y = temp->n + 1; y < temp->s; y++)
+1120   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1121   4                (*huanchong)[y][ws] =
+1122   4                ~((~(*huanchong)[y][ws]) ^
+1123   4                ((_hui_juxing[ey - wy] << wy)&_huizhi_buhou[_huizhiquyu.e & 7]));
+1124   4            }
+1125   3            else
+1126   3            {
+1127   4              for (y = temp->n + 1; y < temp->s; y++)
+1128   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1129   4                (*huanchong)[y][ws] =
+1130   4                ~((~(*huanchong)[y][ws]) ^
+1131   4                ((0x01 << (ey))&_huizhi_buhou[_huizhiquyu.e & 7]));
+1132   4            }
+1133   3          }
+1134   2      
+1135   2          ///////3////////////////////////////////////////////////////////////////////////
+1136   2          if (ws >= (_huizhiquyu.w) / 8 && ws < ((_huizhiquyu.e) / 8))
+1137   2          {
+1138   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1139   3              (*huanchong)[temp->n][ws] =
+1140   3              ~((~(*huanchong)[temp->n][ws])
+1141   3              ^
+1142   3              ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+1143   3            if (tianchong)
+1144   3            {
+1145   4              for (y = temp->n + 1; y < temp->s; y++)
+1146   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1147   4                (*huanchong)[y][ws] =
+1148   4                ~((~(*huanchong)[y][ws]) ^
+1149   4                ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+1150   4            }
+1151   3            else
+1152   3            {
+1153   4              for (y = temp->n + 1; y < temp->s; y++)
+1154   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1155   4                (*huanchong)[y][ws] =
+1156   4                ~((~(*huanchong)[y][ws]) ^
+1157   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+1158   4      
+1159   4            }
+1160   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1161   3              (*huanchong)[temp->s][ws] =
+1162   3              ~((~(*huanchong)[temp->s][ws])
+1163   3              ^
+1164   3              ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7]));
+1165   3            if (tianchong)
+1166   3            {
+1167   4              for (y = temp->n + 1; y < temp->s; y++)
+1168   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 20  
+
+1169   4                (*huanchong)[y][ws] =
+1170   4                ~((~(*huanchong)[y][ws]) ^
+1171   4                ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7]));
+1172   4            }
+1173   3            else
+1174   3            {
+1175   4              for (y = temp->n + 1; y < temp->s; y++)
+1176   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1177   4                (*huanchong)[y][ws] =
+1178   4                ~((~(*huanchong)[y][ws]) ^
+1179   4                ((0x01 << (ey))&_huizhi_buqian[_huizhiquyu.w & 7]));
+1180   4            }
+1181   3          }
+1182   2          //////////////4////////////////////////////////////////////////////////////////
+1183   2          if (ws == (_huizhiquyu.w) / 8 && ws == ((_huizhiquyu.e) / 8))
+1184   2          {
+1185   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1186   3              (*huanchong)[temp->n][ws] =
+1187   3              ~((~(*huanchong)[temp->n][ws])
+1188   3              ^
+1189   3              ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]))
+             -;
+1190   3            if (tianchong)
+1191   3            {
+1192   4              for (y = temp->n + 1; y < temp->s; y++)
+1193   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1194   4                (*huanchong)[y][ws] =
+1195   4                ~((~(*huanchong)[y][ws]) ^
+1196   4                ((_hui_juxing[ey - wy] << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7])
+             -);
+1197   4            }
+1198   3            else
+1199   3            {
+1200   4              for (y = temp->n + 1; y < temp->s; y++)
+1201   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1202   4                (*huanchong)[y][ws] =
+1203   4                ~((~(*huanchong)[y][ws]) ^
+1204   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1205   4      
+1206   4            }
+1207   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1208   3              (*huanchong)[temp->s][ws] =
+1209   3              ~((~(*huanchong)[temp->s][ws])
+1210   3              ^
+1211   3              ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1212   3            if (tianchong)
+1213   3            {
+1214   4              for (y = temp->n + 1; y < temp->s; y++)
+1215   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1216   4                (*huanchong)[y][ws] =
+1217   4                ~((~(*huanchong)[y][ws]) ^
+1218   4                ((_hui_juxing[ey - wy] << wy)&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1219   4            }
+1220   3            else
+1221   3            {
+1222   4              for (y = temp->n + 1; y < temp->s; y++)
+1223   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1224   4                (*huanchong)[y][ws] =
+1225   4                ~((~(*huanchong)[y][ws]) ^
+1226   4                ((0x01 << (ey))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1227   4            }
+1228   3          }
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 21  
+
+1229   2      
+1230   2        }
+1231   1        ///////////////////////分界////////////////////////////////////////////////////
+1232   1        else
+1233   1        {
+1234   2          ////////1///////////////////////////////////////////////////////////////////////
+1235   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < (_huizhiquyu.e / 8))
+1236   2          {
+1237   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1238   3              (*huanchong)[temp->n][ws] =
+1239   3              ~((~(*huanchong)[temp->n][ws]) | (0xff << (wy)));
+1240   3            if (tianchong)
+1241   3            {
+1242   4              for (y = temp->n + 1; y < temp->s; y++)
+1243   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1244   4                (*huanchong)[y][ws] =
+1245   4                ~((~(*huanchong)[y][ws]) ^ (0xff << (wy)));
+1246   4            }
+1247   3            else
+1248   3            {
+1249   4              for (y = temp->n + 1; y < temp->s; y++)
+1250   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1251   4                (*huanchong)[y][ws] =
+1252   4                ~((~(*huanchong)[y][ws]) ^
+1253   4                (0x01 << (wy)));
+1254   4            }
+1255   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1256   3              (*huanchong)[temp->s][ws] =
+1257   3              ~((~(*huanchong)[temp->s][ws]) ^ (0xff << (wy)));
+1258   3          }
+1259   2          //////2///////////////////////////////////////////////////////////////////////////
+1260   2          if (ws >= (_huizhiquyu.w + 7) / 8 && ws < ((_huizhiquyu.e + 7) / 8))
+1261   2          {
+1262   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1263   3              (*huanchong)[temp->n][ws] =
+1264   3              ~((~(*huanchong)[temp->n][ws]) ^
+1265   3              ((0xff << (wy)))&_huizhi_buhou[_huizhiquyu.e & 7]);
+1266   3            if (tianchong)
+1267   3            {
+1268   4              for (y = temp->n + 1; y < temp->s; y++)
+1269   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1270   4                (*huanchong)[y][ws] =
+1271   4                ~((~(*huanchong)[y][ws]) ^
+1272   4                ((0xff << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+1273   4            }
+1274   3            else
+1275   3            {
+1276   4              for (y = temp->n + 1; y < temp->s; y++)
+1277   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1278   4                (*huanchong)[y][ws] =
+1279   4                ~((~(*huanchong)[y][ws]) ^
+1280   4                ((0x01 << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+1281   4            }
+1282   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1283   3              (*huanchong)[temp->s][ws] =
+1284   3              ~((~(*huanchong)[temp->s][ws]) ^
+1285   3              ((0xff << (wy))&_huizhi_buhou[_huizhiquyu.e & 7]));
+1286   3          }
+1287   2          ////////3///////////////////////////////////////////////////////////
+1288   2          if (ws >= (_huizhiquyu.w) / 8 && ws < ((_huizhiquyu.e) / 8))
+1289   2          {
+1290   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 22  
+
+1291   3              (*huanchong)[temp->n][ws] =
+1292   3              ~((~(*huanchong)[temp->n][ws]) ^
+1293   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+1294   3            if (tianchong)
+1295   3            {
+1296   4              for (y = temp->n + 1; y < temp->s; y++)
+1297   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1298   4                (*huanchong)[y][ws] =
+1299   4                ~((~(*huanchong)[y][ws]) ^
+1300   4                ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+1301   4            }
+1302   3            else
+1303   3            {
+1304   4              for (y = temp->n + 1; y < temp->s; y++)
+1305   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1306   4                (*huanchong)[y][ws] =
+1307   4                ~((~(*huanchong)[y][ws]) ^
+1308   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+1309   4            }
+1310   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1311   3              (*huanchong)[temp->s][ws] =
+1312   3              ~((~(*huanchong)[temp->s][ws]) ^
+1313   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7]));
+1314   3          }
+1315   2          ////////4/////////////////////////////////////////////////////////////////////
+1316   2          if (ws == (_huizhiquyu.w) / 8 && ws == ((_huizhiquyu.e) / 8))
+1317   2          {
+1318   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1319   3              (*huanchong)[temp->n][ws] =
+1320   3              ~((~(*huanchong)[temp->n][ws]) ^
+1321   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1322   3            if (tianchong)
+1323   3            {
+1324   4              for (y = temp->n + 1; y < temp->s; y++)
+1325   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1326   4                (*huanchong)[y][ws] =
+1327   4                ~((~(*huanchong)[y][ws]) ^
+1328   4                ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1329   4            }
+1330   3            else
+1331   3            {
+1332   4              for (y = temp->n + 1; y < temp->s; y++)
+1333   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1334   4                (*huanchong)[y][ws] =
+1335   4                ~((~(*huanchong)[y][ws]) ^
+1336   4                ((0x01 << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1337   4            }
+1338   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1339   3              (*huanchong)[temp->s][ws] =
+1340   3              ~((~(*huanchong)[temp->s][ws]) ^
+1341   3              ((0xff << (wy))&_huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1342   3          }
+1343   2      
+1344   2          ///////////分界2/////////////////////////////////////////////////////////////////////////
+1345   2          x = ws;
+1346   2          for (x++; x < es; x++)
+1347   2          {
+1348   3            //////////1///////////////////////////////////////////////////////////////////////////
+1349   3            if (x >= (_huizhiquyu.w + 7) / 8 && x < (_huizhiquyu.e / 8))
+1350   3            {
+1351   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1352   4                (*huanchong)[temp->n][x] = ~(*huanchong)[temp->n][x];
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 23  
+
+1353   4              if (tianchong)
+1354   4              {
+1355   5                for (y = temp->n + 1; y < temp->s; y++)
+1356   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1357   5                  (*huanchong)[y][x] = ~(*huanchong)[y][x];
+1358   5      
+1359   5              }
+1360   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1361   4                (*huanchong)[temp->s][x] = ~(*huanchong)[temp->s][x];
+1362   4            }
+1363   3            ////////2///////////////////////////////////////////////////////////////////
+1364   3            if (x >= (_huizhiquyu.w + 7) / 8 && x < ((_huizhiquyu.e + 7) / 8))
+1365   3            {
+1366   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1367   4                (*huanchong)[temp->n][x] = ~((~(*huanchong)[temp->n][x]) ^
+1368   4                (0xff & _huizhi_buhou[_huizhiquyu.e & 7]));
+1369   4              if (tianchong)
+1370   4              {
+1371   5                for (y = temp->n + 1; y < temp->s; y++)
+1372   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1373   5                  (*huanchong)[y][x] = ~((~(*huanchong)[y][x]) ^
+1374   5                  (0xff & _huizhi_buhou[_huizhiquyu.e & 7]));
+1375   5      
+1376   5              }
+1377   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1378   4                (*huanchong)[temp->s][x] = ~((~(*huanchong)[temp->s][x]) ^
+1379   4                (0xff & _huizhi_buhou[_huizhiquyu.e & 7]));
+1380   4            }
+1381   3            //////////3////////////////////////////////////////////////////////////////////////////
+1382   3            if (x >= (_huizhiquyu.w) / 8 && x < ((_huizhiquyu.e) / 8))
+1383   3            {
+1384   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1385   4                (*huanchong)[temp->n][x] = ~((~(*huanchong)[temp->n][x]) ^
+1386   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7]));
+1387   4              if (tianchong)
+1388   4              {
+1389   5                for (y = temp->n + 1; y < temp->s; y++)
+1390   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1391   5                  (*huanchong)[y][x] = ~((~(*huanchong)[y][x]) ^
+1392   5                  (0xff & _huizhi_buqian[_huizhiquyu.w & 7]));
+1393   5      
+1394   5              }
+1395   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1396   4                (*huanchong)[temp->s][x] = ~((~(*huanchong)[temp->s][x]) ^
+1397   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7]));
+1398   4            }
+1399   3            ////////4/////////////////////////////////////////////////////////
+1400   3            if (x == (_huizhiquyu.w) / 8 && x == ((_huizhiquyu.e) / 8))
+1401   3            {
+1402   4              if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1403   4                (*huanchong)[temp->n][x] = ~((~(*huanchong)[temp->n][x]) ^
+1404   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1405   4              if (tianchong)
+1406   4              {
+1407   5                for (y = temp->n + 1; y < temp->s; y++)
+1408   5                if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1409   5                  (*huanchong)[y][x] = ~((~(*huanchong)[y][x]) ^
+1410   5                  (0xff & _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1411   5      
+1412   5              }
+1413   4              if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1414   4                (*huanchong)[temp->s][x] = ~((~(*huanchong)[temp->s][x]) ^
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 24  
+
+1415   4                (0xff & _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1416   4            }
+1417   3      
+1418   3      
+1419   3          }
+1420   2          ///////////分界3///////////////////////////////////////////////////////
+1421   2          ///////1////////////////////////////////////////////////////////
+1422   2          if (es >= (_huizhiquyu.w + 7) / 8 && es < (_huizhiquyu.e / 8))
+1423   2          {
+1424   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1425   3              (*huanchong)[temp->n][es] =
+1426   3              ~((~(*huanchong)[temp->n][es]) ^ (~(0xff << (ey)+1)));
+1427   3            if (tianchong)
+1428   3            {
+1429   4      
+1430   4              for (y = temp->n + 1; y < temp->s; y++)
+1431   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1432   4                (*huanchong)[y][es] =
+1433   4                ~((~(*huanchong)[y][es]) ^ (~(0xff << (ey)+1)));
+1434   4      
+1435   4            }
+1436   3            else
+1437   3            {
+1438   4              for (y = temp->n + 1; y < temp->s; y++)
+1439   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1440   4                (*huanchong)[y][es] =
+1441   4                ~((~(*huanchong)[y][es]) ^
+1442   4                (0x01 << (ey)));
+1443   4      
+1444   4            }
+1445   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1446   3              (*huanchong)[temp->s][es] =
+1447   3              ~((~(*huanchong)[temp->s][es]) ^ (~(0xff << (ey)+1)));
+1448   3          }
+1449   2          ////2////////////////////////////////////////////////////////////////////////////////
+1450   2          if (es >= (_huizhiquyu.w + 7) / 8 && es < ((_huizhiquyu.e + 7) / 8))
+1451   2          {
+1452   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1453   3              (*huanchong)[temp->n][es] =
+1454   3              ~((~(*huanchong)[temp->n][es]) ^
+1455   3              ((~(0xff << (ey)+1))& _huizhi_buhou[_huizhiquyu.e & 7]));
+1456   3            if (tianchong)
+1457   3            {
+1458   4      
+1459   4              for (y = temp->n + 1; y < temp->s; y++)
+1460   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1461   4                (*huanchong)[y][es] =
+1462   4                ~((~(*huanchong)[y][es]) ^
+1463   4                ((~(0xff << (ey)+1))& _huizhi_buhou[_huizhiquyu.e & 7]));
+1464   4      
+1465   4            }
+1466   3            else
+1467   3            {
+1468   4              for (y = temp->n + 1; y < temp->s; y++)
+1469   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1470   4                (*huanchong)[y][es] =
+1471   4                ~((~(*huanchong)[y][es]) ^
+1472   4                ((0x01 << (ey))& _huizhi_buhou[_huizhiquyu.e & 7]));
+1473   4      
+1474   4            }
+1475   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1476   3              (*huanchong)[temp->s][es] =
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 25  
+
+1477   3              ~((~(*huanchong)[temp->s][es]) ^
+1478   3              ((~(0xff << (ey)+1))& _huizhi_buhou[_huizhiquyu.e & 7]));
+1479   3          }
+1480   2          /////3///////////////////////////////////////////////////////////////////////////
+1481   2          if (es >= (_huizhiquyu.w) / 8 && es < ((_huizhiquyu.e) / 8))
+1482   2          {
+1483   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1484   3              (*huanchong)[temp->n][es] =
+1485   3              ~((~(*huanchong)[temp->n][es]) ^
+1486   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7]));
+1487   3            if (tianchong)
+1488   3            {
+1489   4      
+1490   4              for (y = temp->n + 1; y < temp->s; y++)
+1491   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1492   4                (*huanchong)[y][es] =
+1493   4                ~((~(*huanchong)[y][es]) ^
+1494   4                ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7]));
+1495   4      
+1496   4            }
+1497   3            else
+1498   3            {
+1499   4              for (y = temp->n + 1; y < temp->s; y++)
+1500   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1501   4                (*huanchong)[y][es] =
+1502   4                ~((~(*huanchong)[y][es]) ^
+1503   4                ((0x01 << (ey))& _huizhi_buqian[_huizhiquyu.w & 7]));
+1504   4      
+1505   4            }
+1506   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+1507   3              (*huanchong)[temp->s][es] =
+1508   3              ~((~(*huanchong)[temp->s][es]) ^
+1509   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7]));
+1510   3          }
+1511   2      
+1512   2          /////////4////////////////////////////////////////////////////////////////////////////
+1513   2          if (es == (_huizhiquyu.w) / 8 && es == ((_huizhiquyu.e) / 8))
+1514   2          {
+1515   3            if (temp->n >= _huizhiquyu.n && temp->n < _huizhiquyu.s)
+1516   3              (*huanchong)[temp->n][es] =
+1517   3              ~((~(*huanchong)[temp->n][es]) ^
+1518   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1519   3            if (tianchong)
+1520   3            {
+1521   4      
+1522   4              for (y = temp->n + 1; y < temp->s; y++)
+1523   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1524   4                (*huanchong)[y][es] =
+1525   4                ~((~(*huanchong)[y][es]) ^
+1526   4                ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1527   4      
+1528   4            }
+1529   3            else
+1530   3            {
+1531   4              for (y = temp->n + 1; y < temp->s; y++)
+1532   4              if (y >= _huizhiquyu.n && y < _huizhiquyu.s)
+1533   4                (*huanchong)[y][es] =
+1534   4                ~((~(*huanchong)[y][es]) ^
+1535   4                ((0x01 << (ey))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1536   4      
+1537   4            }
+1538   3            if (temp->s >= _huizhiquyu.n && temp->s < _huizhiquyu.s)
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 26  
+
+1539   3              (*huanchong)[temp->s][es] =
+1540   3              ~((~(*huanchong)[temp->s][es]) ^
+1541   3              ((~(0xff << (ey)+1))& _huizhi_buqian[_huizhiquyu.w & 7] & _huizhi_buhou[_huizhiquyu.e & 7]));
+1542   3          }
+1543   2      
+1544   2      
+1545   2        }
+1546   1      
+1547   1      
+1548   1      }
+1549          void huizhijuxingquyu(ZJUXING temp, char tianchong)
+1550          {
+1551   1        //处理画笔信息
+1552   1        if (huabiyanse == 0)
+1553   1        {
+1554   2          huizhijuxingquyucachu(&huanchonghong, temp, tianchong);
+*** WARNING C182 IN LINE 1554 OF 2048HZAPIEX.c: pointer to different objects
+1555   2          huizhijuxingquyuhuizhi(&huanchonglv, temp, tianchong);
+*** WARNING C182 IN LINE 1555 OF 2048HZAPIEX.c: pointer to different objects
+1556   2      
+1557   2        }
+1558   1        else if (huabiyanse == 1)
+1559   1        {
+1560   2          huizhijuxingquyucachu(&huanchonglv, temp, tianchong);
+*** WARNING C182 IN LINE 1560 OF 2048HZAPIEX.c: pointer to different objects
+1561   2          huizhijuxingquyuhuizhi(&huanchonghong, temp, tianchong);;
+*** WARNING C182 IN LINE 1561 OF 2048HZAPIEX.c: pointer to different objects
+1562   2        }
+1563   1        else if (huabiyanse == 3)
+1564   1        {
+1565   2          huizhijuxingquyuhuizhi(&huanchonghong, temp, tianchong);
+*** WARNING C182 IN LINE 1565 OF 2048HZAPIEX.c: pointer to different objects
+1566   2          huizhijuxingquyuhuizhi(&huanchonglv, temp, tianchong);
+*** WARNING C182 IN LINE 1566 OF 2048HZAPIEX.c: pointer to different objects
+1567   2        }
+1568   1        else if (huabiyanse == 4)
+1569   1        {
+1570   2          huizhijuxingquyuhuizhi(&huanchonglv, temp, tianchong);
+*** WARNING C182 IN LINE 1570 OF 2048HZAPIEX.c: pointer to different objects
+1571   2        }
+1572   1        else if (huabiyanse == 5)
+1573   1        {
+1574   2          huizhijuxingquyuhuizhi(&huanchonghong, temp, tianchong);
+*** WARNING C182 IN LINE 1574 OF 2048HZAPIEX.c: pointer to different objects
+1575   2        }
+1576   1        else if (huabiyanse == 6)
+1577   1        {
+1578   2          huizhijuxingquyuqufan(&huanchonglv, temp, tianchong);
+*** WARNING C182 IN LINE 1578 OF 2048HZAPIEX.c: pointer to different objects
+1579   2        }
+1580   1        else if (huabiyanse == 7)
+1581   1        {
+1582   2          huizhijuxingquyuqufan(&huanchonghong, temp, tianchong);
+*** WARNING C182 IN LINE 1582 OF 2048HZAPIEX.c: pointer to different objects
+1583   2        }
+1584   1        else if (huabiyanse == 8)
+1585   1        {
+1586   2          huizhijuxingquyuqufan(&huanchonghong, temp, tianchong);
+*** WARNING C182 IN LINE 1586 OF 2048HZAPIEX.c: pointer to different objects
+1587   2          huizhijuxingquyuqufan(&huanchonglv, temp, tianchong);
+*** WARNING C182 IN LINE 1587 OF 2048HZAPIEX.c: pointer to different objects
+1588   2        }
+C51 COMPILER V9.54   2048HZAPIEX                                                           12/14/2017 15:08:09 PAGE 27  
+
+1589   1        else
+1590   1        {
+1591   2          return;
+1592   2        }
+1593   1      
+1594   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =  42295    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----      43
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  12 WARNING(S),  0 ERROR(S)
